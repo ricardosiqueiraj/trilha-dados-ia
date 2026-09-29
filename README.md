@@ -63,7 +63,7 @@ Cada projeto terá um repositório próprio, com README explicando o problema, a
 
 ## Como este repositório se atualiza
 
-Marco as etapas e as horas de estudo numa página de acompanhamento. Toda semana, uma rotina exporta essas marcações para `dados/progresso.json` e roda `python3 scripts/atualizar.py`, que reescreve os trechos automáticos deste README e os arquivos [PLANO.md](PLANO.md) e [PROGRESSO.md](PROGRESSO.md). O script usa só a biblioteca padrão do Python.
+Marco as etapas e as horas de estudo numa página de acompanhamento. Toda semana, uma rotina exporta essas marcações para `dados/progresso.json` e roda `python3 scripts/atualizar.py`, que reescreve os trechos automáticos deste README e os arquivos [PLANO.md](PLANO.md) e [PROGRESSO.md](PROGRESSO.md). Se nada mudou na semana, nada é gravado. O script usa só a biblioteca padrão do Python.
 
 | Arquivo | O que tem |
 |---|---|

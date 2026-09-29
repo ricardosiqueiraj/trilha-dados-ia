@@ -306,10 +306,17 @@ def gerar_progresso(plano, prog, r, texto_quando):
     return "\n".join(linhas) + "\n"
 
 
+def sem_data(texto):
+    """Tira a data da atualização, para comparar só o conteúdo."""
+    texto = re.sub(r"Atualizado em(:\*\*)? \d{2}/\d{2}/\d{4} às \d{2}h\d{2}", "Atualizado em —", texto)
+    return re.sub(r'"atualizado_em": "[^"]*"', '"atualizado_em": ""', texto)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", help="pasta com a exportação da página (progress/, log/, settings/, accounts/)")
     ap.add_argument("--agora", help="data e hora da atualização em ISO 8601 (padrão: agora, horário de Brasília)")
+    ap.add_argument("--forcar", action="store_true", help="grava os arquivos mesmo sem mudança de conteúdo")
     args = ap.parse_args()
 
     plano = ler_json(DADOS / "plano.json")
@@ -318,10 +325,10 @@ def main():
     agora = datetime.fromisoformat(args.agora).astimezone(FUSO) if args.agora else datetime.now(FUSO)
     if args.db:
         prog = montar_progresso(args.db, plano, agora)
-        gravar(DADOS / "progresso.json", json.dumps(prog, ensure_ascii=False, indent=2) + "\n")
-    prog = ler_json(DADOS / "progresso.json")
-    if not prog:
-        raise SystemExit("dados/progresso.json não encontrado: rode com --db PASTA")
+    else:
+        prog = ler_json(DADOS / "progresso.json")
+        if not prog:
+            raise SystemExit("dados/progresso.json não encontrado: rode com --db PASTA")
 
     texto_quando, hoje = quando(prog)
     r = resumo(plano, prog, hoje)
@@ -329,10 +336,21 @@ def main():
     readme = trocar_bloco(readme, "PROGRESSO", bloco_progresso(plano, prog, r, hoje, texto_quando))
     readme = trocar_bloco(readme, "PROJETOS", bloco_projetos(plano, prog, hoje))
     readme = trocar_bloco(readme, "PERFIS", bloco_perfis(prog))
-    gravar(RAIZ / "README.md", readme)
-    gravar(RAIZ / "PLANO.md", gerar_plano(plano, prog, hoje))
-    gravar(RAIZ / "PROGRESSO.md", gerar_progresso(plano, prog, r, texto_quando))
-    print(f"{r['feitas']}/{r['total']} etapas · {horas(r['horas_total'])} · {horas(r['nesta_semana'])} nesta semana")
+    saidas = {
+        DADOS / "progresso.json": json.dumps(prog, ensure_ascii=False, indent=2) + "\n",
+        RAIZ / "README.md": readme,
+        RAIZ / "PLANO.md": gerar_plano(plano, prog, hoje),
+        RAIZ / "PROGRESSO.md": gerar_progresso(plano, prog, r, texto_quando),
+    }
+    mudou = any(not caminho.exists() or sem_data(caminho.read_text(encoding="utf-8")) != sem_data(texto)
+                for caminho, texto in saidas.items())
+    resumo_txt = f"{r['feitas']}/{r['total']} etapas · {horas(r['horas_total'])} · {horas(r['nesta_semana'])} nesta semana"
+    if not mudou and not args.forcar:
+        print("Sem mudanças: " + resumo_txt)
+        return
+    for caminho, texto in saidas.items():
+        gravar(caminho, texto)
+    print("Atualizado: " + resumo_txt)
 
 
 if __name__ == "__main__":
