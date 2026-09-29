@@ -1,0 +1,759 @@
+{
+  "titulo": "Trilha Dados e IA",
+  "resumo": "De Analista de Integração a Engenheiro de Dados e, depois, a Engenheiro de IA.",
+  "periodo": "outubro de 2026 a dezembro de 2027",
+  "trilhas": {
+    "1": {
+      "rotulo": "Trilha 1 · Fases 0 a 3",
+      "titulo": "Engenharia de Dados",
+      "descricao": "Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de junho de 2027."
+    },
+    "2": {
+      "rotulo": "Trilha 2 · Fases 4 e 5",
+      "titulo": "Engenharia de IA",
+      "descricao": "Engenheiro de IA costuma ser o segundo passo: quem é contratado chega com 3,6 anos de experiência, em média, vindo de engenharia de software, ciência de dados ou engenharia de dados (LinkedIn, 2026). Estas fases preparam você enquanto já trabalha com dados."
+    }
+  },
+  "fases": [
+    {
+      "id": "f0",
+      "numero": 0,
+      "trilha": 1,
+      "titulo": "Preparar o terreno",
+      "periodo": "5 a 11 de outubro de 2026",
+      "inicio": "2026-10-05",
+      "fim": "2026-10-11",
+      "objetivo": "Deixar ambiente, contas e rotina prontos para não perder tempo depois.",
+      "etapas": [
+        {
+          "id": "f0-rotina",
+          "rotulo": "F0.1",
+          "titulo": "Defina sua rotina de estudo",
+          "tipo": "Rotina",
+          "horas": 1,
+          "detalhe": "Reserve três blocos fixos por semana, como os que já estão na sua agenda: terças e quintas à noite e sábado de manhã. Registre cada sessão na aba Horas.",
+          "links": []
+        },
+        {
+          "id": "f0-github",
+          "rotulo": "F0.2",
+          "titulo": "Ligue seu GitHub ao projeto",
+          "tipo": "Carreira",
+          "horas": 1,
+          "detalhe": "Você já tem conta. Crie o repositório trilha-dados-ia e conecte o GitHub ao Claude, como mostra a aba Contas e integrações: o repositório passa a receber seu progresso toda semana. Os projetos do plano também vão para o GitHub, cada um no seu repositório, com um README que explica o problema, a arquitetura e como rodar.",
+          "links": [
+            {
+              "titulo": "GitHub",
+              "url": "https://github.com/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f0-ambiente",
+          "rotulo": "F0.3",
+          "titulo": "Monte o ambiente no seu computador",
+          "tipo": "Prática",
+          "horas": 3,
+          "detalhe": "Instale VS Code, Python 3 e Git. No Windows, ative o WSL2 para ter um terminal Linux, o padrão no dia a dia de dados.",
+          "links": [
+            {
+              "titulo": "Instalar o WSL",
+              "url": "https://learn.microsoft.com/pt-br/windows/wsl/install",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "VS Code",
+              "url": "https://code.visualstudio.com/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f0-contas",
+          "rotulo": "F0.4",
+          "titulo": "Crie as contas gratuitas de estudo",
+          "tipo": "Prática",
+          "horas": 1,
+          "detalhe": "Databricks Free Edition (sem cartão de crédito), conta Microsoft para o Microsoft Learn, Kaggle e DataTalks.Club. É nelas que você vai praticar e fazer os cursos. A aba Contas e integrações mostra quais deixam entrar com o GitHub e quais salvam o trabalho nele.",
+          "links": [
+            {
+              "titulo": "Databricks Free Edition",
+              "url": "https://www.databricks.com/learn/free-edition",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Microsoft Learn",
+              "url": "https://learn.microsoft.com/pt-br/training/",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "Kaggle Learn",
+              "url": "https://www.kaggle.com/learn",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f0-zoomcamp",
+          "rotulo": "F0.5",
+          "titulo": "Inscreva-se no Data Engineering Zoomcamp",
+          "tipo": "Estudo",
+          "horas": 0.5,
+          "detalhe": "O curso é gratuito e a turma ao vivo costuma começar em janeiro. Só quem acompanha a turma recebe certificado. Entre também no Slack da DataTalks.Club.",
+          "links": [
+            {
+              "titulo": "Inscrição no Data Engineering Zoomcamp",
+              "url": "https://courses.datatalks.club/register/de-zoomcamp/",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Slack da DataTalks.Club",
+              "url": "https://datatalks.club/slack.html",
+              "idioma": "EN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1",
+      "numero": 1,
+      "trilha": 1,
+      "titulo": "Python e ferramentas de engenheiro",
+      "periodo": "12 de outubro a 20 de dezembro de 2026",
+      "inicio": "2026-10-12",
+      "fim": "2026-12-20",
+      "objetivo": "Fazer com código o que você já faz no trabalho: extrair, tratar, validar e carregar dados.",
+      "nota": "Use as disciplinas de programação e banco de dados do ADS para reforçar esta fase.",
+      "etapas": [
+        {
+          "id": "f1-python",
+          "rotulo": "F1.1",
+          "titulo": "Python do zero ao intermediário",
+          "tipo": "Estudo",
+          "horas": 25,
+          "detalhe": "Variáveis, listas e dicionários, funções, leitura de arquivos e tratamento de erros. Faça os exercícios, não só as aulas.",
+          "links": [
+            {
+              "titulo": "Curso em Vídeo: Python 3, Mundo 1",
+              "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "Kaggle Learn: Python",
+              "url": "https://www.kaggle.com/learn/python",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f1-pandas",
+          "rotulo": "F1.2",
+          "titulo": "pandas para tratar dados",
+          "tipo": "Estudo",
+          "horas": 15,
+          "detalhe": "Ler CSV, Excel e SQL; limpar, juntar e agrupar tabelas; gravar em Parquet. É a versão em código das suas validações de migração.",
+          "links": [
+            {
+              "titulo": "Kaggle Learn: Pandas",
+              "url": "https://www.kaggle.com/learn/pandas",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Livro Python for Data Analysis",
+              "url": "https://wesmckinney.com/book/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f1-bancos",
+          "rotulo": "F1.3",
+          "titulo": "Conecte o Python aos bancos que você já usa",
+          "tipo": "Prática",
+          "horas": 8,
+          "detalhe": "SQLAlchemy com SQL Server, PostgreSQL, MySQL e Firebird. Aprenda a ler em lotes, para tabelas grandes, e a gravar sem duplicar registros.",
+          "links": [
+            {
+              "titulo": "Tutorial oficial do SQLAlchemy",
+              "url": "https://docs.sqlalchemy.org/en/20/tutorial/index.html",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f1-git",
+          "rotulo": "F1.4",
+          "titulo": "Git e GitHub no dia a dia",
+          "tipo": "Estudo",
+          "horas": 5,
+          "detalhe": "Commit, branch, pull request e .gitignore. Regra de ouro: nunca subir senha nem dado de cliente.",
+          "links": [
+            {
+              "titulo": "Livro Pro Git em português",
+              "url": "https://git-scm.com/book/pt-br/v2",
+              "idioma": "PT"
+            }
+          ]
+        },
+        {
+          "id": "f1-docker",
+          "rotulo": "F1.5",
+          "titulo": "Terminal Linux e Docker",
+          "tipo": "Prática",
+          "horas": 10,
+          "detalhe": "Comandos básicos de terminal, containers e docker compose para subir PostgreSQL, SQL Server e Firebird na sua máquina em minutos.",
+          "links": [
+            {
+              "titulo": "Docker: primeiros passos",
+              "url": "https://docs.docker.com/get-started/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f1-sql",
+          "rotulo": "F1.6",
+          "titulo": "SQL avançado",
+          "tipo": "Prática",
+          "horas": 10,
+          "detalhe": "Window functions, CTEs, índices e plano de execução. Resolva os 50 exercícios: esse tipo de questão aparece em quase toda entrevista de dados.",
+          "links": [
+            {
+              "titulo": "LeetCode SQL 50",
+              "url": "https://leetcode.com/studyplan/top-sql-50/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f1-trabalho",
+          "rotulo": "F1.7",
+          "titulo": "Automatize uma rotina no seu trabalho",
+          "tipo": "Trabalho",
+          "horas": 0,
+          "detalhe": "Escolha uma extração ou validação de migração que você repete e faça em Python, com autorização do seu líder e sem tirar dados de clientes da empresa. Isso vira experiência real no currículo.",
+          "links": []
+        },
+        {
+          "id": "f1-projeto",
+          "rotulo": "F1.8",
+          "titulo": "Projeto 1: Migrador de dados de ERP",
+          "tipo": "Projeto",
+          "horas": 20,
+          "detalhe": "Pipeline em Python que extrai de um banco legado (Firebird ou MySQL com dados fictícios), limpa, valida e carrega no PostgreSQL, gerando um relatório de divergências. Tudo sobe com docker compose e tem README com diagrama.",
+          "links": [
+            {
+              "titulo": "Faker, para gerar dados fictícios",
+              "url": "https://faker.readthedocs.io/",
+              "idioma": "EN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "numero": 2,
+      "trilha": 1,
+      "titulo": "Engenharia de dados de ponta a ponta",
+      "periodo": "janeiro a março de 2027",
+      "inicio": "2027-01-11",
+      "fim": "2027-03-28",
+      "objetivo": "Fazer o Data Engineering Zoomcamp com a turma: nuvem, orquestração, data warehouse, dbt, Spark e streaming.",
+      "nota": "Se perder a turma de janeiro, siga pelo repositório no seu ritmo. Você aprende o mesmo, só não recebe o certificado.",
+      "etapas": [
+        {
+          "id": "f2-conceitos",
+          "rotulo": "F2.1",
+          "titulo": "Conceitos que caem em entrevista",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "ETL e ELT, data lake, data warehouse e lakehouse, batch e streaming, modelagem dimensional (fatos e dimensões), Parquet e particionamento.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m1",
+          "rotulo": "F2.2",
+          "titulo": "Módulo 1: Docker, PostgreSQL, Terraform e Google Cloud",
+          "tipo": "Estudo",
+          "horas": 10,
+          "detalhe": "Infraestrutura como código e o primeiro contato com a nuvem.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m2",
+          "rotulo": "F2.3",
+          "titulo": "Módulo 2: orquestração e data lake",
+          "tipo": "Estudo",
+          "horas": 10,
+          "detalhe": "Agendar, reprocessar e monitorar pipelines com Kestra, gravando no Cloud Storage.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m3",
+          "rotulo": "F2.4",
+          "titulo": "Módulo 3: data warehouse no BigQuery",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "Particionamento, clusterização e boas práticas para gastar pouco.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m4",
+          "rotulo": "F2.5",
+          "titulo": "Módulo 4: dbt",
+          "tipo": "Estudo",
+          "horas": 10,
+          "detalhe": "Transformar dados brutos em modelos prontos para análise, com testes e documentação. O dbt aparece com frequência nas vagas.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m56",
+          "rotulo": "F2.6",
+          "titulo": "Módulos 5 e 6: plataforma de dados e Spark",
+          "tipo": "Estudo",
+          "horas": 12,
+          "detalhe": "Pipelines de ponta a ponta e processamento em lote com DataFrames e Spark SQL.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-m7",
+          "rotulo": "F2.7",
+          "titulo": "Módulo 7: streaming com Kafka",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "Eventos em tempo real, Kafka Streams e controle de esquemas.",
+          "links": [
+            {
+              "titulo": "Repositório do Data Engineering Zoomcamp",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f2-projeto",
+          "rotulo": "F2.8",
+          "titulo": "Projeto 2: projeto final do Zoomcamp",
+          "tipo": "Projeto",
+          "horas": 25,
+          "detalhe": "Pipeline completo com dados de varejo, por exemplo a base pública de e-commerce da Olist: ingestão, data lake, warehouse, dbt e painel. Passar na revisão por pares dá o certificado.",
+          "links": [
+            {
+              "titulo": "Base pública da Olist",
+              "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+              "idioma": "EN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "numero": 3,
+      "trilha": 1,
+      "titulo": "Databricks, Azure e certificação",
+      "periodo": "abril a início de junho de 2027",
+      "inicio": "2027-04-05",
+      "fim": "2027-06-06",
+      "objetivo": "Dominar a combinação que mais aparece nas vagas brasileiras (SQL, Python, Spark e Databricks na Azure) e tirar a DP-750.",
+      "etapas": [
+        {
+          "id": "f3-databricks",
+          "rotulo": "F3.1",
+          "titulo": "Databricks na prática",
+          "tipo": "Estudo",
+          "horas": 22,
+          "detalhe": "Spark e PySpark, Delta Lake, arquitetura medalhão (bronze, prata e ouro), Unity Catalog e jobs, tudo na Free Edition. Os cursos da Databricks Academy são gratuitos, vários em português, e alguns dão credenciais para o LinkedIn.",
+          "links": [
+            {
+              "titulo": "Databricks Academy",
+              "url": "https://www.databricks.com/learn/training/home",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Databricks Free Edition",
+              "url": "https://www.databricks.com/learn/free-edition",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f3-azure",
+          "rotulo": "F3.2",
+          "titulo": "Azure para dados",
+          "tipo": "Prática",
+          "horas": 10,
+          "detalhe": "Data Lake Storage, Data Factory, Key Vault e Entra ID, que a DP-750 cobra. Use a conta gratuita e apague os recursos ao fim de cada estudo para não gerar cobrança.",
+          "links": [
+            {
+              "titulo": "Conta gratuita da Azure",
+              "url": "https://azure.microsoft.com/pt-br/free/",
+              "idioma": "PT"
+            }
+          ]
+        },
+        {
+          "id": "f3-airflow",
+          "rotulo": "F3.3",
+          "titulo": "Airflow básico",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "DAGs, agendamento e reprocessamento. Reescreva a orquestração do Projeto 1 em Airflow, que aparece com frequência nas vagas.",
+          "links": [
+            {
+              "titulo": "Astronomer Academy",
+              "url": "https://academy.astronomer.io/",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Documentação do Airflow",
+              "url": "https://airflow.apache.org/docs/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f3-projeto",
+          "rotulo": "F3.4",
+          "titulo": "Projeto 3: Lakehouse de varejo no Databricks",
+          "tipo": "Projeto",
+          "horas": 22,
+          "detalhe": "Camadas bronze, prata e ouro em Delta Lake, job agendado, testes de qualidade e um painel com vendas por período, ticket médio e curva ABC de produtos. É o mundo comercial e de retaguarda que você conhece, sem a parte fiscal.",
+          "links": [
+            {
+              "titulo": "Base pública da Olist",
+              "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f3-dp750",
+          "rotulo": "F3.5",
+          "titulo": "Certificação DP-750",
+          "tipo": "Certificação",
+          "horas": 15,
+          "detalhe": "Azure Databricks Data Engineer Associate: prova de 120 minutos, disponível em português. Antes de marcar, faça a avaliação prática gratuita da Microsoft.",
+          "links": [
+            {
+              "titulo": "Página da DP-750",
+              "url": "https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "Avaliações práticas gratuitas",
+              "url": "https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications",
+              "idioma": "PT"
+            }
+          ]
+        },
+        {
+          "id": "f3-vagas",
+          "rotulo": "F3.6",
+          "titulo": "Marco: comece a se candidatar",
+          "tipo": "Carreira",
+          "horas": 0,
+          "detalhe": "Com três projetos no GitHub e a DP-750, mire em Engenheiro de Dados júnior ou pleno e em Analista de Dados ou de Integração. Converse também no seu trabalho sobre assumir os pipelines de dados.",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "f4",
+      "numero": 4,
+      "trilha": 2,
+      "titulo": "Fundamentos de IA aplicada",
+      "periodo": "junho a setembro de 2027",
+      "inicio": "2027-06-07",
+      "fim": "2027-09-26",
+      "objetivo": "Construir aplicações com LLMs: RAG, busca vetorial e avaliação, com o LLM Zoomcamp.",
+      "nota": "O LLM Zoomcamp costuma começar em junho e dura cerca de 10 semanas. Confira a data na página de inscrição.",
+      "etapas": [
+        {
+          "id": "f4-fundamentos",
+          "rotulo": "F4.1",
+          "titulo": "Como a IA generativa funciona",
+          "tipo": "Estudo",
+          "horas": 10,
+          "detalhe": "Tokens, janela de contexto, embeddings, temperatura, alucinação e custo por token. A trilha de fundamentos da Microsoft é gratuita e em português.",
+          "links": [
+            {
+              "titulo": "Fundamentos de IA do Azure",
+              "url": "https://learn.microsoft.com/pt-br/credentials/certifications/azure-ai-fundamentals/",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "Hugging Face LLM Course",
+              "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f4-ollama",
+          "rotulo": "F4.2",
+          "titulo": "Modelos no seu computador, sem pagar API",
+          "tipo": "Prática",
+          "horas": 6,
+          "detalhe": "Rode modelos abertos pequenos com o Ollama e chame por Python. Assim você pratica sem cartão de crédito.",
+          "links": [
+            {
+              "titulo": "Ollama",
+              "url": "https://ollama.com/",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f4-fastapi",
+          "rotulo": "F4.3",
+          "titulo": "APIs com FastAPI",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "Exponha seus pipelines e modelos como serviço: rotas, validação de dados e documentação automática.",
+          "links": [
+            {
+              "titulo": "FastAPI em português",
+              "url": "https://fastapi.tiangolo.com/pt/",
+              "idioma": "PT"
+            }
+          ]
+        },
+        {
+          "id": "f4-llmzoomcamp",
+          "rotulo": "F4.4",
+          "titulo": "LLM Zoomcamp",
+          "tipo": "Estudo",
+          "horas": 50,
+          "detalhe": "RAG, busca vetorial e híbrida, agentes, function calling, avaliação e monitoramento. Gratuito, com certificado para quem acompanha a turma.",
+          "links": [
+            {
+              "titulo": "Inscrição no LLM Zoomcamp",
+              "url": "https://courses.datatalks.club/register/llm-zoomcamp/",
+              "idioma": "EN"
+            },
+            {
+              "titulo": "Repositório do LLM Zoomcamp",
+              "url": "https://github.com/DataTalksClub/llm-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f4-ml",
+          "rotulo": "F4.5",
+          "titulo": "Machine learning básico",
+          "tipo": "Estudo",
+          "horas": 8,
+          "detalhe": "Regressão, classificação, treino e teste, métricas. O suficiente para conversar com cientistas de dados e entender o que as vagas chamam de ML.",
+          "links": [
+            {
+              "titulo": "Kaggle Learn: Intro to Machine Learning",
+              "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f4-projeto",
+          "rotulo": "F4.6",
+          "titulo": "Projeto 4: Assistente de suporte de ERP com RAG",
+          "tipo": "Projeto",
+          "horas": 25,
+          "detalhe": "Responde dúvidas de usuários a partir de manuais e procedimentos, sempre citando a fonte, com um conjunto de perguntas de teste para medir o acerto. Use documentos públicos ou escritos por você, nunca material interno sem autorização.",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "f5",
+      "numero": 5,
+      "trilha": 2,
+      "titulo": "Agentes, avaliação e produção",
+      "periodo": "outubro a dezembro de 2027",
+      "inicio": "2027-10-04",
+      "fim": "2027-12-19",
+      "objetivo": "O que separa uma demonstração de um produto: agentes com ferramentas, dados para IA, avaliação e custo.",
+      "etapas": [
+        {
+          "id": "f5-agentes",
+          "rotulo": "F5.1",
+          "titulo": "Agentes com ferramentas",
+          "tipo": "Estudo",
+          "horas": 20,
+          "detalhe": "Function calling, orquestração de várias etapas e MCP para conectar o agente a outros sistemas.",
+          "links": [
+            {
+              "titulo": "Hugging Face Agents Course",
+              "url": "https://huggingface.co/learn/agents-course",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f5-dados-ia",
+          "rotulo": "F5.2",
+          "titulo": "Dados para IA",
+          "tipo": "Prática",
+          "horas": 12,
+          "detalhe": "Pipelines que alimentam a IA: ingestão de documentos, divisão em trechos, embeddings e busca vetorial no PostgreSQL com pgvector.",
+          "links": [
+            {
+              "titulo": "pgvector",
+              "url": "https://github.com/pgvector/pgvector",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f5-avaliacao",
+          "rotulo": "F5.3",
+          "titulo": "Avaliação e LLMOps",
+          "tipo": "Estudo",
+          "horas": 15,
+          "detalhe": "Conjunto de perguntas de teste versionado, métricas separadas para a busca e para a resposta, LLM como juiz calibrado contra avaliação humana, custo por resposta e latência.",
+          "links": [
+            {
+              "titulo": "Repositório do LLM Zoomcamp",
+              "url": "https://github.com/DataTalksClub/llm-zoomcamp",
+              "idioma": "EN"
+            }
+          ]
+        },
+        {
+          "id": "f5-projeto",
+          "rotulo": "F5.4",
+          "titulo": "Projeto 5: Agente de mapeamento de dados",
+          "tipo": "Projeto",
+          "horas": 30,
+          "detalhe": "Recebe as estruturas de origem e de destino, como no seu trabalho, sugere o de-para das colunas, gera o SQL de transformação e valida a carga com testes. Junta dados e IA num problema que poucos candidatos conhecem por dentro.",
+          "links": []
+        },
+        {
+          "id": "f5-ai103",
+          "rotulo": "F5.5",
+          "titulo": "Certificação AI-103",
+          "tipo": "Certificação",
+          "horas": 20,
+          "detalhe": "Azure AI App and Agent Developer Associate: agentes e IA generativa no Microsoft Foundry. Substituiu a AI-102 em 2026, tem 120 minutos e está disponível em português.",
+          "links": [
+            {
+              "titulo": "Página da AI-103",
+              "url": "https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/",
+              "idioma": "PT"
+            },
+            {
+              "titulo": "Avaliações práticas gratuitas",
+              "url": "https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications",
+              "idioma": "PT"
+            }
+          ]
+        },
+        {
+          "id": "f5-vagas",
+          "rotulo": "F5.6",
+          "titulo": "Marco: vagas de Engenheiro de IA",
+          "tipo": "Carreira",
+          "horas": 0,
+          "detalhe": "Mire em vagas que juntam dados e IA: Engenheiro de IA, Engenheiro de ML e Engenheiro de Dados com foco em IA. Leve os projetos 4 e 5 para as entrevistas.",
+          "links": []
+        }
+      ]
+    }
+  ],
+  "certificacoes": [
+    {
+      "nome": "Azure Databricks Data Engineer Associate",
+      "codigo": "DP-750",
+      "quando": "Fase 3, até junho de 2027",
+      "ativa": true,
+      "nota": "Lançada em 2026. 120 minutos, em português. É a principal da trilha de dados.",
+      "url": "https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/"
+    },
+    {
+      "nome": "Azure AI App and Agent Developer Associate",
+      "codigo": "AI-103",
+      "quando": "Fase 5, dezembro de 2027",
+      "ativa": true,
+      "nota": "Substituiu a AI-102 em 30/06/2026. 120 minutos, em português.",
+      "url": "https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/"
+    },
+    {
+      "nome": "Fabric Data Engineer Associate",
+      "codigo": "DP-700",
+      "quando": "Alternativa à DP-750",
+      "ativa": true,
+      "nota": "Vale a pena se as vagas que você mirar pedirem Microsoft Fabric. Em agosto de 2026, cerca de 230 vagas no Brasil citavam a plataforma.",
+      "url": "https://learn.microsoft.com/pt-br/credentials/certifications/fabric-data-engineer-associate/"
+    },
+    {
+      "nome": "Databricks Certified Data Engineer Associate",
+      "codigo": "Databricks",
+      "quando": "Alternativa à DP-750",
+      "ativa": true,
+      "nota": "Programa atualizado em maio de 2026. A Databricks costuma dar vouchers de 50% no Learning Festival; em 2026 foi em janeiro.",
+      "url": "https://www.databricks.com/learn/certification/data-engineer-associate"
+    },
+    {
+      "nome": "Azure Data Fundamentals",
+      "codigo": "DP-900",
+      "quando": "Opcional, antes da Fase 3",
+      "ativa": true,
+      "nota": "Prova de fundamentos. Serve como primeira certificação, mas não é pré-requisito da DP-750.",
+      "url": "https://learn.microsoft.com/pt-br/credentials/certifications/azure-data-fundamentals/"
+    },
+    {
+      "nome": "Azure Data Engineer Associate",
+      "codigo": "DP-203",
+      "quando": "Não faça",
+      "ativa": false,
+      "nota": "Aposentada desde 31/03/2025. Ainda aparece em roteiros antigos."
+    },
+    {
+      "nome": "Azure AI Engineer Associate",
+      "codigo": "AI-102",
+      "quando": "Não faça",
+      "ativa": false,
+      "nota": "Aposentada desde 30/06/2026. Substituída pela AI-103."
+    }
+  ]
+}
