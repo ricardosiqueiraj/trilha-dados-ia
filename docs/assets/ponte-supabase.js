@@ -9,9 +9,26 @@
   var cache = new Map();          // "colecao/id" -> dados
   var ouvintes = new Set();
 
+  // Volta do login (GitHub ou link do e-mail): o Supabase devolve a sessão no endereço (#access_token=...).
+  // A página troca o # pela aba aberta logo ao carregar, então os dados são guardados aqui, antes disso.
+  var retorno = (function () {
+    var r = {};
+    try {
+      var h = new URLSearchParams((location.hash || "").replace(/^#/, ""));
+      var q = new URLSearchParams((location.search || "").replace(/^\?/, ""));
+      r.access_token = h.get("access_token");
+      r.refresh_token = h.get("refresh_token");
+      r.code = q.get("code");
+      r.erro = h.get("error_description") || q.get("error_description") || h.get("error") || q.get("error");
+      if (r.access_token || r.code || r.erro) history.replaceState(null, "", location.pathname);
+    } catch (e) {}
+    return r;
+  })();
+  var restaurando = false, pronto = null;
+
   function cliente() {
     if (!sb && window.supabase && /^https:\/\//.test(cfg.supabaseUrl || "") && cfg.supabaseKey && !/COLE_AQUI/.test(cfg.supabaseKey)) {
-      sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey);
+      sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey, { auth: { detectSessionInUrl: false, persistSession: true, autoRefreshToken: true } });
     }
     return sb;
   }
@@ -135,10 +152,30 @@
     return { id: u.id, name: nome, avatarUrl: m.avatar_url || iniciais(nome), color: "#0A3BD8", email: u.email || null, isOwner: true, canEdit: true };
   }
 
+  // Antes de ler a sessão, conclui a volta do login, se houver.
+  function concluirRetorno() {
+    if (pronto) return pronto;
+    var c = cliente();
+    if (!c) return Promise.resolve();
+    restaurando = true;
+    var p;
+    if (retorno.access_token && retorno.refresh_token) p = c.auth.setSession({ access_token: retorno.access_token, refresh_token: retorno.refresh_token });
+    else if (retorno.code) p = c.auth.exchangeCodeForSession(retorno.code);
+    else p = Promise.resolve({});
+    pronto = p.then(function (r) {
+      if (r && r.error) retorno.erro = r.error.message || "não foi possível concluir a entrada";
+    }, function (e) { retorno.erro = (e && e.message) || "não foi possível concluir a entrada"; })
+      .then(function () { restaurando = false; mostrarErroRetorno(); });
+    return pronto;
+  }
+  function mostrarErroRetorno() {
+    if (retorno.erro) msg("Não deu para entrar: " + retorno.erro + ". Tente de novo.", "error");
+  }
+
   function obterSessao() {
     var c = cliente();
     if (!c) return Promise.resolve(null);
-    return c.auth.getSession().then(function (r) { sessao = r && r.data ? r.data.session : null; return sessao; }).catch(function () { return null; });
+    return concluirRetorno().then(function () { return c.auth.getSession(); }).then(function (r) { sessao = r && r.data ? r.data.session : null; return sessao; }).catch(function () { return null; });
   }
 
   window.claude = {
@@ -207,9 +244,10 @@
         c.auth.signOut().then(function () { location.reload(); });
       });
     });
+    mostrarErroRetorno();
     var c = cliente();
     if (c) c.auth.onAuthStateChange(function (evento) {
-      if (evento === "SIGNED_IN" && !uid) { var b = document.getElementById("gate-retry"); if (b) b.click(); }
+      if (evento === "SIGNED_IN" && !uid && !restaurando) { var b = document.getElementById("gate-retry"); if (b) b.click(); }
     });
   }
 })();
