@@ -1,0 +1,2119 @@
+<title>Trilha Dados e IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: app de estudos com tema claro e escuro. Barra superior com busca; menu lateral no computador e barra inferior no celular; painel principal com cinco abas (Início, Minha trilha, Cursos, Horas, Certificações). Fases em faixas azuis com etapas numeradas em linhas claras e anéis de horas. */
+:root{
+  --bg:#081320; --nav-bg:#0B1A2B; --panel:#0F2033; --surface:#152A42; --surface-2:#1D3654; --line:#24405F; --line-2:#36587D;
+  --text:#F2F6FB; --muted:#A9B8CB; --dim:#7D90A8;
+  --blue:#0A3BD8; --blue-2:#2F5BFF; --on-blue:#FFFFFF; --link:#86A5FF; --blue-soft:#17306B;
+  --green:#00C86F; --green-soft:#0B3A2A; --warn:#FFBA05; --warn-soft:#3D2F08;
+  --row:#E8EDF4; --row-hover:#F2F5FA; --row-num:#D5DDE8; --row-end:#F7F9FC; --row-ink:#0D1B2A; --row-muted:#4F5F74; --row-done:#06111D;
+  --row-input:#FFFFFF; --row-line:#AEB9C8; --row-ok:#0E8A52; --row-border:transparent;
+  --chart-past:#3E5FA8; --shadow:rgba(0,0,0,.45); --on-blue-soft:rgba(255,255,255,.18);
+  --hero-1:#0A3BD8; --hero-2:#062A6B; --hero-3:#00A0B8; --hero-ink:#FFFFFF; --hero-muted:#D7E3FF;
+  --c-teal:#2BD4C4; --c-teal-soft:#0C3A3E; --c-purple:#A98BFF; --c-purple-soft:#2B2259; --c-pink:#F07CC8; --c-pink-soft:#46163A; --c-orange:#FF9447; --c-orange-soft:#45230C; --c-sky:#6BD1FF; --c-sky-soft:#10344A; --c-lime:#A7DB3F; --c-lime-soft:#2A3A0E;
+  --card-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.25);
+  --lift-shadow:0 14px 34px rgba(0,0,0,.45);
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#EEF2F8; --nav-bg:#FFFFFF; --panel:#F7F9FC; --surface:#FFFFFF; --surface-2:#E7EDF6; --line:#D9E1EC; --line-2:#B8C5D6;
+  --text:#0D1B2A; --muted:#4D5D72; --dim:#6E7E93;
+  --blue:#0A3BD8; --blue-2:#1E4FF0; --on-blue:#FFFFFF; --link:#1340D8; --blue-soft:#E2E9FF;
+  --green:#008A4E; --green-soft:#DDF6EA; --warn:#9A6B00; --warn-soft:#FFF2CC;
+  --row:#FFFFFF; --row-hover:#F3F7FD; --row-num:#E9EFF7; --row-end:#F7F9FC; --row-ink:#0D1B2A; --row-muted:#4F5F74; --row-done:#0D1B2A;
+  --row-input:#FFFFFF; --row-line:#AEB9C8; --row-ok:#0E8A52; --row-border:#D9E1EC;
+  --chart-past:#9DB2E6; --shadow:rgba(13,27,42,.18); --on-blue-soft:rgba(255,255,255,.2);
+  --hero-1:#0A3BD8; --hero-2:#031626; --hero-3:#008FA3; --hero-ink:#FFFFFF; --hero-muted:#D7E3FF;
+  --c-teal:#00857A; --c-teal-soft:#D8F4F1; --c-purple:#5B3FD6; --c-purple-soft:#EAE4FF; --c-pink:#B0307F; --c-pink-soft:#FBE3F3; --c-orange:#B9520A; --c-orange-soft:#FFE9D8; --c-sky:#0B6FA4; --c-sky-soft:#DDF2FC; --c-lime:#4E7A00; --c-lime-soft:#EAF6D2;
+  --card-shadow:0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.06);
+  --lift-shadow:0 14px 30px rgba(13,27,42,.16);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#EEF2F8; --nav-bg:#FFFFFF; --panel:#F7F9FC; --surface:#FFFFFF; --surface-2:#E7EDF6; --line:#D9E1EC; --line-2:#B8C5D6;
+  --text:#0D1B2A; --muted:#4D5D72; --dim:#6E7E93;
+  --blue:#0A3BD8; --blue-2:#1E4FF0; --on-blue:#FFFFFF; --link:#1340D8; --blue-soft:#E2E9FF;
+  --green:#008A4E; --green-soft:#DDF6EA; --warn:#9A6B00; --warn-soft:#FFF2CC;
+  --row:#FFFFFF; --row-hover:#F3F7FD; --row-num:#E9EFF7; --row-end:#F7F9FC; --row-ink:#0D1B2A; --row-muted:#4F5F74; --row-done:#0D1B2A;
+  --row-input:#FFFFFF; --row-line:#AEB9C8; --row-ok:#0E8A52; --row-border:#D9E1EC;
+  --chart-past:#9DB2E6; --shadow:rgba(13,27,42,.18); --on-blue-soft:rgba(255,255,255,.2);
+  --hero-1:#0A3BD8; --hero-2:#031626; --hero-3:#008FA3; --hero-ink:#FFFFFF; --hero-muted:#D7E3FF;
+  --c-teal:#00857A; --c-teal-soft:#D8F4F1; --c-purple:#5B3FD6; --c-purple-soft:#EAE4FF; --c-pink:#B0307F; --c-pink-soft:#FBE3F3; --c-orange:#B9520A; --c-orange-soft:#FFE9D8; --c-sky:#0B6FA4; --c-sky-soft:#DDF2FC; --c-lime:#4E7A00; --c-lime-soft:#EAF6D2;
+  --card-shadow:0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.06);
+  --lift-shadow:0 14px 30px rgba(13,27,42,.16);
+  color-scheme:light;
+}}
+:root[data-theme="dark"]{
+  --bg:#081320; --nav-bg:#0B1A2B; --panel:#0F2033; --surface:#152A42; --surface-2:#1D3654; --line:#24405F; --line-2:#36587D;
+  --text:#F2F6FB; --muted:#A9B8CB; --dim:#7D90A8;
+  --blue:#0A3BD8; --blue-2:#2F5BFF; --on-blue:#FFFFFF; --link:#86A5FF; --blue-soft:#17306B;
+  --green:#00C86F; --green-soft:#0B3A2A; --warn:#FFBA05; --warn-soft:#3D2F08;
+  --row:#E8EDF4; --row-hover:#F2F5FA; --row-num:#D5DDE8; --row-end:#F7F9FC; --row-ink:#0D1B2A; --row-muted:#4F5F74; --row-done:#06111D;
+  --row-input:#FFFFFF; --row-line:#AEB9C8; --row-ok:#0E8A52; --row-border:transparent;
+  --chart-past:#3E5FA8; --shadow:rgba(0,0,0,.45); --on-blue-soft:rgba(255,255,255,.18);
+  --hero-1:#0A3BD8; --hero-2:#062A6B; --hero-3:#00A0B8; --hero-ink:#FFFFFF; --hero-muted:#D7E3FF;
+  --c-teal:#2BD4C4; --c-teal-soft:#0C3A3E; --c-purple:#A98BFF; --c-purple-soft:#2B2259; --c-pink:#F07CC8; --c-pink-soft:#46163A; --c-orange:#FF9447; --c-orange-soft:#45230C; --c-sky:#6BD1FF; --c-sky-soft:#10344A; --c-lime:#A7DB3F; --c-lime-soft:#2A3A0E;
+  --card-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.25);
+  --lift-shadow:0 14px 34px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+button,a,summary,label,select{-webkit-tap-highlight-color:transparent}
+a{color:var(--link)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.icon{display:inline-block;flex:none;vertical-align:middle}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Estrutura */
+.app{min-height:100vh;display:grid;grid-template-columns:236px minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"top top" "side main"}
+.topbar{grid-area:top;display:flex;align-items:center;gap:24px;padding:18px 28px}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;color:var(--text);font-weight:300;font-size:1.35rem;letter-spacing:-.01em;white-space:nowrap}
+.brand strong{font-weight:600}
+.search{flex:1;max-width:520px;margin-inline:auto;display:flex;align-items:center;background:var(--nav-bg);border:1px solid var(--line);border-radius:999px;padding:4px 4px 4px 20px}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--text);font:inherit;font-size:.92rem;padding:8px 0}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none}
+.search button{width:40px;height:40px;border-radius:50%;border:0;background:var(--surface-2);color:var(--text);display:grid;place-items:center;cursor:pointer}
+.top-links{display:flex;gap:22px}
+.top-links button{background:none;border:0;cursor:pointer;font-weight:500;font-size:.92rem;padding:6px 0;color:var(--text)}
+.top-links button:hover{color:var(--link)}
+.me{border:0;background:none;padding:0;cursor:pointer;position:relative;width:44px;height:44px;display:grid;place-items:center}
+.me svg{position:absolute;inset:0}
+.me span{font:600 .62rem var(--mono);color:var(--text)}
+
+.sidenav{grid-area:side;padding:8px 14px 32px;display:grid;gap:4px;align-content:start;position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.nav-item{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;border-radius:8px;padding:11px 14px;cursor:pointer;font-size:.93rem;color:var(--text);text-align:left}
+.nav-item:hover{background:var(--surface)}
+.nav-item[aria-current="page"]{background:var(--surface-2);font-weight:500}
+.side-sep{border:0;border-top:1px solid var(--line);margin:14px 14px}
+.side-block{padding:0 14px}
+.side-block summary{list-style:none;display:flex;align-items:center;gap:14px;padding:10px 0;cursor:pointer;font-size:.93rem}
+.side-block summary::-webkit-details-marker{display:none}
+.side-block summary .chev{margin-left:auto;transition:transform .2s}
+.side-block[open] summary .chev{transform:rotate(180deg)}
+.side-block p{margin:2px 0 10px;font-size:.78rem;color:var(--muted);line-height:1.45}
+.side-block a{display:block;font-size:.8rem;margin:0 0 8px}
+.btn-dark{border:0;border-radius:8px;background:var(--surface-2);color:var(--text);padding:11px 16px;cursor:pointer;font-size:.86rem;font-weight:500;width:100%}
+.btn-dark:hover{background:var(--line-2)}
+
+.panel{grid-area:main;background:var(--panel);border-radius:18px 0 0 0;padding:34px 44px 72px;min-width:0}
+.view{display:grid;gap:28px;max-width:1180px}
+
+.bottomnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));grid-template-columns:repeat(6,minmax(0,1fr))}
+.bottomnav button{display:grid;justify-items:center;gap:3px;background:none;border:0;color:var(--muted);font-size:.64rem;font-weight:500;padding:6px 2px;min-height:52px;cursor:pointer}
+.bottomnav button[aria-current="page"]{color:var(--text);background:var(--surface);border-radius:10px}
+.bottomnav button[aria-current="page"] .icon{color:var(--link)}
+
+@media (max-width:960px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "main"}
+  .sidenav,.search,.top-links{display:none}
+  .topbar{padding:14px 16px;justify-content:space-between}
+  .brand{font-size:1.12rem}
+  .panel{border-radius:16px 16px 0 0;padding:24px 16px calc(96px + env(safe-area-inset-bottom,0px))}
+  .bottomnav{display:grid}
+}
+
+/* Tipografia e peças comuns */
+.live{display:flex;align-items:center;gap:8px;margin:0;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text);font-weight:400}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.display{margin:0;font-weight:300;font-size:clamp(2.1rem,1.4rem + 2.6vw,3.2rem);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+.page-title{margin:0;font-weight:300;font-size:clamp(1.7rem,1.3rem + 1.4vw,2.2rem);letter-spacing:-.01em}
+.lead{margin:0;max-width:68ch;color:var(--muted);font-size:1rem}
+.head{display:grid;gap:12px}
+.section-title{margin:0;font-weight:400;font-size:1.25rem}
+.mono-link,.back{font-family:var(--mono);font-size:.8rem;color:var(--link);text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.back{text-transform:uppercase;justify-self:start}
+.btn-primary{border:0;border-radius:4px;background:var(--blue);color:var(--on-blue);padding:12px 20px;font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.btn-primary:hover{background:var(--blue-2)}
+.btn-primary:disabled,.btn-outline:disabled{opacity:.5;cursor:not-allowed}
+.btn-outline{border:2px solid var(--blue-2);border-radius:4px;background:transparent;color:var(--text);padding:10px 18px;font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.btn-outline:hover{background:var(--blue-soft)}
+.sync{margin:0;display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:var(--muted)}
+.sync::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;border-radius:50%;background:var(--dim)}
+.sync[data-mode="live"]::before{background:var(--green)}
+.sync[data-mode="saving"]::before{background:var(--link)}
+.sync[data-mode="offline"]::before,.sync[data-mode="error"]::before{background:var(--warn)}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 .68rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip[data-status="running"]{background:var(--blue-soft);color:var(--link)}
+.chip[data-status="done"]{background:var(--green-soft);color:var(--green)}
+.chip[data-status="late"]{background:var(--warn-soft);color:var(--warn)}
+.links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 20px}
+.links li{min-width:0;max-width:100%}
+.links a{font-family:var(--mono);font-size:.8rem;color:var(--link);text-underline-offset:3px;display:inline-flex;align-items:center;gap:6px;overflow-wrap:anywhere}
+.lang{font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line-2);border-radius:3px;padding:0 4px;text-decoration:none}
+.ring-track{stroke:var(--line)}
+.ring-fill{stroke:var(--green)}
+.ring-fill.blue{stroke:var(--blue-2)}
+.ring-txt{fill:var(--text);font-family:var(--font);font-weight:600}
+
+/* Início */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border-radius:8px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.stat .k{margin:0;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stat .v{margin:0;font-weight:300;font-size:1.9rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .s{margin:0;font-size:.82rem;color:var(--muted)}
+.stat.ringed{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px}
+.bar{height:6px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar>span{display:block;height:100%;width:0;background:var(--blue-2);border-radius:inherit;transition:width .4s ease}
+.bar.full>span{background:var(--green)}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.stats .stat.ringed,.stats .stat:last-child{grid-column:1/-1}}
+
+.next{display:grid;grid-template-columns:88px minmax(0,1fr) 120px;min-height:150px;border-radius:6px;overflow:hidden}
+.next-left{background:var(--blue);color:var(--on-blue);display:grid;place-items:center}
+.next-body{background:var(--row);color:var(--row-ink);padding:20px 24px;display:grid;gap:8px;align-content:start;min-width:0}
+.next-body .kick{margin:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--row-muted)}
+.next-body h3{margin:0;font-weight:400;font-size:1.4rem;line-height:1.25}
+.next-body p.d{margin:0;color:var(--row-muted);font-size:.93rem;max-width:70ch}
+.next-body .links a{color:var(--blue)}
+.next-body .lang{color:var(--row-muted);border-color:var(--row-muted)}
+.next-actions{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:6px}
+.next-actions .mono-link{color:var(--blue)}
+.next-end{background:var(--row-end);display:grid;place-items:center;color:var(--row-ink)}
+.next-end .ring-track,.row-end .ring-track{stroke:var(--row-ink)}
+.next-end .ring-txt,.row-end .ring-txt{fill:var(--row-ink)}
+@media (max-width:760px){.next{grid-template-columns:56px minmax(0,1fr)}.next-end{display:none}.next-body{padding:16px}.next-body h3{font-size:1.15rem}}
+
+.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}
+.route li{position:relative;background:var(--surface);border-radius:8px;padding:16px 18px;display:grid;gap:3px;min-width:0}
+.route li:not(:last-child)::after{content:"";position:absolute;top:50%;right:-34px;width:34px;height:2px;background:var(--blue-2)}
+.route li.here{box-shadow:inset 0 0 0 2px var(--blue-2)}
+.route .k{margin:0;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.route li.here .k{color:var(--link)}
+.route .r{margin:0;font-size:1.15rem;font-weight:500}
+.route .s{margin:0;font-size:.84rem;color:var(--muted)}
+@media (max-width:760px){.route{grid-template-columns:minmax(0,1fr);gap:22px}.route li:not(:last-child)::after{top:auto;bottom:-22px;right:auto;left:28px;width:2px;height:22px}}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border-radius:8px;padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
+.card h2{margin:0;font-weight:400;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.agenda{list-style:none;margin:0;padding:0;display:grid}
+.agenda li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:.92rem}
+.agenda li:first-child{border-top:0}
+.agenda .day{color:var(--muted)}
+.agenda .t{font-family:var(--mono);font-size:.86rem}
+.note{margin:0;font-size:.82rem;color:var(--muted)}
+.habits{list-style:none;margin:0;padding:0;display:grid}
+.habits li{padding:10px 0;border-top:1px solid var(--line);display:grid;gap:2px}
+.habits li:first-child{border-top:0}
+.habits strong{font-weight:500;font-size:.93rem}
+.habits span{color:var(--muted);font-size:.86rem}
+
+/* Minha trilha */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:8px 16px;font-size:.84rem;cursor:pointer;color:var(--text)}
+.chips button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.track{display:grid;gap:6px;padding-top:6px}
+.track .k{margin:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--link)}
+.track h2{margin:0;font-weight:300;font-size:1.7rem;letter-spacing:-.01em}
+.track p.d{margin:0;color:var(--muted);max-width:74ch;font-size:.92rem}
+.phases{display:grid;gap:10px}
+.phase-bar{width:100%;border:0;background:var(--blue);color:var(--on-blue);display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:18px 22px;font-weight:500;font-size:.98rem;line-height:1.3;text-transform:uppercase;letter-spacing:.01em;text-align:left;cursor:pointer}
+.phase-bar:hover{background:var(--blue-2)}
+.pb-title{flex:1 1 16rem;min-width:0}
+.pb-side{display:flex;align-items:center;gap:12px;margin-left:auto}
+.pb-count{font-family:var(--mono);font-size:.78rem;text-transform:none;font-variant-numeric:tabular-nums}
+.pb-chip{font:500 .64rem/1 var(--mono);letter-spacing:.06em;padding:6px 8px;border-radius:999px;background:var(--on-blue-soft);color:var(--on-blue)}
+.pb-chip[data-status="done"]{background:var(--green);color:var(--row-ink)}
+.pb-chip[data-status="late"]{background:var(--warn);color:var(--row-ink)}
+.phase-bar .chev{transition:transform .2s}
+.phase-bar[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.phase-body{background:var(--surface);padding:20px 22px 22px;display:grid;gap:10px}
+.phase-body .goal{margin:0;max-width:74ch}
+.phase-body .meta{margin:0;font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.phase-body .pnote{margin:0;font-size:.86rem;color:var(--muted);max-width:74ch}
+.rows{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px}
+.row-main{display:grid;grid-template-columns:76px 92px minmax(0,1fr) 104px;min-height:92px}
+.row-state{border:0;background:var(--blue);color:var(--on-blue);display:grid;place-items:center;cursor:pointer;padding:0}
+.row-state:hover{background:var(--blue-2)}
+.row-state:disabled{cursor:not-allowed;opacity:.7}
+.row.is-done .row-state{background:var(--row-done);color:var(--green);box-shadow:inset 6px 0 0 var(--green)}
+.row-num{background:var(--row-num);color:var(--row-ink);display:grid;place-items:center;font-weight:200;font-size:2.9rem;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.row-content{border:0;background:var(--row);color:var(--row-ink);text-align:left;padding:14px 20px;display:grid;align-content:center;gap:4px;cursor:pointer;min-width:0}
+.row-content:hover{background:var(--row-hover)}
+.row-title{font-size:1.14rem;font-weight:400;line-height:1.3;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.row-sub{font-size:.84rem;color:var(--row-muted)}
+.row.is-done .row-title{color:var(--row-muted)}
+.badge{font:600 .6rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 7px;border-radius:3px;background:var(--blue);color:var(--on-blue)}
+.row-end{background:var(--row-end);display:grid;place-items:center}
+.row-detail{background:var(--panel);padding:16px 20px 20px;display:grid;gap:12px;border:1px solid var(--line);border-top:0}
+.row-detail p{margin:0;max-width:74ch}
+.row-detail .done-at{font-family:var(--mono);font-size:.78rem;color:var(--green)}
+.row-detail .acts{display:flex;flex-wrap:wrap;gap:12px}
+.empty-phase{margin:6px 0 0;font-size:.86rem;color:var(--muted)}
+@media (max-width:640px){
+  .phase-bar{padding:14px 16px;font-size:.86rem}
+  .phase-body{padding:16px 14px 16px}
+  .row-main{grid-template-columns:52px 50px minmax(0,1fr);min-height:76px}
+  .row-num{font-size:1.55rem}
+  .row-end{display:none}
+  .row-content{padding:12px 14px}
+  .row-title{font-size:.98rem}
+  .row-detail{padding:14px}
+}
+
+/* Cursos */
+.filters{display:grid;grid-template-columns:repeat(3,minmax(0,12rem)) minmax(0,1fr);gap:14px;align-items:end}
+.field{display:grid;gap:6px;min-width:0}
+.field label,.flabel{font-size:.84rem;font-weight:500}
+.select{position:relative}
+.select select{appearance:none;-webkit-appearance:none;width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line-2);border-radius:4px;padding:14px 40px 14px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.select .icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted)}
+.qbox{display:flex;gap:8px}
+.qbox input{flex:1;min-width:0;background:var(--panel);color:var(--text);border:1px solid var(--line-2);border-radius:4px;padding:14px;font:inherit;font-size:.9rem}
+.qbox input::placeholder{color:var(--muted)}
+.qbox button{width:50px;border:1px solid var(--line-2);border-radius:4px;background:var(--panel);color:var(--text);display:grid;place-items:center;cursor:pointer}
+.sortrow{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.count{margin:0;font-size:.84rem;color:var(--muted)}
+.ctable{width:100%;border-collapse:collapse;font-size:.92rem}
+.ctable th{text-align:left;font-weight:400;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:14px 12px;border-bottom:1px solid var(--line)}
+.ctable td{padding:18px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.ctable .ct{display:flex;gap:14px;align-items:center;min-width:0}
+.ctable .ct .icon{color:var(--muted)}
+.ctable tr.done .ct .icon{color:var(--green)}
+.ctable tr.doing .ct .icon{color:var(--text)}
+.ctable .nm{font-weight:500}
+.ctable .stp{display:block;font-size:.84rem;color:var(--muted)}
+.ctable .st{color:var(--muted)}
+.ctable td.lk{white-space:nowrap}
+.ctable td.lk .mono-link{margin-right:14px}
+@media (max-width:1100px){.filters{grid-template-columns:repeat(3,minmax(0,1fr))}.filters .field.q{grid-column:1 / -1}}
+@media (max-width:720px){
+  .filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .filters .field.lang-f{grid-column:1 / -1}
+  .ctable thead{display:none}
+  .ctable,.ctable tbody,.ctable tr,.ctable td{display:block;width:100%}
+  .ctable tr{padding:14px 0;border-bottom:1px solid var(--line)}
+  .ctable td{border:0;padding:3px 0}
+  .ctable td.st,.ctable td.lg{display:inline-block;width:auto;margin-right:12px;padding-left:38px;font-size:.84rem}
+  .ctable td.lk{padding-left:38px;padding-top:8px;white-space:normal}
+}
+
+/* Horas */
+.hgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.hgrid{grid-template-columns:minmax(0,1fr)}}
+.week{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center}
+.week .big{margin:0;font-weight:300;font-size:2.2rem;line-height:1;font-variant-numeric:tabular-nums}
+.week p{margin:0}
+.goal-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.goal-row .select{width:8rem}
+figure.chart{margin:0;display:grid;gap:6px}
+figure.chart svg{width:100%;height:auto;display:block}
+figure.chart figcaption{font-size:.78rem;color:var(--muted)}
+.bar-past{fill:var(--chart-past)}
+.bar-now{fill:var(--blue-2)}
+.axis{stroke:var(--line);stroke-width:1}
+.goal{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 3}
+.lbl{fill:var(--muted);font-family:var(--mono);font-size:8.5px}
+.val{fill:var(--text);font-family:var(--mono);font-size:9px;font-weight:500;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
+.fgrid .wide{grid-column:1 / -1}
+.fgrid input{width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line-2);border-radius:4px;padding:12px;font:inherit;font-size:.9rem;min-width:0}
+.form-msg{margin:0;font-size:.84rem;color:var(--muted);min-height:1.3em}
+.form-msg[data-kind="error"]{color:var(--warn)}
+.form-msg[data-kind="ok"]{color:var(--green)}
+.log{list-style:none;margin:0;padding:0;display:grid}
+.log li{display:grid;grid-template-columns:3.4rem 3.4rem minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:.88rem}
+.log li:first-child{border-top:0}
+.log li.more{display:block;color:var(--muted);font-size:.82rem}
+.log .d,.log .h{font-family:var(--mono);font-size:.8rem;font-variant-numeric:tabular-nums}
+.log .n{color:var(--muted);overflow-wrap:anywhere}
+.log-del{border:0;background:none;color:var(--muted);font-family:var(--mono);font-size:.74rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 0}
+.log-del[data-armed="1"]{color:var(--warn);font-weight:500}
+.empty{margin:0;font-size:.88rem;color:var(--muted)}
+
+/* Certificações */
+.twrap{overflow-x:auto;border-radius:8px;background:var(--surface)}
+.ctab{width:100%;min-width:46rem;border-collapse:collapse;font-size:.9rem}
+.ctab th{text-align:left;font-weight:400;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ctab td{padding:16px;border-bottom:1px solid var(--line);vertical-align:top}
+.ctab tbody tr:last-child td{border-bottom:0}
+.ctab code{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.ctab tr.off td{color:var(--muted)}
+.pill{display:inline-block;font:500 .64rem/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-right:6px;white-space:nowrap}
+.pill.on{background:var(--green-soft);color:var(--green)}
+.pill.off{background:var(--warn-soft);color:var(--warn)}
+
+/* Contas e integrações */
+.strip{width:100%;display:flex;align-items:center;gap:14px;background:var(--surface);border:0;border-radius:8px;padding:14px 18px;color:var(--text);text-align:left;cursor:pointer;font-size:.92rem;line-height:1.4}
+.strip:hover{background:var(--surface-2)}
+.strip>.icon:first-child{color:var(--link)}
+.strip .t{flex:1;min-width:0}
+.strip .t strong{font-weight:500}
+.strip .t span{color:var(--muted)}
+.hub{display:grid;grid-template-columns:88px minmax(0,1fr);border-radius:6px;overflow:hidden}
+.hub-left{background:var(--blue);color:var(--on-blue);display:grid;place-items:center}
+.hub-body{background:var(--row);color:var(--row-ink);padding:22px 24px;display:grid;gap:14px;min-width:0;color-scheme:light}
+.hub-body .form-msg:empty{display:none}
+.hub-body .kick{margin:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--row-muted)}
+.hub-body h2{margin:0;font-weight:400;font-size:1.4rem;line-height:1.25}
+.hub-body>p.d{margin:0;color:var(--row-muted);font-size:.93rem;max-width:74ch}
+.hub-body .mono-link{color:var(--blue)}
+.hub-body .flabel{color:var(--row-ink)}
+.hub-body .form-msg[data-kind="error"]{color:#B42318}
+.hub-body .form-msg[data-kind="ok"]{color:var(--row-ok)}
+.inp{width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line-2);border-radius:4px;padding:12px;font:inherit;font-size:.9rem;min-width:0}
+.inp::placeholder{color:var(--dim)}
+.hub-body .inp{background:var(--row-input);color:var(--row-ink);border-color:var(--row-line)}
+.hub-body .inp::placeholder{color:var(--row-muted)}
+.gh-user{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:flex-end}
+.gh-user .field{flex:1 1 15rem;max-width:24rem}
+.gh-links{display:flex;flex-wrap:wrap;gap:10px 20px;padding-bottom:12px}
+.gh-sync{margin:0;display:flex;gap:8px;align-items:flex-start;font-size:.88rem;color:var(--row-ink)}
+.gh-sync::before{content:"";flex:0 0 9px;height:9px;margin-top:6px;border-radius:50%;background:var(--row-line)}
+.gh-sync[data-mode="on"]::before{background:var(--row-ok)}
+.gh-sync a{color:var(--blue)}
+.hsteps{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.hsteps li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--row-end);padding:14px 16px}
+.hsteps .n{width:32px;height:32px;border-radius:50%;background:var(--blue);color:var(--on-blue);display:grid;place-items:center;font:600 .84rem var(--mono)}
+.hsteps li.ok .n{background:var(--row-ok);color:#FFFFFF}
+.hsteps strong{display:block;font-weight:500}
+.hsteps .s{display:block;font-size:.86rem;color:var(--row-muted);margin-top:2px}
+.hsteps .mono-link{margin-top:6px}
+.tick{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;cursor:pointer;white-space:nowrap;min-height:32px}
+.tick input{width:18px;height:18px;margin:0;accent-color:var(--blue-2);cursor:pointer}
+.tick input:disabled,.tick input:disabled+span{cursor:not-allowed;opacity:.6}
+.perks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.perks li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;font-size:.9rem}
+.perks .icon{color:var(--green);margin-top:3px}
+.card p.body{margin:0;font-size:.92rem}
+.card-acts{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:4px}
+a.btn-primary{text-decoration:none;display:inline-block}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.tools{grid-template-columns:minmax(0,1fr)}}
+.tool{background:var(--surface);border-radius:8px;padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
+.tool.is-ready{box-shadow:inset 4px 0 0 var(--green)}
+.tool .later{margin:0;font-size:.82rem;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:8px 10px}
+.tool.is-later:not(.is-ready){opacity:.78}
+.tool-head{display:flex;align-items:flex-start;gap:12px}
+.tool-ic{width:42px;height:42px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center;font:600 .82rem var(--mono);letter-spacing:.02em;flex:none}
+.tool.is-ready .tool-ic{background:var(--green-soft);color:var(--green)}
+.tool-t{flex:1;min-width:0}
+.tool-name{margin:0;font-weight:500;font-size:1.02rem;line-height:1.3}
+.tool-sub{margin:2px 0 0;font-size:.82rem;color:var(--muted)}
+.enter{margin:0;display:inline-flex;align-items:center;gap:8px;justify-self:start;font-size:.8rem;font-weight:500;padding:5px 10px;border-radius:999px;background:var(--surface-2);color:var(--text)}
+.enter.gh{background:var(--blue-soft);color:var(--link)}
+.tool .how{margin:0;font-size:.88rem;color:var(--muted)}
+.tool .ufield{display:grid;gap:6px}
+.tool .ufield label{font-size:.82rem;font-weight:500}
+.tool .form-msg{min-height:0}
+.checks{display:flex;flex-wrap:wrap;gap:4px 20px}
+.tool-links{display:flex;flex-wrap:wrap;gap:8px 18px}
+@media (max-width:640px){
+  .hub{grid-template-columns:minmax(0,1fr)}
+  .hub-left{display:none}
+  .hub-body{padding:18px 16px}
+  .hsteps li{grid-template-columns:32px minmax(0,1fr);padding:12px}
+  .hsteps .tick{grid-column:2}
+}
+
+/* Aviso */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;background:var(--text);color:var(--row-ink);border-radius:8px;padding:12px 16px;display:flex;gap:16px;align-items:center;box-shadow:0 10px 30px var(--shadow);width:max-content;max-width:calc(100vw - 32px);font-size:.9rem}
+.toast button{background:none;border:0;color:var(--blue);font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;padding:4px 0}
+@media (max-width:960px){.toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+.foot{margin:0;font-size:.8rem;color:var(--dim);max-width:80ch}
+
+
+/* ===== Vida: transições, hover e entrada ===== */
+body{transition:background-color .25s ease,color .25s ease}
+.view:not([hidden]){animation:viewIn .35s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.btn-primary,.btn-outline,.btn-dark,.nav-item,.chips button,.bottomnav button,.top-links button,.search button,.row-state,.row-content,.phase-bar,.qbox button,.theme-btn,.user-chip,.gate-btn,a.mono-link,button.mono-link{transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease,border-color .18s ease,filter .18s ease}
+.btn-primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(10,59,216,.35)}
+.btn-outline:hover:not(:disabled),.btn-dark:hover{transform:translateY(-2px)}
+.btn-primary:active,.btn-outline:active,.btn-dark:active,.chips button:active,.bottomnav button:active,.gate-btn:active{transform:scale(.97)}
+.chips button:hover{border-color:var(--blue-2);color:var(--link)}
+.chips button[aria-pressed="true"]:hover{color:var(--on-blue)}
+.nav-item:hover{transform:translateX(4px)}
+.nav-item[aria-current="page"]{box-shadow:inset 3px 0 0 var(--blue-2)}
+.nav-item[aria-current="page"] .icon{color:var(--link)}
+.top-links button{position:relative}
+.top-links button::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--blue-2);transform:scaleX(0);transition:transform .2s ease}
+.top-links button:hover::after{transform:scaleX(1)}
+.search{transition:border-color .2s ease,box-shadow .2s ease}
+.search:focus-within{border-color:var(--blue-2);box-shadow:0 0 0 4px var(--blue-soft)}
+.search button:hover{background:var(--blue);color:var(--on-blue)}
+.stat,.card,.tool,.route li,.strip,.twrap,.hub{box-shadow:var(--card-shadow);transition:transform .22s ease,box-shadow .22s ease,background-color .2s ease}
+.stat:hover,.card:hover,.tool:hover,.route li:hover,.strip:hover{transform:translateY(-4px);box-shadow:var(--lift-shadow)}
+.strip:hover>.icon:last-child{transform:translateX(4px)}
+.strip>.icon:last-child{transition:transform .2s ease}
+.next{box-shadow:var(--card-shadow);transition:transform .22s ease,box-shadow .22s ease}
+.next:hover{transform:translateY(-3px);box-shadow:var(--lift-shadow)}
+.next-left .icon,.row-state .icon{transition:transform .2s ease}
+.next:hover .next-left .icon{transform:scale(1.18)}
+.row-main{transition:transform .18s ease,box-shadow .18s ease;border:1px solid var(--row-border)}
+.row-main:hover{transform:translateX(4px);box-shadow:var(--lift-shadow)}
+.row-state:hover .icon{transform:scale(1.2)}
+.phase-bar:hover{filter:brightness(1.08)}
+.phase-bar:hover .chev{transform:translateY(2px)}
+.phase-bar[aria-expanded="true"]:hover .chev{transform:rotate(180deg) translateY(2px)}
+.ctable tbody tr{transition:background-color .15s ease}
+.ctable tbody tr:hover{background:var(--surface)}
+.links a{transition:color .15s ease}
+.links a:hover{color:var(--text)}
+.next-body .links a:hover{color:var(--row-ink)}
+.tick:hover{color:var(--link)}
+.bar>span{transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.ring-fill{animation:ringIn .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ringIn{from{stroke-dasharray:0 999}}
+::selection{background:var(--blue-2);color:#fff}
+
+/* ===== Cores por seção ===== */
+.section-title{display:flex;align-items:center;gap:10px}
+.section-title::before{content:"";width:6px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--c-sky),var(--blue-2))}
+.stat{border-top:3px solid var(--acc,var(--blue-2));position:relative}
+.stat .k{display:flex;align-items:center;gap:8px}
+.stat-ic{width:30px;height:30px;border-radius:9px;display:inline-grid;place-items:center;background:var(--acc-soft);color:var(--acc)}
+.stat.c-green{--acc:var(--green);--acc-soft:var(--green-soft)}
+.stat.c-blue{--acc:var(--c-sky);--acc-soft:var(--c-sky-soft)}
+.stat.c-purple{--acc:var(--c-purple);--acc-soft:var(--c-purple-soft)}
+.stat.c-orange{--acc:var(--c-orange);--acc-soft:var(--c-orange-soft)}
+.stat .v{color:var(--text)}
+.route li:nth-child(1){border-top:3px solid var(--c-sky)}
+.route li:nth-child(2){border-top:3px solid var(--green)}
+.route li:nth-child(3){border-top:3px solid var(--c-purple)}
+.card h2 .icon{color:var(--link)}
+#t-agenda .icon{color:var(--c-orange)}
+#t-hab .icon{color:var(--green)}
+
+/* ===== Herói do Início ===== */
+.hero{position:relative;overflow:hidden;border-radius:18px;padding:30px 34px;background:radial-gradient(120% 140% at 100% 0%,var(--hero-3) 0%,transparent 45%),linear-gradient(125deg,var(--hero-2) 0%,var(--hero-1) 70%);color:var(--hero-ink);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:center;box-shadow:var(--card-shadow)}
+.hero::after{content:"";position:absolute;inset:auto -60px -80px auto;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.hero .head{gap:12px;position:relative;z-index:1}
+.hero .hello{margin:0;font-size:.95rem;color:var(--hero-muted)}
+.hero .hello strong{color:#fff;font-weight:600}
+.hero .live{justify-self:start;color:#fff;background:rgba(0,200,111,.2);border:1px solid rgba(0,200,111,.55);padding:6px 12px;border-radius:999px;font-size:.72rem}
+.hero .live::before{background:#00E07D;box-shadow:0 0 0 0 rgba(0,224,125,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,224,125,.7)}70%{box-shadow:0 0 0 10px rgba(0,224,125,0)}100%{box-shadow:0 0 0 0 rgba(0,224,125,0)}}
+.hero .display{color:#fff}
+.hero .display span{background:linear-gradient(90deg,#6BD1FF,#00E07D);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:var(--hero-muted)}
+.hero .sync{color:var(--hero-muted)}
+.hero .sync::before{background:rgba(255,255,255,.5)}
+.hero .sync[data-mode="live"]::before{background:#00E07D}
+.hero .sync[data-mode="offline"]::before,.hero .sync[data-mode="error"]::before{background:#FFBA05}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.hero-tags span{font:500 .72rem var(--mono);letter-spacing:.04em;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.hero-art{position:relative;z-index:1}
+.hero-art svg{width:100%;height:auto;display:block}
+.flow{stroke-dasharray:6 8;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.node{animation:node 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.node:nth-of-type(2n){animation-delay:.6s}.node:nth-of-type(3n){animation-delay:1.2s}
+@keyframes node{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.18)}}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr);padding:22px 18px}.hero-art{order:-1;max-width:360px;justify-self:center;width:100%}}
+
+/* ===== Fases coloridas ===== */
+.phase{--ph:var(--c-sky)}
+.phase-bar{box-shadow:inset 6px 0 0 var(--ph)}
+.ph-ic{width:36px;height:36px;border-radius:10px;display:inline-grid;place-items:center;background:rgba(255,255,255,.16);color:#fff;flex:none}
+.pb-title{display:flex;align-items:center;gap:12px}
+.phase-body{border-left:6px solid var(--ph)}
+.track .k{display:flex;align-items:center;gap:8px}
+.track-art{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--blue-soft);color:var(--link)}
+.track-head{display:flex;align-items:center;gap:16px}
+
+/* ===== Barra superior: tema e usuário ===== */
+.top-tools{display:flex;align-items:center;gap:10px}
+.theme-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface);color:var(--text);display:grid;place-items:center;cursor:pointer}
+.theme-btn:hover{border-color:var(--blue-2);color:var(--link);transform:rotate(-15deg)}
+.theme-btn .ic-sun{display:none}
+:root[data-theme="light"] .theme-btn .ic-sun{display:block}:root[data-theme="light"] .theme-btn .ic-moon{display:none}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .theme-btn .ic-sun{display:block}:root:not([data-theme="dark"]) .theme-btn .ic-moon{display:none}}
+.user-chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:3px 12px 3px 3px;cursor:pointer;color:var(--text);max-width:220px}
+.user-chip:hover{border-color:var(--blue-2)}
+.user-chip img{width:32px;height:32px;border-radius:50%;object-fit:cover;flex:none}
+.user-chip .nm{font-size:.84rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-chip .role{display:block;font-size:.66rem;color:var(--muted);font-weight:400}
+@media (max-width:960px){.user-chip{padding:3px}.user-chip .nm{display:none}}
+@media (max-width:420px){.brand span{font-size:1rem}.top-tools{gap:6px}.theme-btn{width:36px;height:36px}}
+
+/* ===== Tela de entrada ===== */
+.gate{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:radial-gradient(90% 90% at 80% 10%,var(--hero-3) 0%,transparent 50%),linear-gradient(135deg,var(--hero-2),var(--hero-1));overflow:auto}
+.gate[hidden]{display:none}
+.gate-card{width:min(920px,100%);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--panel);color:var(--text);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.4);animation:viewIn .4s ease both}
+.gate-art{background:linear-gradient(150deg,var(--hero-2),var(--hero-1));padding:28px;display:grid;align-content:center;gap:16px;color:#fff}
+.gate-art h2{margin:0;font-weight:300;font-size:1.6rem;line-height:1.2}
+.gate-art p{margin:0;color:var(--hero-muted);font-size:.92rem}
+.gate-body{padding:32px;display:grid;gap:16px;align-content:center}
+.gate-body h1{margin:0;font-weight:400;font-size:1.6rem}
+.gate-body p{margin:0;color:var(--muted);font-size:.92rem}
+.gate-btn{display:flex;align-items:center;gap:12px;justify-content:center;width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);color:var(--text);font-weight:600;font-size:.92rem;text-decoration:none;cursor:pointer}
+.gate-btn:hover{border-color:var(--blue-2);transform:translateY(-2px);box-shadow:var(--lift-shadow)}
+.gate-btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.gate-btn.primary:hover{background:var(--blue-2)}
+.gate-note{font-size:.8rem!important;color:var(--dim)!important}
+.gate-steps{margin:0;padding-left:18px;color:var(--muted);font-size:.88rem;display:grid;gap:4px}
+@media (max-width:760px){.gate-card{grid-template-columns:minmax(0,1fr)}.gate-art{padding:20px}.gate-body{padding:22px}}
+
+/* ===== Ajustes do tema claro ===== */
+:root[data-theme="light"] .phase-bar,:root[data-theme="light"] .next-left{background:var(--blue)}
+:root[data-theme="light"] .row-state{background:var(--blue)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .row.is-done .row-state{background:#0D1B2A}}
+:root[data-theme="light"] .row.is-done .row-state{background:#0D1B2A}
+:root[data-theme="light"] .toast,.toast{background:var(--text);color:var(--bg)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <button class="brand" type="button" data-nav="inicio" aria-label="Trilha Dados e IA, ir para o início"><i data-icon="mark"></i><span>Trilha <strong>Dados e IA</strong></span></button>
+    <form class="search" id="top-search" role="search">
+      <label class="sr-only" for="q-top">Buscar cursos e etapas</label>
+      <input id="q-top" type="search" placeholder="O que você quer estudar hoje?" autocomplete="off">
+      <button type="submit" aria-label="Buscar"><i data-icon="search"></i></button>
+    </form>
+    <nav class="top-links" aria-label="Atalhos">
+      <button type="button" data-nav="inicio">Início</button>
+      <button type="button" data-nav="cursos">Explorar cursos</button>
+    </nav>
+    <div class="top-tools">
+      <button class="theme-btn" type="button" id="theme-btn" aria-label="Alternar tema claro ou escuro" title="Tema claro ou escuro"><i data-icon="moon" class="ic-moon"></i><i data-icon="sun" class="ic-sun"></i></button>
+      <button class="user-chip" type="button" id="user-chip" data-nav="contas" hidden><img id="user-avatar" alt=""><span class="nm"><span id="user-name">Você</span><span class="role" id="user-role">Dono da trilha</span></span></button>
+      <button class="me" type="button" data-nav="inicio" aria-label="Progresso geral"><svg id="me-ring" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"></svg><span id="me-pct">0%</span></button>
+    </div>
+  </header>
+
+  <aside class="sidenav" aria-label="Menu">
+    <button class="nav-item" type="button" data-nav="inicio"><i data-icon="home"></i>Início</button>
+    <button class="nav-item" type="button" data-nav="trilha"><i data-icon="layers"></i>Minha trilha</button>
+    <button class="nav-item" type="button" data-nav="cursos"><i data-icon="book"></i>Cursos e links</button>
+    <button class="nav-item" type="button" data-nav="horas"><i data-icon="clock"></i>Horas de estudo</button>
+    <button class="nav-item" type="button" data-nav="certificacoes"><i data-icon="award"></i>Certificações</button>
+    <button class="nav-item" type="button" data-nav="contas"><i data-icon="link"></i>Contas e integrações</button>
+    <hr class="side-sep">
+    <details class="side-block" id="side-com">
+      <summary><i data-icon="users"></i>Comunidade<i data-icon="chev" class="chev"></i></summary>
+      <p>Tire dúvidas com quem está estudando o mesmo que você.</p>
+      <a href="https://datatalks.club/slack.html" target="_blank" rel="noopener noreferrer">Slack da DataTalks.Club</a>
+    </details>
+    <details class="side-block" id="side-rem" open>
+      <summary><i data-icon="bell"></i>Lembretes<i data-icon="chev" class="chev"></i></summary>
+      <p>Estudo às terças e quintas, das 19h às 21h, e aos sábados, das 9h às 13h. O alarme toca 10 minutos antes.</p>
+      <button class="btn-dark" type="button" data-nav="horas">Registrar horas</button>
+    </details>
+  </aside>
+
+  <main class="panel" id="main">
+    <!-- INÍCIO -->
+    <section class="view" id="view-inicio" aria-labelledby="t-inicio">
+      <section class="hero" aria-labelledby="t-inicio">
+        <div class="head">
+          <p class="hello" id="hello" hidden></p>
+          <p class="live">Trilha ativa!</p>
+          <h1 class="display" id="t-inicio">Trilha <span>Dados e IA</span></h1>
+          <p class="lead">De Analista de Integração a Engenheiro de Dados e, depois, a Engenheiro de IA. De outubro de 2026 a dezembro de 2027, com 8 a 10 horas por semana e só cursos gratuitos, sem fiscal nem Reforma Tributária.</p>
+          <div class="hero-tags" aria-label="Tecnologias da trilha"><span>Python</span><span>SQL</span><span>Spark</span><span>Databricks</span><span>Azure</span><span>RAG</span><span>Agentes</span></div>
+          <p class="sync" id="sync" role="status" data-mode="loading">Carregando seu progresso…</p>
+        </div>
+        <div class="hero-art" aria-hidden="false"><svg viewBox="0 0 400 230" role="img" aria-label="Ilustração: dados saem de bancos, passam por um pipeline, viram camadas de um lakehouse e alimentam uma rede neural">
+  <defs>
+    <linearGradient id="hg-flow" x1="0" x2="1"><stop offset="0" stop-color="#6BD1FF"/><stop offset="1" stop-color="#00E07D"/></linearGradient>
+    <linearGradient id="hg-box" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.22)"/><stop offset="1" stop-color="rgba(255,255,255,.06)"/></linearGradient>
+  </defs>
+  <g fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="1.8">
+    <path d="M14 36v26c0 4 10 7 22 7s22-3 22-7V36"/><ellipse cx="36" cy="36" rx="22" ry="7"/>
+    <path d="M14 98v26c0 4 10 7 22 7s22-3 22-7V98"/><ellipse cx="36" cy="98" rx="22" ry="7"/>
+    <path d="M14 160v26c0 4 10 7 22 7s22-3 22-7v-26"/><ellipse cx="36" cy="160" rx="22" ry="7"/>
+  </g>
+  <g font-family="Roboto Mono,monospace" font-size="9" fill="#D7E3FF" text-anchor="middle"><text x="36" y="86">ERP</text><text x="36" y="148">SQL</text><text x="36" y="210">API</text></g>
+  <g fill="none" stroke="url(#hg-flow)" stroke-width="2.4" stroke-linecap="round">
+    <path class="flow" d="M60 52 C100 52 100 112 140 112"/>
+    <path class="flow" d="M60 114 L140 114"/>
+    <path class="flow" d="M60 176 C100 176 100 116 140 116"/>
+    <path class="flow" d="M206 114 L236 114"/>
+    <path class="flow" d="M318 114 L336 114"/>
+  </g>
+  <rect x="140" y="82" width="66" height="64" rx="14" fill="url(#hg-box)" stroke="#fff" stroke-width="1.8"/>
+  <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"><circle cx="173" cy="108" r="9"/><path d="M173 93v5M173 118v5M158 108h5M183 108h5M162 97l3.5 3.5M180.5 115.5L184 119M162 119l3.5-3.5M180.5 100.5L184 97"/></g>
+  <text x="173" y="138" font-family="Roboto Mono,monospace" font-size="9" fill="#fff" text-anchor="middle">ETL</text>
+  <g>
+    <rect x="238" y="72" width="80" height="22" rx="6" fill="#FFBA05"/><text x="278" y="87" font-family="Roboto Mono,monospace" font-size="9" fill="#2A1D00" text-anchor="middle" font-weight="600">OURO</text>
+    <rect x="238" y="102" width="80" height="22" rx="6" fill="#D5DEE8"/><text x="278" y="117" font-family="Roboto Mono,monospace" font-size="9" fill="#13243A" text-anchor="middle" font-weight="600">PRATA</text>
+    <rect x="238" y="132" width="80" height="22" rx="6" fill="#D08A4E"/><text x="278" y="147" font-family="Roboto Mono,monospace" font-size="9" fill="#2A1400" text-anchor="middle" font-weight="600">BRONZE</text>
+    <text x="278" y="170" font-family="Roboto Mono,monospace" font-size="8.5" fill="#D7E3FF" text-anchor="middle">LAKEHOUSE</text>
+  </g>
+  <g stroke="rgba(255,255,255,.55)" stroke-width="1.2"><path d="M346 84L380 102M346 84L380 130M346 114L380 102M346 114L380 130M346 144L380 102M346 144L380 130"/></g>
+  <g fill="#6BD1FF" stroke="#fff" stroke-width="1.5"><circle class="node" cx="346" cy="84" r="7"/><circle class="node" cx="346" cy="114" r="7"/><circle class="node" cx="346" cy="144" r="7"/></g>
+  <g fill="#00E07D" stroke="#fff" stroke-width="1.5"><circle class="node" cx="380" cy="102" r="7"/><circle class="node" cx="380" cy="130" r="7"/></g>
+  <text x="363" y="170" font-family="Roboto Mono,monospace" font-size="8.5" fill="#D7E3FF" text-anchor="middle">IA</text>
+  <path d="M372 46l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FFBA05"/>
+</svg></div>
+      </section>
+
+      <div class="stats">
+        <div class="stat ringed c-green">
+          <svg id="all-ring" width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"></svg>
+          <div><p class="k">Progresso geral</p><p class="s" id="stat-steps">0 de 39 etapas</p></div>
+        </div>
+        <div class="stat c-blue">
+          <p class="k"><span class="stat-ic"><i data-icon="clock" data-size="16"></i></span>Nesta semana</p>
+          <p class="v" id="stat-week">0 h</p>
+          <div class="bar" id="stat-week-bar"><span></span></div>
+          <p class="s" id="stat-week-goal">Meta de 10 h</p>
+        </div>
+        <div class="stat c-purple">
+          <p class="k"><span class="stat-ic"><i data-icon="chart" data-size="16"></i></span>Horas registradas</p>
+          <p class="v" id="stat-hours">0 h</p>
+          <p class="s" id="stat-hours-plan">de ≈ 470 h planejadas</p>
+        </div>
+        <div class="stat c-orange">
+          <p class="k"><span class="stat-ic"><i data-icon="layers" data-size="16"></i></span>Fase atual</p>
+          <p class="v" id="stat-phase">0</p>
+          <p class="s" id="stat-phase-name">Preparar o terreno</p>
+        </div>
+      </div>
+
+      <button class="strip" type="button" id="acc-strip" data-nav="contas"><i data-icon="link"></i><span class="t"><strong>Contas e integrações</strong> · <span id="acc-strip-text">GitHub ainda não ligado ao projeto</span></span><i data-icon="right"></i></button>
+
+      <div class="head">
+        <h2 class="section-title">Continue de onde parou</h2>
+        <article class="next" aria-labelledby="next-title">
+          <div class="next-left" aria-hidden="true"><i data-icon="play" data-size="34"></i></div>
+          <div class="next-body">
+            <p class="kick" id="next-kick">Próximo passo · Fase 0</p>
+            <h3 id="next-title">Defina sua rotina de estudo</h3>
+            <p class="d" id="next-detail"></p>
+            <ul class="links" id="next-res"></ul>
+            <div class="next-actions">
+              <button class="btn-primary" type="button" id="next-done" disabled>Marcar como concluída</button>
+              <button class="mono-link" type="button" id="next-see">Ver na trilha</button>
+              <button class="mono-link" type="button" id="next-nav" data-nav="contas" hidden>Abrir Contas e integrações</button>
+            </div>
+          </div>
+          <div class="next-end" id="next-end" aria-hidden="true"></div>
+        </article>
+      </div>
+
+      <div class="head">
+        <h2 class="section-title">Sua rota</h2>
+        <ol class="route">
+          <li class="here"><p class="k">Hoje · você está aqui</p><p class="r">Analista de Integração</p><p class="s">Extração, tratamento e carga de dados de ERP.</p></li>
+          <li><p class="k">Meta 1 · a partir de junho de 2027</p><p class="r">Engenheiro de Dados</p><p class="s">Fases 0 a 3: Python, nuvem, Spark, Databricks e DP-750.</p></li>
+          <li><p class="k">Meta 2 · 2028 em diante</p><p class="r">Engenheiro de IA</p><p class="s">Fases 4 e 5: RAG, agentes, avaliação e AI-103.</p></li>
+        </ol>
+      </div>
+
+      <div class="two">
+        <section class="card" aria-labelledby="t-agenda">
+          <h2 id="t-agenda"><i data-icon="calendar"></i>Agenda de estudos</h2>
+          <ul class="agenda">
+            <li><span class="day">Terça</span><span class="t">19h às 21h</span></li>
+            <li><span class="day">Quinta</span><span class="t">19h às 21h</span></li>
+            <li><span class="day">Sábado</span><span class="t">9h às 13h</span></li>
+          </ul>
+          <p class="note">No seu Google Agenda até 19 de dezembro de 2027, com aviso 10 minutos antes. O alarme do celular toca às 18h50 nas terças e quintas e às 8h50 aos sábados. Sem estudo em 24/12, 26/12, 31/12 e 02/01.</p>
+        </section>
+        <section class="card" aria-labelledby="t-hab">
+          <h2 id="t-hab"><i data-icon="check"></i>Hábitos de toda semana</h2>
+          <ul class="habits">
+            <li><strong>Inglês técnico, 20 a 30 minutos por dia</strong><span>Leia documentação e assista às aulas em inglês. Boa parte das vagas de dados e IA pede fluência.</span></li>
+            <li><strong>Aprenda em público</strong><span>Um post no LinkedIn a cada projeto concluído, com o link do GitHub. No Zoomcamp isso ainda vale pontos extras.</span></li>
+            <li><strong>Uma técnica por mês no trabalho</strong><span>Cada rotina de migração que você automatiza em Python vira experiência real de engenharia de dados.</span></li>
+            <li><strong>A faculdade a seu favor</strong><span>Dê prioridade às disciplinas de banco de dados, programação e engenharia de software do ADS.</span></li>
+            <li><strong>Invista nas provas, não em cursos caros</strong><span>Tudo o que o plano indica para estudar é gratuito. O dinheiro vai para a DP-750 e a AI-103.</span></li>
+            <li><strong>Dados de clientes nunca saem da empresa</strong><span>No GitHub, use dados fictícios (Faker) ou bases públicas (Olist), e nunca publique senhas.</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="foot">Plano montado em 29 de setembro de 2026 com base no LinkedIn Empregos em Alta 2026, no Guia Salarial Robert Half 2026, no Estudo de Carreiras em Tecnologia do Inteli e nas páginas oficiais da Microsoft Learn, da Databricks e da DataTalks.Club. Datas de turmas e provas mudam: confira a página oficial antes de se inscrever.</p>
+    </section>
+
+    <!-- MINHA TRILHA -->
+    <section class="view" id="view-trilha" aria-labelledby="t-trilha" hidden>
+      <div class="head">
+        <button class="back" type="button" data-nav="inicio"><i data-icon="left" data-size="14"></i>Voltar</button>
+        <p class="live">Trilha ativa!</p>
+        <h1 class="display" id="t-trilha">Engenharia de Dados e IA</h1>
+        <p class="lead" id="trilha-lead">39 etapas em 6 fases. Toque no bloco azul de uma etapa para marcá-la como concluída, ou no nome dela para ver os cursos.</p>
+        <div class="chips" role="group" aria-label="Filtrar etapas">
+          <button type="button" data-filter="all" aria-pressed="true">Todas</button>
+          <button type="button" data-filter="todo" aria-pressed="false">Pendentes</button>
+          <button type="button" data-filter="done" aria-pressed="false">Concluídas</button>
+        </div>
+      </div>
+      <div id="tracks" class="phases"></div>
+    </section>
+
+    <!-- CURSOS -->
+    <section class="view" id="view-cursos" aria-labelledby="t-cursos" hidden>
+      <div class="head">
+        <h1 class="page-title" id="t-cursos">Cursos e links</h1>
+        <p class="lead">Todos os cursos e materiais gratuitos do plano, ligados à etapa em que aparecem.</p>
+      </div>
+      <div class="filters">
+        <div class="field"><label for="f-status">Status</label><div class="select"><select id="f-status"><option value="all">Todos</option><option value="done">Concluídos</option><option value="doing">Em andamento</option><option value="todo">Não iniciados</option></select><i data-icon="chev"></i></div></div>
+        <div class="field"><label for="f-fase">Fases</label><div class="select"><select id="f-fase"><option value="all">Todas</option></select><i data-icon="chev"></i></div></div>
+        <div class="field lang-f"><label for="f-lang">Idioma</label><div class="select"><select id="f-lang"><option value="all">Todos</option><option value="PT">Português</option><option value="EN">Inglês</option></select><i data-icon="chev"></i></div></div>
+        <div class="field q"><label for="f-q">Buscar</label><div class="qbox"><input id="f-q" type="search" placeholder="Busque por curso ou etapa" autocomplete="off"><button type="button" id="f-clear" aria-label="Limpar filtros"><i data-icon="x"></i></button></div></div>
+      </div>
+      <div class="sortrow">
+        <p class="count" id="c-count" role="status"></p>
+        <button class="mono-link" type="button" id="f-sort" style="text-transform:uppercase">Ordenando por: ordem do plano<i data-icon="chev" data-size="14"></i></button>
+      </div>
+      <table class="ctable">
+        <thead><tr><th scope="col">Conteúdo</th><th scope="col">Status</th><th scope="col">Idioma</th><th scope="col">Link</th></tr></thead>
+        <tbody id="c-body"></tbody>
+      </table>
+      <p class="empty" id="c-empty" hidden>Nenhum curso encontrado com esses filtros. Toque no X para limpar.</p>
+    </section>
+
+    <!-- HORAS -->
+    <section class="view" id="view-horas" aria-labelledby="t-horas" hidden>
+      <div class="head">
+        <h1 class="page-title" id="t-horas">Horas de estudo</h1>
+        <p class="lead">Registre cada sessão para acompanhar sua constância. O plano pede de 8 a 10 horas por semana.</p>
+      </div>
+      <div class="hgrid">
+        <section class="card" aria-labelledby="t-semana">
+          <h2 id="t-semana"><i data-icon="clock"></i>Nesta semana</h2>
+          <div class="week">
+            <svg id="week-ring" width="110" height="110" viewBox="0 0 110 110" aria-hidden="true"></svg>
+            <div><p class="big" id="week-hours">0 h</p><p class="note" id="week-goal-txt">de 10 h de meta, de segunda a domingo</p></div>
+          </div>
+          <div class="goal-row"><label class="flabel" for="goal-select">Meta semanal</label><div class="select"><select id="goal-select"><option value="4">4 h</option><option value="6">6 h</option><option value="8">8 h</option><option value="10" selected>10 h</option><option value="12">12 h</option><option value="15">15 h</option></select><i data-icon="chev"></i></div></div>
+        </section>
+        <section class="card" aria-labelledby="t-grafico">
+          <h2 id="t-grafico"><i data-icon="layers"></i>Últimas 8 semanas</h2>
+          <figure class="chart">
+            <svg id="chart" viewBox="0 0 280 128" role="img" aria-label="Horas por semana nas últimas 8 semanas"></svg>
+            <figcaption>Horas por semana, de segunda a domingo. A linha tracejada é a meta.</figcaption>
+          </figure>
+        </section>
+        <section class="card" aria-labelledby="t-reg">
+          <h2 id="t-reg"><i data-icon="check"></i>Registrar sessão</h2>
+          <form id="log-form" novalidate>
+            <div class="fgrid">
+              <div class="field"><label for="log-date">Data</label><input type="date" id="log-date" required></div>
+              <div class="field"><label for="log-hours">Horas</label><input type="text" id="log-hours" inputmode="decimal" autocomplete="off" placeholder="1,5"></div>
+              <div class="field wide"><label for="log-note">O que você estudou (opcional)</label><input type="text" id="log-note" maxlength="140" autocomplete="off" placeholder="Ex.: pandas, groupby e merge" aria-describedby="log-note-hint"><p class="note" id="log-note-hint">Aparece no seu GitHub. Não cite clientes nem dados da empresa.</p></div>
+            </div>
+            <p class="form-msg" id="log-msg" role="status"></p>
+            <button class="btn-primary" type="submit" id="log-submit" style="width:100%">Registrar horas</button>
+          </form>
+        </section>
+        <section class="card" aria-labelledby="t-sess">
+          <h2 id="t-sess"><i data-icon="book"></i>Sessões recentes</h2>
+          <ol class="log" id="log-list"></ol>
+          <p class="empty" id="log-empty">Nenhuma sessão registrada ainda. Registre a primeira ao lado.</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- CERTIFICAÇÕES -->
+    <section class="view" id="view-certificacoes" aria-labelledby="t-cert" hidden>
+      <div class="head">
+        <h1 class="page-title" id="t-cert">Certificações</h1>
+        <p class="lead">Situação conferida em 29 de setembro de 2026. As provas são pagas e o preço varia por país; a preparação indicada no plano é gratuita.</p>
+        <a class="mono-link" href="https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications" target="_blank" rel="noopener noreferrer">Avaliações práticas gratuitas da Microsoft<i data-icon="ext" data-size="14"></i></a>
+      </div>
+      <div class="twrap">
+        <table class="ctab">
+          <thead><tr><th scope="col">Certificação</th><th scope="col">Prova</th><th scope="col">Quando</th><th scope="col">Situação</th></tr></thead>
+          <tbody id="cert-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CONTAS E INTEGRAÇÕES -->
+    <section class="view" id="view-contas" aria-labelledby="t-contas" hidden>
+      <div class="head">
+        <h1 class="page-title" id="t-contas">Contas e integrações</h1>
+        <p class="lead">O GitHub é o centro do projeto: é lá que a trilha, os projetos e os links dos seus perfis ficam juntos. Várias ferramentas do plano deixam entrar com a conta do GitHub ou salvam o trabalho nele. Marque aqui o que já está pronto.</p>
+      </div>
+
+      <article class="hub" aria-labelledby="t-gh">
+        <div class="hub-left" aria-hidden="true"><i data-icon="git" data-size="34"></i></div>
+        <div class="hub-body">
+          <p class="kick">Centro do projeto</p>
+          <h2 id="t-gh">GitHub</h2>
+          <p class="d">Depois de ligado, o Claude atualiza toda semana o repositório trilha-dados-ia com o que você marca nesta página: a porcentagem da trilha, as etapas concluídas, as horas de estudo e os links dos seus perfis. O código dos projetos é você quem envia, cada projeto no seu próprio repositório: é isso que o recrutador abre.</p>
+          <p class="gh-sync" id="gh-sync" data-mode="off" role="status">Atualização automática: ainda não ligada. Siga os 3 passos abaixo.</p>
+          <div class="gh-user">
+            <div class="field"><label class="flabel" for="gh-user">Seu usuário do GitHub</label><input class="inp" id="gh-user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="100" placeholder="Ex.: josericardo"></div>
+            <div class="gh-links" id="gh-links" hidden>
+              <a class="mono-link" id="gh-profile" href="https://github.com/" target="_blank" rel="noopener noreferrer" hidden>Abrir perfil<i data-icon="ext" data-size="13"></i></a>
+              <a class="mono-link" id="gh-repo-link" href="https://github.com/" target="_blank" rel="noopener noreferrer" hidden>Abrir repositório<i data-icon="ext" data-size="13"></i></a>
+            </div>
+          </div>
+          <p class="form-msg" id="gh-user-msg" role="status"></p>
+          <ol class="hsteps">
+            <li id="hs-1"><span class="n">1</span><div><strong>Crie o repositório trilha-dados-ia</strong><span class="s">O link abre o formulário do GitHub já preenchido com o nome, a descrição e a opção público. Deixe o resto como está e clique em Create repository.</span><a class="mono-link" id="gh-new" href="https://github.com/new?name=trilha-dados-ia&amp;description=Minha+trilha+de+estudos+para+Engenharia+de+Dados+e+IA&amp;visibility=public" target="_blank" rel="noopener noreferrer">Criar o repositório<i data-icon="ext" data-size="13"></i></a></div><label class="tick"><input type="checkbox" id="gh-created"><span>Feito</span></label></li>
+            <li id="hs-2"><span class="n">2</span><div><strong>Conecte o GitHub ao Claude</strong><span class="s">No claude.ai, abra Configurações, depois Conectores, conecte sua conta do GitHub e libere o acesso ao repositório trilha-dados-ia.</span></div><label class="tick"><input type="checkbox" id="gh-linked"><span>Feito</span></label></li>
+            <li id="hs-3"><span class="n">3</span><div><strong>Avise o Claude no chat</strong><span class="s">Ele envia o plano para o repositório e liga a atualização de toda semana. Quando ela rodar, a data aparece aqui em cima.</span></div></li>
+          </ol>
+        </div>
+      </article>
+
+      <div class="two">
+        <section class="card" aria-labelledby="t-pack">
+          <h2 id="t-pack"><i data-icon="award"></i>Benefícios de estudante no GitHub</h2>
+          <p class="body">Como aluno de ADS, você pode pedir o GitHub Student Developer Pack. Os benefícios ficam na sua conta do GitHub, de graça enquanto você estuda:</p>
+          <ul class="perks">
+            <li><i data-icon="check" data-size="16"></i><span>GitHub Copilot Student, GitHub Pro e Codespaces para programar no navegador</span></li>
+            <li><i data-icon="check" data-size="16"></i><span>US$ 100 de crédito no Azure e mais de 25 serviços gratuitos, para maiores de 18 anos</span></li>
+            <li><i data-icon="check" data-size="16"></i><span>3 meses de DataCamp e 6 meses de Educative</span></li>
+            <li><i data-icon="check" data-size="16"></i><span>IDEs da JetBrains e US$ 50 no MongoDB Atlas</span></li>
+          </ul>
+          <p class="note">Você precisa comprovar a matrícula na Metodista, com o e-mail da faculdade ou um documento com a data atual: carteirinha, comprovante de matrícula ou grade de horários. Nas fases 1 e 2, use o Copilot para revisar o seu código, não para escrever por você.</p>
+          <div class="card-acts"><a class="btn-primary" id="sp-link" href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer">Pedir o pacote</a><label class="tick"><input type="checkbox" id="sp-created"><span>Pacote aprovado</span></label></div>
+        </section>
+        <section class="card" aria-labelledby="t-antes">
+          <h2 id="t-antes"><i data-icon="check"></i>Antes de criar as contas</h2>
+          <ul class="habits">
+            <li><strong>Ative a verificação em duas etapas no GitHub</strong><span>Ele vira a chave de quase tudo: login, envio de código e várias das ferramentas abaixo.</span></li>
+            <li><strong>Use sempre o mesmo e-mail</strong><span>Fica mais fácil recuperar acesso e ligar uma conta à outra.</span></li>
+            <li><strong>Aqui vão só nomes de usuário</strong><span>Eles já são públicos. Nunca coloque senha, e-mail ou token nesta página.</span></li>
+            <li><strong>Não precisam de conta</strong><span>WSL, Python, Git, PostgreSQL, Ollama, FastAPI e o Docker no seu computador. É só instalar.</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="sortrow">
+        <h2 class="section-title">Ferramentas do plano</h2>
+        <p class="count" id="acc-count" role="status">0 de 12 prontas</p>
+      </div>
+      <div class="tools" id="tools"></div>
+    </section>
+  </main>
+
+  <nav class="bottomnav" aria-label="Menu">
+    <button type="button" data-nav="inicio"><i data-icon="home"></i>Início</button>
+    <button type="button" data-nav="trilha"><i data-icon="layers"></i>Trilha</button>
+    <button type="button" data-nav="cursos"><i data-icon="book"></i>Cursos</button>
+    <button type="button" data-nav="horas"><i data-icon="clock"></i>Horas</button>
+    <button type="button" data-nav="certificacoes"><i data-icon="award"></i>Provas</button>
+    <button type="button" data-nav="contas"><i data-icon="link"></i>Contas</button>
+  </nav>
+</div>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
+  <div class="gate-card">
+    <div class="gate-art">
+      <svg viewBox="0 0 400 230" role="img" aria-label="Ilustração: dados saem de bancos, passam por um pipeline, viram camadas de um lakehouse e alimentam uma rede neural">
+  <defs>
+    <linearGradient id="hg-flow2" x1="0" x2="1"><stop offset="0" stop-color="#6BD1FF"/><stop offset="1" stop-color="#00E07D"/></linearGradient>
+    <linearGradient id="hg-box2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.22)"/><stop offset="1" stop-color="rgba(255,255,255,.06)"/></linearGradient>
+  </defs>
+  <g fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="1.8">
+    <path d="M14 36v26c0 4 10 7 22 7s22-3 22-7V36"/><ellipse cx="36" cy="36" rx="22" ry="7"/>
+    <path d="M14 98v26c0 4 10 7 22 7s22-3 22-7V98"/><ellipse cx="36" cy="98" rx="22" ry="7"/>
+    <path d="M14 160v26c0 4 10 7 22 7s22-3 22-7v-26"/><ellipse cx="36" cy="160" rx="22" ry="7"/>
+  </g>
+  <g font-family="Roboto Mono,monospace" font-size="9" fill="#D7E3FF" text-anchor="middle"><text x="36" y="86">ERP</text><text x="36" y="148">SQL</text><text x="36" y="210">API</text></g>
+  <g fill="none" stroke="url(#hg-flow2)" stroke-width="2.4" stroke-linecap="round">
+    <path class="flow" d="M60 52 C100 52 100 112 140 112"/>
+    <path class="flow" d="M60 114 L140 114"/>
+    <path class="flow" d="M60 176 C100 176 100 116 140 116"/>
+    <path class="flow" d="M206 114 L236 114"/>
+    <path class="flow" d="M318 114 L336 114"/>
+  </g>
+  <rect x="140" y="82" width="66" height="64" rx="14" fill="url(#hg-box2)" stroke="#fff" stroke-width="1.8"/>
+  <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"><circle cx="173" cy="108" r="9"/><path d="M173 93v5M173 118v5M158 108h5M183 108h5M162 97l3.5 3.5M180.5 115.5L184 119M162 119l3.5-3.5M180.5 100.5L184 97"/></g>
+  <text x="173" y="138" font-family="Roboto Mono,monospace" font-size="9" fill="#fff" text-anchor="middle">ETL</text>
+  <g>
+    <rect x="238" y="72" width="80" height="22" rx="6" fill="#FFBA05"/><text x="278" y="87" font-family="Roboto Mono,monospace" font-size="9" fill="#2A1D00" text-anchor="middle" font-weight="600">OURO</text>
+    <rect x="238" y="102" width="80" height="22" rx="6" fill="#D5DEE8"/><text x="278" y="117" font-family="Roboto Mono,monospace" font-size="9" fill="#13243A" text-anchor="middle" font-weight="600">PRATA</text>
+    <rect x="238" y="132" width="80" height="22" rx="6" fill="#D08A4E"/><text x="278" y="147" font-family="Roboto Mono,monospace" font-size="9" fill="#2A1400" text-anchor="middle" font-weight="600">BRONZE</text>
+    <text x="278" y="170" font-family="Roboto Mono,monospace" font-size="8.5" fill="#D7E3FF" text-anchor="middle">LAKEHOUSE</text>
+  </g>
+  <g stroke="rgba(255,255,255,.55)" stroke-width="1.2"><path d="M346 84L380 102M346 84L380 130M346 114L380 102M346 114L380 130M346 144L380 102M346 144L380 130"/></g>
+  <g fill="#6BD1FF" stroke="#fff" stroke-width="1.5"><circle class="node" cx="346" cy="84" r="7"/><circle class="node" cx="346" cy="114" r="7"/><circle class="node" cx="346" cy="144" r="7"/></g>
+  <g fill="#00E07D" stroke="#fff" stroke-width="1.5"><circle class="node" cx="380" cy="102" r="7"/><circle class="node" cx="380" cy="130" r="7"/></g>
+  <text x="363" y="170" font-family="Roboto Mono,monospace" font-size="8.5" fill="#D7E3FF" text-anchor="middle">IA</text>
+  <path d="M372 46l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FFBA05"/>
+</svg>
+      <h2>Do dado bruto à inteligência artificial.</h2>
+      <p>39 etapas, 6 fases e cursos gratuitos, com seu progresso salvo e ligado ao GitHub.</p>
+    </div>
+    <div class="gate-body">
+      <!-- GATE:INICIO -->
+      <h1 id="gate-title">Entre para acessar sua trilha</h1>
+      <p id="gate-msg">Seu progresso, suas horas e suas contas ficam salvos na sua conta. Entre para ver e continuar de onde parou.</p>
+      <a class="gate-btn primary" id="gate-login" href="https://claude.ai/login" target="_blank" rel="noopener noreferrer"><i data-icon="user"></i>Entrar com e-mail ou Google</a>
+      <ol class="gate-steps"><li>Entre na sua conta pelo botão acima.</li><li>Volte para esta aba e toque em <strong>Já entrei</strong>.</li></ol>
+      <button class="gate-btn" type="button" id="gate-retry"><i data-icon="check"></i>Já entrei</button>
+      <button class="gate-btn" type="button" id="gate-skip"><i data-icon="right"></i>Só olhar, sem salvar</button>
+      <p class="gate-note">O GitHub fica ligado à trilha pela aba Contas e integrações, depois que você entra.</p>
+      <!-- GATE:FIM -->
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden><span id="toast-text"></span><button type="button" id="toast-undo" hidden>Desfazer</button></div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- Tema claro/escuro (preferência só deste navegador) ---------- */
+var THEME_KEY = "trilha-tema";
+function systemTheme(){ try { return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; } catch (e) { return "dark"; } }
+function currentTheme(){ return document.documentElement.getAttribute("data-theme") || systemTheme(); }
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  var b = document.getElementById("theme-btn");
+  if (b){ b.setAttribute("aria-label", t === "dark" ? "Mudar para o tema claro" : "Mudar para o tema escuro"); b.setAttribute("title", b.getAttribute("aria-label")); }
+}
+(function(){ var saved = null; try { saved = localStorage.getItem(THEME_KEY); } catch (e) {} if (saved === "light" || saved === "dark") applyTheme(saved); })();
+
+/* ---------- O plano ---------- */
+var PLAN = [
+ {id:"f0", n:0, track:1, title:"Preparar o terreno", period:"5 a 11 de outubro de 2026", start:"2026-10-05", end:"2026-10-11",
+  goal:"Deixar ambiente, contas e rotina prontos para não perder tempo depois.",
+  steps:[
+   {id:"f0-rotina", tag:"Rotina", h:1, title:"Defina sua rotina de estudo",
+    detail:"Reserve três blocos fixos por semana, como os que já estão na sua agenda: terças e quintas à noite e sábado de manhã. Registre cada sessão na aba Horas."},
+   {id:"f0-github", tag:"Carreira", h:1, title:"Ligue seu GitHub ao projeto", nav:"contas",
+    detail:"Você já tem conta. Crie o repositório trilha-dados-ia e conecte o GitHub ao Claude, como mostra a aba Contas e integrações: o repositório passa a receber seu progresso toda semana. Os projetos do plano também vão para o GitHub, cada um no seu repositório, com um README que explica o problema, a arquitetura e como rodar.",
+    res:[["GitHub","https://github.com/","EN"]]},
+   {id:"f0-ambiente", tag:"Prática", h:3, title:"Monte o ambiente no seu computador",
+    detail:"Instale VS Code, Python 3 e Git. No Windows, ative o WSL2 para ter um terminal Linux, o padrão no dia a dia de dados.",
+    res:[["Instalar o WSL","https://learn.microsoft.com/pt-br/windows/wsl/install","PT"],["VS Code","https://code.visualstudio.com/","EN"]]},
+   {id:"f0-contas", tag:"Prática", h:1, title:"Crie as contas gratuitas de estudo", nav:"contas",
+    detail:"Databricks Free Edition (sem cartão de crédito), conta Microsoft para o Microsoft Learn, Kaggle e DataTalks.Club. É nelas que você vai praticar e fazer os cursos. A aba Contas e integrações mostra quais deixam entrar com o GitHub e quais salvam o trabalho nele.",
+    res:[["Databricks Free Edition","https://www.databricks.com/learn/free-edition","EN"],["Microsoft Learn","https://learn.microsoft.com/pt-br/training/","PT"],["Kaggle Learn","https://www.kaggle.com/learn","EN"]]},
+   {id:"f0-zoomcamp", tag:"Estudo", h:0.5, title:"Inscreva-se no Data Engineering Zoomcamp",
+    detail:"O curso é gratuito e a turma ao vivo costuma começar em janeiro. Só quem acompanha a turma recebe certificado. Entre também no Slack da DataTalks.Club.",
+    res:[["Inscrição no Data Engineering Zoomcamp","https://courses.datatalks.club/register/de-zoomcamp/","EN"],["Slack da DataTalks.Club","https://datatalks.club/slack.html","EN"]]}
+  ]},
+ {id:"f1", n:1, track:1, title:"Python e ferramentas de engenheiro", period:"12 de outubro a 20 de dezembro de 2026", start:"2026-10-12", end:"2026-12-20",
+  goal:"Fazer com código o que você já faz no trabalho: extrair, tratar, validar e carregar dados.",
+  note:"Use as disciplinas de programação e banco de dados do ADS para reforçar esta fase.",
+  steps:[
+   {id:"f1-python", tag:"Estudo", h:25, title:"Python do zero ao intermediário",
+    detail:"Variáveis, listas e dicionários, funções, leitura de arquivos e tratamento de erros. Faça os exercícios, não só as aulas.",
+    res:[["Curso em Vídeo: Python 3, Mundo 1","https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6","PT"],["Kaggle Learn: Python","https://www.kaggle.com/learn/python","EN"]]},
+   {id:"f1-pandas", tag:"Estudo", h:15, title:"pandas para tratar dados",
+    detail:"Ler CSV, Excel e SQL; limpar, juntar e agrupar tabelas; gravar em Parquet. É a versão em código das suas validações de migração.",
+    res:[["Kaggle Learn: Pandas","https://www.kaggle.com/learn/pandas","EN"],["Livro Python for Data Analysis","https://wesmckinney.com/book/","EN"]]},
+   {id:"f1-bancos", tag:"Prática", h:8, title:"Conecte o Python aos bancos que você já usa",
+    detail:"SQLAlchemy com SQL Server, PostgreSQL, MySQL e Firebird. Aprenda a ler em lotes, para tabelas grandes, e a gravar sem duplicar registros.",
+    res:[["Tutorial oficial do SQLAlchemy","https://docs.sqlalchemy.org/en/20/tutorial/index.html","EN"]]},
+   {id:"f1-git", tag:"Estudo", h:5, title:"Git e GitHub no dia a dia",
+    detail:"Commit, branch, pull request e .gitignore. Regra de ouro: nunca subir senha nem dado de cliente.",
+    res:[["Livro Pro Git em português","https://git-scm.com/book/pt-br/v2","PT"]]},
+   {id:"f1-docker", tag:"Prática", h:10, title:"Terminal Linux e Docker",
+    detail:"Comandos básicos de terminal, containers e docker compose para subir PostgreSQL, SQL Server e Firebird na sua máquina em minutos.",
+    res:[["Docker: primeiros passos","https://docs.docker.com/get-started/","EN"]]},
+   {id:"f1-sql", tag:"Prática", h:10, title:"SQL avançado",
+    detail:"Window functions, CTEs, índices e plano de execução. Resolva os 50 exercícios: esse tipo de questão aparece em quase toda entrevista de dados.",
+    res:[["LeetCode SQL 50","https://leetcode.com/studyplan/top-sql-50/","EN"]]},
+   {id:"f1-trabalho", tag:"Trabalho", h:0, title:"Automatize uma rotina no seu trabalho",
+    detail:"Escolha uma extração ou validação de migração que você repete e faça em Python, com autorização do seu líder e sem tirar dados de clientes da empresa. Isso vira experiência real no currículo."},
+   {id:"f1-projeto", tag:"Projeto", h:20, title:"Projeto 1: Migrador de dados de ERP",
+    detail:"Pipeline em Python que extrai de um banco legado (Firebird ou MySQL com dados fictícios), limpa, valida e carrega no PostgreSQL, gerando um relatório de divergências. Tudo sobe com docker compose e tem README com diagrama.",
+    res:[["Faker, para gerar dados fictícios","https://faker.readthedocs.io/","EN"]]}
+  ]},
+ {id:"f2", n:2, track:1, title:"Engenharia de dados de ponta a ponta", period:"janeiro a março de 2027", start:"2027-01-11", end:"2027-03-28",
+  goal:"Fazer o Data Engineering Zoomcamp com a turma: nuvem, orquestração, data warehouse, dbt, Spark e streaming.",
+  note:"Se perder a turma de janeiro, siga pelo repositório no seu ritmo. Você aprende o mesmo, só não recebe o certificado.",
+  steps:[
+   {id:"f2-conceitos", tag:"Estudo", h:8, title:"Conceitos que caem em entrevista",
+    detail:"ETL e ELT, data lake, data warehouse e lakehouse, batch e streaming, modelagem dimensional (fatos e dimensões), Parquet e particionamento.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m1", tag:"Estudo", h:10, title:"Módulo 1: Docker, PostgreSQL, Terraform e Google Cloud",
+    detail:"Infraestrutura como código e o primeiro contato com a nuvem.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m2", tag:"Estudo", h:10, title:"Módulo 2: orquestração e data lake",
+    detail:"Agendar, reprocessar e monitorar pipelines com Kestra, gravando no Cloud Storage.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m3", tag:"Estudo", h:8, title:"Módulo 3: data warehouse no BigQuery",
+    detail:"Particionamento, clusterização e boas práticas para gastar pouco.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m4", tag:"Estudo", h:10, title:"Módulo 4: dbt",
+    detail:"Transformar dados brutos em modelos prontos para análise, com testes e documentação. O dbt aparece com frequência nas vagas.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m56", tag:"Estudo", h:12, title:"Módulos 5 e 6: plataforma de dados e Spark",
+    detail:"Pipelines de ponta a ponta e processamento em lote com DataFrames e Spark SQL.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-m7", tag:"Estudo", h:8, title:"Módulo 7: streaming com Kafka",
+    detail:"Eventos em tempo real, Kafka Streams e controle de esquemas.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"f2-projeto", tag:"Projeto", h:25, title:"Projeto 2: projeto final do Zoomcamp",
+    detail:"Pipeline completo com dados de varejo, por exemplo a base pública de e-commerce da Olist: ingestão, data lake, warehouse, dbt e painel. Passar na revisão por pares dá o certificado.",
+    res:[["Base pública da Olist","https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce","EN"]]}
+  ]},
+ {id:"f3", n:3, track:1, title:"Databricks, Azure e certificação", period:"abril a início de junho de 2027", start:"2027-04-05", end:"2027-06-06",
+  goal:"Dominar a combinação que mais aparece nas vagas brasileiras (SQL, Python, Spark e Databricks na Azure) e tirar a DP-750.",
+  steps:[
+   {id:"f3-databricks", tag:"Estudo", h:22, title:"Databricks na prática",
+    detail:"Spark e PySpark, Delta Lake, arquitetura medalhão (bronze, prata e ouro), Unity Catalog e jobs, tudo na Free Edition. Os cursos da Databricks Academy são gratuitos, vários em português, e alguns dão credenciais para o LinkedIn.",
+    res:[["Databricks Academy","https://www.databricks.com/learn/training/home","EN"],["Databricks Free Edition","https://www.databricks.com/learn/free-edition","EN"]]},
+   {id:"f3-azure", tag:"Prática", h:10, title:"Azure para dados",
+    detail:"Data Lake Storage, Data Factory, Key Vault e Entra ID, que a DP-750 cobra. Use a conta gratuita e apague os recursos ao fim de cada estudo para não gerar cobrança.",
+    res:[["Conta gratuita da Azure","https://azure.microsoft.com/pt-br/free/","PT"]]},
+   {id:"f3-airflow", tag:"Estudo", h:8, title:"Airflow básico",
+    detail:"DAGs, agendamento e reprocessamento. Reescreva a orquestração do Projeto 1 em Airflow, que aparece com frequência nas vagas.",
+    res:[["Astronomer Academy","https://academy.astronomer.io/","EN"],["Documentação do Airflow","https://airflow.apache.org/docs/","EN"]]},
+   {id:"f3-projeto", tag:"Projeto", h:22, title:"Projeto 3: Lakehouse de varejo no Databricks",
+    detail:"Camadas bronze, prata e ouro em Delta Lake, job agendado, testes de qualidade e um painel com vendas por período, ticket médio e curva ABC de produtos. É o mundo comercial e de retaguarda que você conhece, sem a parte fiscal.",
+    res:[["Base pública da Olist","https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce","EN"]]},
+   {id:"f3-dp750", tag:"Certificação", h:15, title:"Certificação DP-750",
+    detail:"Azure Databricks Data Engineer Associate: prova de 120 minutos, disponível em português. Antes de marcar, faça a avaliação prática gratuita da Microsoft.",
+    res:[["Página da DP-750","https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/","PT"],["Avaliações práticas gratuitas","https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications","PT"]]},
+   {id:"f3-vagas", tag:"Carreira", h:0, title:"Marco: comece a se candidatar",
+    detail:"Com três projetos no GitHub e a DP-750, mire em Engenheiro de Dados júnior ou pleno e em Analista de Dados ou de Integração. Converse também no seu trabalho sobre assumir os pipelines de dados."}
+  ]},
+ {id:"f4", n:4, track:2, title:"Fundamentos de IA aplicada", period:"junho a setembro de 2027", start:"2027-06-07", end:"2027-09-26",
+  goal:"Construir aplicações com LLMs: RAG, busca vetorial e avaliação, com o LLM Zoomcamp.",
+  note:"O LLM Zoomcamp costuma começar em junho e dura cerca de 10 semanas. Confira a data na página de inscrição.",
+  steps:[
+   {id:"f4-fundamentos", tag:"Estudo", h:10, title:"Como a IA generativa funciona",
+    detail:"Tokens, janela de contexto, embeddings, temperatura, alucinação e custo por token. A trilha de fundamentos da Microsoft é gratuita e em português.",
+    res:[["Fundamentos de IA do Azure","https://learn.microsoft.com/pt-br/credentials/certifications/azure-ai-fundamentals/","PT"],["Hugging Face LLM Course","https://huggingface.co/learn/llm-course/chapter1/1","EN"]]},
+   {id:"f4-ollama", tag:"Prática", h:6, title:"Modelos no seu computador, sem pagar API",
+    detail:"Rode modelos abertos pequenos com o Ollama e chame por Python. Assim você pratica sem cartão de crédito.",
+    res:[["Ollama","https://ollama.com/","EN"]]},
+   {id:"f4-fastapi", tag:"Estudo", h:8, title:"APIs com FastAPI",
+    detail:"Exponha seus pipelines e modelos como serviço: rotas, validação de dados e documentação automática.",
+    res:[["FastAPI em português","https://fastapi.tiangolo.com/pt/","PT"]]},
+   {id:"f4-llmzoomcamp", tag:"Estudo", h:50, title:"LLM Zoomcamp",
+    detail:"RAG, busca vetorial e híbrida, agentes, function calling, avaliação e monitoramento. Gratuito, com certificado para quem acompanha a turma.",
+    res:[["Inscrição no LLM Zoomcamp","https://courses.datatalks.club/register/llm-zoomcamp/","EN"],["Repositório do LLM Zoomcamp","https://github.com/DataTalksClub/llm-zoomcamp","EN"]]},
+   {id:"f4-ml", tag:"Estudo", h:8, title:"Machine learning básico",
+    detail:"Regressão, classificação, treino e teste, métricas. O suficiente para conversar com cientistas de dados e entender o que as vagas chamam de ML.",
+    res:[["Kaggle Learn: Intro to Machine Learning","https://www.kaggle.com/learn/intro-to-machine-learning","EN"]]},
+   {id:"f4-projeto", tag:"Projeto", h:25, title:"Projeto 4: Assistente de suporte de ERP com RAG",
+    detail:"Responde dúvidas de usuários a partir de manuais e procedimentos, sempre citando a fonte, com um conjunto de perguntas de teste para medir o acerto. Use documentos públicos ou escritos por você, nunca material interno sem autorização."}
+  ]},
+ {id:"f5", n:5, track:2, title:"Agentes, avaliação e produção", period:"outubro a dezembro de 2027", start:"2027-10-04", end:"2027-12-19",
+  goal:"O que separa uma demonstração de um produto: agentes com ferramentas, dados para IA, avaliação e custo.",
+  steps:[
+   {id:"f5-agentes", tag:"Estudo", h:20, title:"Agentes com ferramentas",
+    detail:"Function calling, orquestração de várias etapas e MCP para conectar o agente a outros sistemas.",
+    res:[["Hugging Face Agents Course","https://huggingface.co/learn/agents-course","EN"]]},
+   {id:"f5-dados-ia", tag:"Prática", h:12, title:"Dados para IA",
+    detail:"Pipelines que alimentam a IA: ingestão de documentos, divisão em trechos, embeddings e busca vetorial no PostgreSQL com pgvector.",
+    res:[["pgvector","https://github.com/pgvector/pgvector","EN"]]},
+   {id:"f5-avaliacao", tag:"Estudo", h:15, title:"Avaliação e LLMOps",
+    detail:"Conjunto de perguntas de teste versionado, métricas separadas para a busca e para a resposta, LLM como juiz calibrado contra avaliação humana, custo por resposta e latência.",
+    res:[["Repositório do LLM Zoomcamp","https://github.com/DataTalksClub/llm-zoomcamp","EN"]]},
+   {id:"f5-projeto", tag:"Projeto", h:30, title:"Projeto 5: Agente de mapeamento de dados",
+    detail:"Recebe as estruturas de origem e de destino, como no seu trabalho, sugere o de-para das colunas, gera o SQL de transformação e valida a carga com testes. Junta dados e IA num problema que poucos candidatos conhecem por dentro."},
+   {id:"f5-ai103", tag:"Certificação", h:20, title:"Certificação AI-103",
+    detail:"Azure AI App and Agent Developer Associate: agentes e IA generativa no Microsoft Foundry. Substituiu a AI-102 em 2026, tem 120 minutos e está disponível em português.",
+    res:[["Página da AI-103","https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/","PT"],["Avaliações práticas gratuitas","https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications","PT"]]},
+   {id:"f5-vagas", tag:"Carreira", h:0, title:"Marco: vagas de Engenheiro de IA",
+    detail:"Mire em vagas que juntam dados e IA: Engenheiro de IA, Engenheiro de ML e Engenheiro de Dados com foco em IA. Leve os projetos 4 e 5 para as entrevistas."}
+  ]}
+];
+
+var TRACKS = {
+  1:{k:"Trilha 1 · Fases 0 a 3", t:"Engenharia de Dados", d:"Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de junho de 2027."},
+  2:{k:"Trilha 2 · Fases 4 e 5", t:"Engenharia de IA", d:"Engenheiro de IA costuma ser o segundo passo: quem é contratado chega com 3,6 anos de experiência, em média, vindo de engenharia de software, ciência de dados ou engenharia de dados (LinkedIn, 2026). Estas fases preparam você enquanto já trabalha com dados."}
+};
+
+var CERTS = [
+  {name:"Azure Databricks Data Engineer Associate", code:"DP-750", when:"Fase 3, até junho de 2027", on:true, note:"Lançada em 2026. 120 minutos, em português. É a principal da trilha de dados.", url:"https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/"},
+  {name:"Azure AI App and Agent Developer Associate", code:"AI-103", when:"Fase 5, dezembro de 2027", on:true, note:"Substituiu a AI-102 em 30/06/2026. 120 minutos, em português.", url:"https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/"},
+  {name:"Fabric Data Engineer Associate", code:"DP-700", when:"Alternativa à DP-750", on:true, note:"Vale a pena se as vagas que você mirar pedirem Microsoft Fabric. Em agosto de 2026, cerca de 230 vagas no Brasil citavam a plataforma.", url:"https://learn.microsoft.com/pt-br/credentials/certifications/fabric-data-engineer-associate/"},
+  {name:"Databricks Certified Data Engineer Associate", code:"Databricks", when:"Alternativa à DP-750", on:true, note:"Programa atualizado em maio de 2026. A Databricks costuma dar vouchers de 50% no Learning Festival; em 2026 foi em janeiro.", url:"https://www.databricks.com/learn/certification/data-engineer-associate"},
+  {name:"Azure Data Fundamentals", code:"DP-900", when:"Opcional, antes da Fase 3", on:true, note:"Prova de fundamentos. Serve como primeira certificação, mas não é pré-requisito da DP-750.", url:"https://learn.microsoft.com/pt-br/credentials/certifications/azure-data-fundamentals/"},
+  {name:"Azure Data Engineer Associate", code:"DP-203", when:"Não faça", on:false, note:"Aposentada desde 31/03/2025. Ainda aparece em roteiros antigos."},
+  {name:"Azure AI Engineer Associate", code:"AI-102", when:"Não faça", on:false, note:"Aposentada desde 30/06/2026. Substituída pela AI-103."}
+];
+
+var STATUS_LABEL = {queued:"Na fila", running:"Em andamento", done:"Concluída", late:"Atrasada"};
+var TAG_SUB = {Projeto:"Projeto de portfólio", Carreira:"Marco de carreira", "Certificação":"Certificação", Estudo:"Estudo", "Prática":"Prática", Trabalho:"No trabalho", Rotina:"Rotina"};
+var GOALS = [4,6,8,10,12,15];
+var VIEWS = ["inicio","trilha","cursos","horas","certificacoes","contas"];
+
+/* Contas: ferramentas do plano. checks = o que dá para marcar; profile = link público montado com o usuário. */
+var TOOLS = [
+  {id:"vscode", ini:"VS", name:"VS Code", sub:"Editor de código", phase:0, gh:true, enter:"Entre com o GitHub",
+   how:"Com o GitHub conectado, você faz commit e push direto do editor.",
+   url:"https://code.visualstudio.com/", cta:"Baixar", help:["Usar o GitHub no VS Code","https://code.visualstudio.com/docs/sourcecontrol/github"],
+   checks:[["created","Instalado"],["linked","GitHub conectado"]]},
+  {id:"microsoft", ini:"MS", name:"Conta Microsoft", sub:"Microsoft Learn, provas e Azure", phase:0, gh:true, enter:"Dá para entrar com o GitHub",
+   how:"É só o login: a Microsoft não passa a ver seus repositórios. A mesma conta serve para os cursos, as provas DP-750 e AI-103 e o Azure.",
+   url:"https://learn.microsoft.com/pt-br/training/", cta:"Abrir o Microsoft Learn", help:["Como entrar com o GitHub","https://learn.microsoft.com/pt-br/azure/devtest/offer/how-to-sign-into-azure-with-github"],
+   checks:[["created","Conta criada"],["linked","Entra com o GitHub"]]},
+  {id:"datatalks", ini:"DT", name:"DataTalks.Club", sub:"Data Engineering Zoomcamp e LLM Zoomcamp", phase:0, gh:true, enter:"Entre com o GitHub",
+   how:"As lições de casa e os projetos são entregues com o link do seu repositório público no GitHub.",
+   url:"https://courses.datatalks.club/register/de-zoomcamp/", cta:"Inscrever-se",
+   checks:[["created","Inscrito"],["linked","Entra com o GitHub"]]},
+  {id:"databricks", ini:"DB", name:"Databricks Free Edition", sub:"Spark, Delta Lake e notebooks", phase:0, gh:false, enter:"Conta própria, sem cartão de crédito",
+   how:"Git folders: seus notebooks vão e voltam de um repositório do GitHub. Ligue em Settings, Linked accounts, com o app da Databricks.",
+   url:"https://www.databricks.com/learn/free-edition", cta:"Criar conta", help:["Como ligar ao GitHub","https://docs.databricks.com/aws/en/repos/get-access-tokens-from-git-provider"],
+   checks:[["created","Conta criada"],["linked","Ligada ao GitHub"]]},
+  {id:"kaggle", ini:"KG", name:"Kaggle", sub:"Cursos rápidos e bases de dados", phase:0, gh:false, enter:"Conta própria",
+   how:"Seus notebooks podem ser salvos num repositório do GitHub.",
+   url:"https://www.kaggle.com/learn", cta:"Abrir o Kaggle Learn", help:["Como salvar no GitHub","https://www.kaggle.com/discussions/product-feedback/295170"],
+   user:true, profile:"https://www.kaggle.com/{u}",
+   checks:[["created","Conta criada"],["linked","Ligada ao GitHub"]]},
+  {id:"slack", ini:"SL", name:"Slack da DataTalks.Club", sub:"Comunidade para tirar dúvidas", phase:0, gh:false, enter:"Conta própria, com e-mail",
+   how:"Não liga com o GitHub, mas é onde você pede ajuda durante os Zoomcamps.",
+   url:"https://datatalks.club/slack.html", cta:"Entrar na comunidade",
+   checks:[["created","Conta criada"]]},
+  {id:"leetcode", ini:"LC", name:"LeetCode", sub:"SQL 50", phase:1, gh:false, enter:"Conta própria",
+   how:"Com a extensão LeetHub, de código aberto, cada exercício aprovado vira um commit num repositório seu.",
+   url:"https://leetcode.com/studyplan/top-sql-50/", cta:"Abrir o SQL 50", help:["Extensão LeetHub","https://github.com/raphaelheinz/LeetHub-3.0"],
+   checks:[["created","Conta criada"],["linked","LeetHub ligado"]]},
+  {id:"azure", ini:"AZ", name:"Azure", sub:"Azure for Students", phase:3, gh:true, enter:"Conta Microsoft, que entra com o GitHub",
+   how:"Duas opções grátis: Azure for Students (US$ 100 por 12 meses, sem cartão, com o e-mail da faculdade) ou a conta gratuita comum (US$ 200 por só 30 dias, pede cartão só para confirmar identidade e não cobra nada se você não mudar de plano). Crie só na Fase 3, para o crédito não vencer sem uso.",
+   url:"https://azure.microsoft.com/pt-br/free/students/", cta:"Ver o Azure for Students",
+   checks:[["created","Crédito ativado"]]},
+  {id:"dbacademy", ini:"DA", name:"Databricks Academy", sub:"Cursos gratuitos da Databricks", phase:3, gh:false, enter:"Conta própria",
+   how:"Não liga com o GitHub. Os cursos preparam para a DP-750.",
+   url:"https://www.databricks.com/learn/training/home", cta:"Abrir os cursos",
+   checks:[["created","Conta criada"]]},
+  {id:"astronomer", ini:"AA", name:"Astronomer Academy", sub:"Airflow", phase:3, gh:false, enter:"Conta própria",
+   how:"Não liga com o GitHub. Os DAGs que você escrever vão para o repositório do Projeto 3.",
+   url:"https://academy.astronomer.io/", cta:"Abrir os cursos",
+   checks:[["created","Conta criada"]]},
+  {id:"huggingface", ini:"HF", name:"Hugging Face", sub:"Modelos, bases e cursos de IA", phase:4, gh:false, enter:"Conta própria, com e-mail",
+   how:"Não tem entrar com o GitHub. Seu perfil mostra os modelos e as demonstrações que você publicar.",
+   url:"https://huggingface.co/join", cta:"Criar conta",
+   user:true, profile:"https://huggingface.co/{u}",
+   checks:[["created","Conta criada"]]},
+  {id:"linkedin", ini:"LI", name:"LinkedIn", sub:"Vitrine para recrutadores", phase:null, gh:false, enter:"A conta que você já usa",
+   how:"Coloque o link do GitHub no perfil e poste cada projeto concluído, como no hábito Aprenda em público.",
+   url:"https://www.linkedin.com/", cta:"Abrir o LinkedIn",
+   user:true, profile:"https://www.linkedin.com/in/{u}/",
+   checks:[["linked","GitHub no perfil"]]}
+];
+var ACC_IDS = {github:1, studentpack:1};
+TOOLS.forEach(function(t){ ACC_IDS[t.id] = 1; });
+var GH_RE = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
+var USER_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,59}$/;
+var REPO_NAME = "trilha-dados-ia";
+var ISO_RE = /^\d{4}-\d{2}-\d{2}$/;
+var KNOWN = {invalid_argument:1,resource_exhausted:1,quota_exceeded:1,unavailable:1,revoked:1,not_granted:1,capability_disabled:1,capability_removed:1,transform_error:1};
+
+/* ---------- Ícones ---------- */
+var ICON = {
+  home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+  layers:'<path d="M12 3 2 8l10 5 10-5z"/><path d="m2 12.5 10 5 10-5"/><path d="m2 17 10 5 10-5"/>',
+  book:'<path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',
+  award:'<circle cx="12" cy="9" r="6"/><path d="M8.6 14.2 7 22l5-2.8 5 2.8-1.6-7.8"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18.2 14.4A6.5 6.5 0 0 1 21.5 20"/>',
+  bell:'<path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+  play:'<path d="M8 5.5v13l10.5-6.5z"/>',
+  check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  checkc:'<circle cx="12" cy="12" r="9"/><path d="m8 12.4 2.8 2.8L16.2 9.6"/>',
+  playc:'<circle cx="12" cy="12" r="9"/><path d="M10.2 8.6v6.8l5.3-3.4z"/>',
+  chev:'<path d="m6 9 6 6 6-6"/>',
+  ext:'<path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
+  left:'<path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>',
+  calendar:'<rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  x:'<path d="M6 6l12 12M18 6 6 18"/>',
+  right:'<path d="m9 6 6 6-6 6"/>',
+  moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  terminal:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/>',
+  code:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+  pipeline:'<circle cx="5" cy="6" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 6H11a2 2 0 0 1 2 2v2.5a1.5 1.5 0 0 0 1.5 1.5h2M7.5 18H11a2 2 0 0 0 2-2v-2.5"/>',
+  cloud:'<path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18z"/><path d="M8 14h8M8 11h3"/>',
+  spark:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+  bot:'<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13v1M15 13v1M9 17h6"/><circle cx="12" cy="3.5" r="1"/>',
+  db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.1 1.1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.1-1.1"/>',
+  git:'<circle cx="6" cy="5.5" r="2.5"/><circle cx="6" cy="18.5" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8v8"/><path d="M18 10.5c0 4.5-6.5 3.5-10.2 6.2"/>',
+  key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9"/><path d="m17 6 3 3"/><path d="m14.5 8.5 2 2"/>',
+  mark:'<circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3M8.7 13.3l6.6 3.4"/>'
+};
+var PH_STYLE = {0:{color:"var(--c-sky)", icon:"terminal"}, 1:{color:"var(--green)", icon:"code"}, 2:{color:"var(--c-lime)", icon:"pipeline"}, 3:{color:"var(--warn)", icon:"cloud"}, 4:{color:"var(--c-pink)", icon:"spark"}, 5:{color:"var(--c-orange)", icon:"bot"}};
+function svgIcon(name, size){
+  var s = size || 20;
+  return '<svg class="icon" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICON[name] || "") + '</svg>';
+}
+Array.prototype.forEach.call(document.querySelectorAll("i[data-icon]"), function(i){
+  var span = document.createElement("span");
+  span.style.display = "contents";
+  span.innerHTML = svgIcon(i.getAttribute("data-icon"), Number(i.getAttribute("data-size")) || (i.getAttribute("data-icon") === "mark" ? 28 : 20));
+  var svg = span.firstChild;
+  Array.prototype.forEach.call(i.classList, function(c){ svg.classList.add(c); });
+  if (i.getAttribute("data-icon") === "mark") svg.style.color = "var(--link)";
+  i.replaceWith(svg);
+});
+
+/* ---------- Utilidades ---------- */
+function $(id){ return document.getElementById(id); }
+function el(tag, attrs){
+  var e = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k];
+    if (v === null || v === undefined || v === false) continue;
+    if (k === "class") e.className = v;
+    else if (k === "text") e.textContent = v;
+    else if (k === "html") e.innerHTML = v;
+    else e.setAttribute(k, v === true ? "" : String(v));
+  }
+  for (var i = 2; i < arguments.length; i++){ var c = arguments[i]; if (c !== null && c !== undefined) e.append(c); }
+  return e;
+}
+function pad(n){ return String(n).padStart(2, "0"); }
+function isoOf(d){ return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+function todayISO(){ return isoOf(new Date()); }
+function parseISO(s){ var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+function weekStart(d){ var x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; }
+function fmtBR(s){ var p = s.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+function fmtDM(d){ return pad(d.getDate()) + "/" + pad(d.getMonth() + 1); }
+function fmtNum(n){ return (Math.round(n * 100) / 100).toLocaleString("pt-BR", {maximumFractionDigits: 2}); }
+function fmtH(n){ return fmtNum(n) + " h"; }
+function lsGet(k, def){ try { var v = localStorage.getItem(k); return v === null ? def : JSON.parse(v); } catch (e) { return def; } }
+function lsSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+function ring(size, stroke, pct, fillClass, label, labelSize, trackClass){
+  var r = (size - stroke) / 2, c = 2 * Math.PI * r, off = c * (1 - Math.max(0, Math.min(1, pct)));
+  var o = '<circle class="' + (trackClass || "ring-track") + '" cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke-width="' + stroke + '"/>';
+  if (pct > 0) o += '<circle class="ring-fill ' + (fillClass || "") + '" cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke-width="' + stroke + '" stroke-linecap="round" stroke-dasharray="' + c.toFixed(2) + '" stroke-dashoffset="' + off.toFixed(2) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')"/>';
+  if (label) o += '<text class="ring-txt" x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="' + (labelSize || 14) + '">' + label + '</text>';
+  return o;
+}
+
+/* ---------- Estado ---------- */
+var S = {done:{}, server:{}, log:[], goal:10, mode:"loading", readOnly:false, error:"", acc:{}, accServer:{}, sync:null};
+var DB = null, saving = 0, gotProgress = false, gotAcc = false;
+var inflight = new Map(), chains = new Map(), accInflight = new Map();
+var UI = {view:"inicio", filter:lsGet("trilha-filter", "all"), open:lsGet("trilha-open", null), expanded:{}, sort:0};
+if (["all","todo","done"].indexOf(UI.filter) < 0) UI.filter = "all";
+
+var STEPS = [];
+PLAN.forEach(function(ph){
+  ph.hours = 0;
+  ph.steps.forEach(function(s, i){ s.label = "F" + ph.n + "." + (i + 1); s.num = pad(i + 1); s.ph = ph; ph.hours += s.h || 0; STEPS.push(s); });
+});
+var STEP_BY_ID = {};
+STEPS.forEach(function(s){ STEP_BY_ID[s.id] = s; });
+var TOTAL_H = PLAN.reduce(function(a, ph){ return a + ph.hours; }, 0);
+var PLAN_H = Math.round(TOTAL_H / 10) * 10;
+
+/* Cursos: um item por link, ligado às etapas onde aparece */
+var COURSES = [], byUrl = {};
+STEPS.forEach(function(s){
+  (s.res || []).forEach(function(r){
+    var c = byUrl[r[1]];
+    if (!c){ c = byUrl[r[1]] = {title:r[0], url:r[1], lang:r[2], steps:[], order:COURSES.length}; COURSES.push(c); }
+    if (c.steps.indexOf(s) < 0) c.steps.push(s);
+  });
+});
+
+function hoursTxt(s){ return s.h ? "≈ " + fmtH(s.h) : (s.tag === "Trabalho" ? "no trabalho" : "contínuo"); }
+function linkItem(r, cls){
+  return el("li", null, el("a", {href:r[1], target:"_blank", rel:"noopener noreferrer", class:cls || null}, document.createTextNode(r[0]), el("span", {class:"lang", text:r[2]}), el("span", {html:svgIcon("ext", 13)})));
+}
+
+/* ---------- Montagem: trilha ---------- */
+function buildTrilha(){
+  var root = $("tracks"), lastTrack = null;
+  PLAN.forEach(function(ph){
+    if (ph.track !== lastTrack){
+      var t = TRACKS[ph.track];
+      root.append(el("div", {class:"track"}, el("div", {class:"track-head"}, el("span", {class:"track-art", "aria-hidden":"true", html:svgIcon(ph.track === 1 ? "db" : "spark", 30)}), el("div", null, el("p", {class:"k", text:t.k}), el("h2", {text:t.t}))), el("p", {class:"d", text:t.d})));
+      lastTrack = ph.track;
+    }
+    var bodyId = "pb-" + ph.id;
+    var chip = el("span", {class:"pb-chip", "data-status":"queued", text:STATUS_LABEL.queued});
+    var count = el("span", {class:"pb-count", text:"0/" + ph.steps.length});
+    var bar = el("button", {type:"button", class:"phase-bar", "aria-expanded":"false", "aria-controls":bodyId, id:"bar-" + ph.id},
+      el("span", {class:"pb-title"}, el("span", {class:"ph-ic", html:svgIcon(PH_STYLE[ph.n].icon, 20)}), el("span", {text:"Fase " + ph.n + " · " + ph.title})),
+      el("span", {class:"pb-side"}, chip, count, el("span", {html:svgIcon("chev", 20)})));
+    var svgs = bar.querySelectorAll("svg"); svgs[svgs.length - 1].classList.add("chev");
+    var body = el("div", {class:"phase-body", id:bodyId, hidden:true},
+      el("p", {class:"meta", text:ph.period + " · ≈ " + fmtH(ph.hours) + " de estudo"}),
+      el("p", {class:"goal", text:ph.goal}));
+    if (ph.note) body.append(el("p", {class:"pnote", text:ph.note}));
+    var ol = el("ol", {class:"rows"});
+    ph.steps.forEach(function(s){ ol.append(buildRow(s)); });
+    var empty = el("p", {class:"empty-phase", hidden:true, text:"Nenhuma etapa desta fase com esse filtro."});
+    body.append(ol, empty);
+    var sec = el("section", {class:"phase", id:"fase-" + ph.n, "aria-labelledby":"bar-" + ph.id, style:"--ph:" + PH_STYLE[ph.n].color}, bar, body);
+    bar.addEventListener("click", function(){ setPhaseOpen(ph, bar.getAttribute("aria-expanded") !== "true"); saveOpen(); });
+    root.append(sec);
+    ph._el = {sec:sec, bar:bar, body:body, chip:chip, count:count, empty:empty};
+  });
+}
+
+function buildRow(s){
+  var li = el("li", {class:"row" + (s.tag === "Projeto" ? " is-project" : ""), id:"step-" + s.id});
+  var state = el("button", {type:"button", class:"row-state", "aria-pressed":"false", disabled:true, html:svgIcon("play", 30)});
+  var badge = el("span", {class:"badge", text:"Próximo", hidden:true});
+  var content = el("button", {type:"button", class:"row-content", "aria-expanded":"false", "aria-controls":"det-" + s.id},
+    el("span", {class:"row-title"}, el("span", {text:s.title}), badge),
+    el("span", {class:"row-sub", text:s.label + " · " + TAG_SUB[s.tag] + " · " + hoursTxt(s)}));
+  var end = el("div", {class:"row-end", "aria-hidden":"true"});
+  var main = el("div", {class:"row-main"}, state, el("div", {class:"row-num", "aria-hidden":"true", text:s.num}), content, end);
+  var doneAt = el("p", {class:"done-at", hidden:true});
+  var actBtn = el("button", {type:"button", class:"btn-primary", disabled:true, text:"Marcar como concluída"});
+  var detail = el("div", {class:"row-detail", id:"det-" + s.id, hidden:true}, el("p", {text:s.detail}));
+  if (s.res && s.res.length){ var ul = el("ul", {class:"links"}); s.res.forEach(function(r){ ul.append(linkItem(r)); }); detail.append(ul); }
+  var acts = el("div", {class:"acts"}, actBtn);
+  if (s.nav) acts.append(el("button", {type:"button", class:"btn-outline", "data-nav":s.nav, text:"Abrir Contas e integrações"}));
+  detail.append(doneAt, acts);
+  li.append(main, detail);
+  state.addEventListener("click", function(){ toggleStep(s); });
+  actBtn.addEventListener("click", function(){ toggleStep(s); });
+  content.addEventListener("click", function(){ setExpanded(s, content.getAttribute("aria-expanded") !== "true"); });
+  s._el = {li:li, state:state, badge:badge, content:content, end:end, doneAt:doneAt, actBtn:actBtn, detail:detail};
+  return li;
+}
+
+function setPhaseOpen(ph, open){
+  ph._el.bar.setAttribute("aria-expanded", open ? "true" : "false");
+  ph._el.body.hidden = !open;
+}
+function saveOpen(){
+  UI.open = PLAN.filter(function(ph){ return ph._el.bar.getAttribute("aria-expanded") === "true"; }).map(function(ph){ return ph.id; });
+  lsSet("trilha-open", UI.open);
+}
+function setExpanded(s, open){
+  s._el.content.setAttribute("aria-expanded", open ? "true" : "false");
+  s._el.detail.hidden = !open;
+}
+
+/* ---------- Montagem: certificações e filtros ---------- */
+(function buildCerts(){
+  var tb = $("cert-body");
+  CERTS.forEach(function(c){
+    var sit = el("td", null, el("span", {class:"pill " + (c.on ? "on" : "off"), text:c.on ? "Ativa" : "Aposentada"}), document.createTextNode(c.note));
+    if (c.url){ sit.append(el("br"), el("a", {class:"mono-link", href:c.url, target:"_blank", rel:"noopener noreferrer", html:"Página oficial" + svgIcon("ext", 13)})); }
+    tb.append(el("tr", {class:c.on ? "" : "off"}, el("td", {text:c.name}), el("td", null, el("code", {text:c.code})), el("td", {text:c.when}), sit));
+  });
+  var sel = $("f-fase");
+  PLAN.forEach(function(ph){ sel.append(el("option", {value:String(ph.n), text:"Fase " + ph.n + " · " + ph.title})); });
+})();
+buildTrilha();
+$("trilha-lead").textContent = STEPS.length + " etapas em " + PLAN.length + " fases. Toque no bloco azul de uma etapa para marcá-la como concluída, ou no nome dela para ver os cursos.";
+$("stat-hours-plan").textContent = "de ≈ " + PLAN_H + " h planejadas";
+
+/* ---------- Navegação ---------- */
+function showView(v, keepScroll){
+  if (VIEWS.indexOf(v) < 0) v = "inicio";
+  UI.view = v;
+  VIEWS.forEach(function(name){ $("view-" + name).hidden = name !== v; });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-nav]"), function(b){
+    if (b.classList.contains("nav-item") || b.parentElement.classList.contains("bottomnav") || b.parentElement.classList.contains("top-links")){
+      if (b.getAttribute("data-nav") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    }
+  });
+  lsSet("trilha-view", v);
+  try { history.replaceState(null, "", "#" + v); } catch (e) {}
+  if (!keepScroll){ try { window.scrollTo(0, 0); } catch (e) {} }
+}
+document.addEventListener("click", function(ev){
+  var b = ev.target.closest("[data-nav]");
+  if (!b) return;
+  ev.preventDefault();
+  showView(b.getAttribute("data-nav"));
+});
+$("top-search").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  $("f-q").value = $("q-top").value.trim();
+  showView("cursos");
+  renderCourses();
+});
+
+function openStep(s){
+  showView("trilha");
+  if (UI.filter === "done" && !S.done[s.id]) setFilter("all");
+  setPhaseOpen(s.ph, true); saveOpen();
+  setExpanded(s, true);
+  try { s._el.li.scrollIntoView({block:"start"}); } catch (e) {}
+  try { s._el.content.focus(); } catch (e) {}
+}
+
+/* Filtro da trilha */
+function setFilter(f){
+  UI.filter = f; lsSet("trilha-filter", f);
+  Array.prototype.forEach.call(document.querySelectorAll(".chips [data-filter]"), function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-filter") === f ? "true" : "false"); });
+  applyFilter();
+}
+function applyFilter(){
+  PLAN.forEach(function(ph){
+    var visible = 0;
+    ph.steps.forEach(function(s){
+      var d = !!S.done[s.id];
+      var show = UI.filter === "all" || (UI.filter === "done" ? d : !d);
+      s._el.li.hidden = !show;
+      if (show) visible++;
+    });
+    ph._el.empty.hidden = visible > 0;
+  });
+}
+Array.prototype.forEach.call(document.querySelectorAll(".chips [data-filter]"), function(b){
+  b.addEventListener("click", function(){ setFilter(b.getAttribute("data-filter")); });
+});
+
+/* Aviso com desfazer */
+var toastTimer = null, toastUndo = null;
+function toast(text, undo){
+  $("toast-text").textContent = text;
+  toastUndo = undo || null;
+  $("toast-undo").hidden = !undo;
+  $("toast").hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ $("toast").hidden = true; toastUndo = null; }, 7000);
+}
+$("toast-undo").addEventListener("click", function(){
+  var fn = toastUndo; toastUndo = null; $("toast").hidden = true; clearTimeout(toastTimer);
+  if (fn) fn();
+});
+
+/* ---------- Renderização ---------- */
+function phaseStatus(ph, c){
+  var t = todayISO();
+  if (c === ph.steps.length) return "done";
+  if (t > ph.end) return "late";
+  if (c > 0 || t >= ph.start) return "running";
+  return "queued";
+}
+var currentNext = null;
+
+function renderProgress(){
+  var total = STEPS.length, doneN = 0, next = null;
+  STEPS.forEach(function(s){ if (S.done[s.id]) doneN++; else if (!next) next = s; });
+  currentNext = next;
+  var pct = doneN / total;
+  $("me-ring").innerHTML = ring(44, 3.5, pct, "blue", "", 0);
+  $("me-pct").textContent = Math.round(pct * 100) + "%";
+  $("all-ring").innerHTML = ring(84, 7, pct, "", Math.round(pct * 100) + "%", 17);
+  $("stat-steps").textContent = doneN + " de " + total + " etapas";
+  $("stat-phase").textContent = next ? String(next.ph.n) : "Fim";
+  $("stat-phase-name").textContent = next ? next.ph.title : "Plano concluído";
+
+  PLAN.forEach(function(ph){
+    var c = 0;
+    ph.steps.forEach(function(s){ if (S.done[s.id]) c++; });
+    var st = phaseStatus(ph, c), e = ph._el;
+    e.chip.setAttribute("data-status", st);
+    e.chip.textContent = STATUS_LABEL[st];
+    e.count.textContent = c + "/" + ph.steps.length;
+  });
+
+  STEPS.forEach(function(s){
+    var d = S.done[s.id], e = s._el, isNext = next === s;
+    e.li.classList.toggle("is-done", !!d);
+    e.state.setAttribute("aria-pressed", d ? "true" : "false");
+    e.state.setAttribute("aria-label", s.label + " " + s.title + (d ? ": concluída, toque para desmarcar" : ": toque para marcar como concluída"));
+    e.state.innerHTML = svgIcon(d ? "check" : "play", 30);
+    e.badge.hidden = !isNext;
+    e.doneAt.hidden = !d;
+    e.doneAt.textContent = d ? "Concluída em " + fmtBR(d) : "";
+    e.actBtn.textContent = d ? "Desmarcar" : "Marcar como concluída";
+    e.actBtn.className = d ? "btn-outline" : "btn-primary";
+    var label = s.h ? fmtNum(s.h) + "h" : "—";
+    e.end.innerHTML = '<svg width="64" height="64" viewBox="0 0 64 64">' + ring(64, 5, d ? 1 : 0, "", d ? "✓" : label, d ? 20 : 13) + "</svg>";
+  });
+  applyFilter();
+
+  if (next){
+    $("next-kick").textContent = "Próximo passo · " + next.label + " · Fase " + next.ph.n;
+    $("next-title").textContent = next.title;
+    $("next-detail").textContent = next.detail;
+    var ul = $("next-res"); ul.textContent = "";
+    (next.res || []).forEach(function(r){ ul.append(linkItem(r)); });
+    ul.hidden = !(next.res && next.res.length);
+    $("next-done").hidden = S.readOnly;
+    $("next-see").hidden = false;
+    $("next-nav").hidden = !next.nav;
+    $("next-end").innerHTML = '<svg width="76" height="76" viewBox="0 0 76 76">' + ring(76, 6, 0, "", next.h ? fmtNum(next.h) + "h" : "—", 15) + "</svg>";
+  } else {
+    $("next-kick").textContent = "Plano concluído";
+    $("next-title").textContent = "Todas as " + total + " etapas feitas. Hora de disputar as vagas de Engenheiro de IA.";
+    $("next-detail").textContent = "";
+    $("next-res").hidden = true;
+    $("next-done").hidden = true;
+    $("next-see").hidden = true;
+    $("next-nav").hidden = true;
+    $("next-end").innerHTML = '<svg width="76" height="76" viewBox="0 0 76 76">' + ring(76, 6, 1, "", "✓", 22) + "</svg>";
+  }
+  renderCourses();
+}
+
+function niceCeil(v){
+  var steps = [2,4,5,6,8,10,12,15,16,20,24,30,40,50];
+  for (var i = 0; i < steps.length; i++) if (v <= steps[i]) return steps[i];
+  return Math.ceil(v / 10) * 10;
+}
+function renderChart(weeks, goal){
+  var W = 280, H = 128, top = 14, bottom = 22, left = 2, right = 2;
+  var maxVal = Math.max.apply(null, [goal].concat(weeks.map(function(w){ return w.hours; })));
+  var yMax = niceCeil(maxVal * 1.15);
+  var ih = H - top - bottom, slot = (W - left - right) / weeks.length, bw = Math.min(22, slot * 0.6);
+  var out = '<line class="axis" x1="' + left + '" x2="' + (W - right) + '" y1="' + (top + ih) + '" y2="' + (top + ih) + '"/>';
+  var labels = [];
+  weeks.forEach(function(w, i){
+    var cx = left + slot * i + slot / 2, h = (w.hours / yMax) * ih, y = top + ih - h;
+    if (h > 0) out += '<rect class="' + (w.current ? "bar-now" : "bar-past") + '" x="' + (cx - bw / 2).toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2"/>';
+    if (w.hours > 0) out += '<text class="val" x="' + cx.toFixed(1) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="middle">' + fmtNum(w.hours) + '</text>';
+    out += '<text class="lbl" x="' + cx.toFixed(1) + '" y="' + (H - 7) + '" text-anchor="middle">' + fmtDM(w.start) + '</text>';
+    labels.push(fmtDM(w.start) + ": " + fmtH(w.hours));
+  });
+  var gy = top + ih - (goal / yMax) * ih;
+  out += '<line class="goal" x1="' + left + '" x2="' + (W - right) + '" y1="' + gy.toFixed(1) + '" y2="' + gy.toFixed(1) + '"/>';
+  $("chart").innerHTML = out;
+  $("chart").setAttribute("aria-label", "Horas por semana, meta de " + fmtH(goal) + ". " + labels.join("; ") + ".");
+}
+
+function renderHours(){
+  var ws = weekStart(new Date()), byWeek = new Map(), total = 0;
+  S.log.forEach(function(e){
+    total += e.hours;
+    var k = isoOf(weekStart(parseISO(e.date)));
+    byWeek.set(k, (byWeek.get(k) || 0) + e.hours);
+  });
+  var thisWeek = byWeek.get(isoOf(ws)) || 0, wp = Math.min(1, thisWeek / S.goal);
+  $("week-hours").textContent = fmtH(thisWeek);
+  $("week-goal-txt").textContent = "de " + fmtH(S.goal) + " de meta, de segunda a domingo";
+  $("week-ring").innerHTML = ring(110, 9, wp, thisWeek >= S.goal ? "" : "blue", Math.round(wp * 100) + "%", 20);
+  $("stat-week").textContent = fmtH(thisWeek);
+  $("stat-week-goal").textContent = "Meta de " + fmtH(S.goal);
+  $("stat-week-bar").firstElementChild.style.width = (wp * 100) + "%";
+  $("stat-week-bar").classList.toggle("full", thisWeek >= S.goal);
+  $("stat-hours").textContent = fmtH(total);
+  if ($("goal-select").value !== String(S.goal)) $("goal-select").value = String(S.goal);
+
+  var weeks = [];
+  for (var i = 7; i >= 0; i--){
+    var d = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() - 7 * i);
+    weeks.push({start:d, hours:byWeek.get(isoOf(d)) || 0, current:i === 0});
+  }
+  renderChart(weeks, S.goal);
+
+  var sorted = S.log.slice().sort(function(a, b){
+    if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+    return a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0;
+  });
+  var list = $("log-list");
+  list.textContent = "";
+  sorted.slice(0, 8).forEach(function(e){
+    var del = el("button", {type:"button", class:"log-del", "data-id":e.id, "aria-label":"Excluir a sessão de " + fmtBR(e.date), text:"Excluir", hidden:S.readOnly});
+    list.append(el("li", null, el("span", {class:"d", text:fmtDM(parseISO(e.date))}), el("span", {class:"h", text:fmtH(e.hours)}), el("span", {class:"n", text:e.note || "—"}), del));
+  });
+  if (S.log.length > 8) list.append(el("li", {class:"more", text:"Mostrando as 8 mais recentes de " + S.log.length + " sessões."}));
+  $("log-empty").hidden = S.log.length > 0;
+}
+
+var SORTS = [
+  {label:"Ordenando por: ordem do plano", fn:function(a, b){ return a.order - b.order; }},
+  {label:"Ordenando por: nome (A a Z)", fn:function(a, b){ return a.title.localeCompare(b.title, "pt-BR"); }},
+  {label:"Ordenando por: português primeiro", fn:function(a, b){ return (a.lang === b.lang ? 0 : a.lang === "PT" ? -1 : 1) || a.order - b.order; }}
+];
+function courseStatus(c){
+  if (c.steps.every(function(s){ return !!S.done[s.id]; })) return "done";
+  if (c.steps.some(function(s){ return s === currentNext || !!S.done[s.id]; })) return "doing";
+  return "todo";
+}
+var STATUS_TXT = {done:"Concluído", doing:"Em andamento", todo:"Não iniciado"};
+function renderCourses(){
+  var fs = $("f-status").value, ff = $("f-fase").value, fl = $("f-lang").value, q = norm($("f-q").value.trim());
+  var rows = COURSES.filter(function(c){
+    var st = courseStatus(c);
+    if (fs !== "all" && st !== fs) return false;
+    if (ff !== "all" && !c.steps.some(function(s){ return String(s.ph.n) === ff; })) return false;
+    if (fl !== "all" && c.lang !== fl) return false;
+    if (q){
+      var hay = norm(c.title + " " + c.steps.map(function(s){ return s.label + " " + s.title + " " + s.detail; }).join(" "));
+      if (hay.indexOf(q) < 0) return false;
+    }
+    return true;
+  }).sort(SORTS[UI.sort].fn);
+  var tb = $("c-body");
+  tb.textContent = "";
+  rows.forEach(function(c){
+    var st = courseStatus(c);
+    var stepsTxt = c.steps.map(function(s){ return s.label + " " + s.title; }).join(" · ");
+    var see = el("button", {type:"button", class:"mono-link", text:"Ver etapa"});
+    see.addEventListener("click", function(){ openStep(c.steps[0]); });
+    tb.append(el("tr", {class:st},
+      el("td", null, el("div", {class:"ct", html:svgIcon(st === "done" ? "checkc" : "playc", 26)}, el("div", null, el("span", {class:"nm", text:c.title}), el("span", {class:"stp", text:"Etapa " + stepsTxt})))),
+      el("td", {class:"st", text:STATUS_TXT[st]}),
+      el("td", {class:"lg", text:c.lang === "PT" ? "Português" : "Inglês"}),
+      el("td", {class:"lk"}, el("a", {class:"mono-link", href:c.url, target:"_blank", rel:"noopener noreferrer", html:"Abrir curso" + svgIcon("ext", 13)}), see)));
+  });
+  $("c-empty").hidden = rows.length > 0;
+  $("c-count").textContent = rows.length === COURSES.length ? COURSES.length + " cursos e materiais gratuitos" : rows.length + " de " + COURSES.length + " cursos e materiais";
+  $("f-sort").firstChild.textContent = SORTS[UI.sort].label;
+}
+["f-status","f-fase","f-lang"].forEach(function(id){ $(id).addEventListener("change", renderCourses); });
+$("f-q").addEventListener("input", renderCourses);
+$("f-clear").addEventListener("click", function(){
+  $("f-status").value = "all"; $("f-fase").value = "all"; $("f-lang").value = "all"; $("f-q").value = ""; $("q-top").value = "";
+  renderCourses();
+});
+$("f-sort").addEventListener("click", function(){ UI.sort = (UI.sort + 1) % SORTS.length; renderCourses(); });
+
+function setStatus(){
+  var node = $("sync"), mode, t;
+  if (S.readOnly){ mode = "offline"; t = "Modo visitante: só o dono da trilha marca etapas e registra horas."; }
+  else if (S.mode === "loading"){ mode = "loading"; t = "Carregando seu progresso…"; }
+  else if (S.mode === "offline"){ mode = "offline"; t = "O progresso não está sendo salvo nesta visualização. Abra a página pelo Claude, com sua conta, para salvar."; }
+  else if (saving > 0){ mode = "saving"; t = "Salvando…"; }
+  else if (S.error){ mode = "error"; t = S.error; }
+  else { mode = "live"; t = "Progresso salvo na sua conta: aparece no celular e no computador."; }
+  node.setAttribute("data-mode", mode);
+  node.textContent = t;
+}
+
+function applyControls(){
+  var usable = S.mode === "offline" || (S.mode === "live" && gotProgress);
+  var enabled = usable && !S.readOnly;
+  STEPS.forEach(function(s){ s._el.state.disabled = !enabled; s._el.actBtn.disabled = !enabled; s._el.actBtn.hidden = S.readOnly; });
+  $("next-done").disabled = !enabled;
+  $("next-done").hidden = S.readOnly || !currentNext;
+  $("log-form").hidden = S.readOnly;
+  $("log-submit").disabled = !(S.mode === "offline" || S.mode === "live") || S.readOnly;
+  $("goal-select").disabled = !(S.mode === "offline" || S.mode === "live") || S.readOnly;
+  Array.prototype.forEach.call(document.querySelectorAll(".log-del"), function(b){ b.hidden = S.readOnly; });
+  var accOk = (S.mode === "offline" || (S.mode === "live" && gotAcc)) && !S.readOnly;
+  Array.prototype.forEach.call(document.querySelectorAll("#view-contas input"), function(i){ i.disabled = !accOk; });
+}
+
+/* ---------- Gravação ---------- */
+function enqueue(key, fn){
+  var prev = chains.get(key) || Promise.resolve();
+  var next = prev.catch(function(){}).then(fn);
+  chains.set(key, next);
+  next.catch(function(){}).then(function(){ if (chains.get(key) === next) chains.delete(key); });
+  return next;
+}
+function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+function withRetry(fn){
+  return Promise.resolve().then(fn).catch(function(e){
+    var c = e && e.code;
+    if (c === "unavailable" || !KNOWN[c]) return sleep(400 + Math.random() * 900).then(fn);
+    throw e;
+  });
+}
+function mergedDone(){
+  var m = Object.assign({}, S.server);
+  inflight.forEach(function(v, id){ if (v) m[id] = v; else delete m[id]; });
+  return m;
+}
+function errorText(e){
+  var c = e && e.code;
+  if (c === "quota_exceeded") return "O armazenamento desta página está cheio. Exclua sessões antigas de estudo para liberar espaço.";
+  if (c === "resource_exhausted") return "Muitas alterações seguidas. Espere alguns segundos e tente de novo.";
+  return "Não foi possível salvar a última alteração. Verifique a conexão e tente de novo.";
+}
+function onWriteError(e){
+  var c = e && e.code;
+  if (c === "invalid_argument"){ S.readOnly = true; S.error = ""; applyControls(); }
+  else if (c === "revoked" || c === "not_granted" || c === "capability_disabled" || c === "capability_removed"){ goOffline(); }
+  else { S.error = errorText(e); }
+  setStatus();
+}
+
+function setDone(id, checked){
+  if (S.readOnly) return;
+  var val = checked ? todayISO() : null;
+  if (S.mode !== "live"){
+    if (val) S.done[id] = val; else delete S.done[id];
+    renderProgress();
+    return;
+  }
+  inflight.set(id, val);
+  S.done = mergedDone();
+  renderProgress();
+  saving++; setStatus();
+  enqueue("p:" + id, function(){
+    var want = inflight.has(id) ? inflight.get(id) : val;
+    var ref = DB.collection("progress").doc(id);
+    return withRetry(function(){ return want ? ref.set({doneAt:want}) : ref.delete(); })
+      .then(function(){
+        S.error = "";
+        if (want) S.server[id] = want; else delete S.server[id];
+        if (inflight.has(id) && inflight.get(id) === want) inflight.delete(id);
+      }, function(e){ inflight.delete(id); onWriteError(e); })
+      .then(function(){ saving--; S.done = mergedDone(); renderProgress(); setStatus(); });
+  });
+}
+function toggleStep(s){
+  if (S.readOnly) return;
+  var wasDone = !!S.done[s.id];
+  setDone(s.id, !wasDone);
+  toast(s.label + (wasDone ? " desmarcada." : " concluída."), function(){ setDone(s.id, wasDone); });
+}
+
+$("next-done").addEventListener("click", function(){
+  if (!currentNext || S.readOnly || $("next-done").disabled) return;
+  var s = currentNext;
+  setDone(s.id, true);
+  toast(s.label + " “" + s.title + "” concluída.", function(){ setDone(s.id, false); });
+});
+$("next-see").addEventListener("click", function(){ if (currentNext) openStep(currentNext); });
+
+function showMsg(text, kind){ var m = $("log-msg"); m.textContent = text; if (kind) m.setAttribute("data-kind", kind); else m.removeAttribute("data-kind"); }
+$("log-form").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  if (S.readOnly) return;
+  var date = $("log-date").value;
+  var hours = Number(String($("log-hours").value).trim().replace(",", "."));
+  var note = $("log-note").value.trim().slice(0, 140);
+  if (!ISO_RE.test(date)) return showMsg("Escolha a data da sessão.", "error");
+  if (date > todayISO()) return showMsg("A data não pode ser no futuro.", "error");
+  if (!(hours > 0 && hours <= 16)) return showMsg("Informe as horas entre 0,25 e 16. Ex.: 1,5", "error");
+  var entry = {date:date, hours:Math.round(hours * 100) / 100, note:note, createdAt:new Date().toISOString()};
+  var reset = function(){ $("log-hours").value = ""; $("log-note").value = ""; };
+  if (S.mode !== "live"){
+    S.log.push(Object.assign({id:"local-" + Date.now()}, entry));
+    renderHours(); reset();
+    showMsg("Sessão registrada, mas não salva nesta visualização.", "error");
+    return;
+  }
+  var btn = $("log-submit");
+  btn.disabled = true; showMsg("Salvando…");
+  var ref = DB.collection("log").doc();
+  withRetry(function(){ return ref.set(entry); })
+    .then(function(){ reset(); S.error = ""; showMsg("Sessão de " + fmtH(entry.hours) + " registrada.", "ok"); toast("Sessão de " + fmtH(entry.hours) + " registrada."); setStatus(); },
+          function(e){ onWriteError(e); showMsg(errorText(e), "error"); })
+    .then(function(){ btn.disabled = S.readOnly || !(S.mode === "live" || S.mode === "offline"); });
+});
+
+$("log-list").addEventListener("click", function(ev){
+  var btn = ev.target.closest(".log-del");
+  if (!btn || S.readOnly) return;
+  var id = btn.getAttribute("data-id");
+  if (btn.getAttribute("data-armed") !== "1"){
+    btn.setAttribute("data-armed", "1");
+    btn.textContent = "Confirmar";
+    clearTimeout(btn._t);
+    btn._t = setTimeout(function(){ btn.removeAttribute("data-armed"); btn.textContent = "Excluir"; }, 4000);
+    return;
+  }
+  clearTimeout(btn._t);
+  btn.disabled = true;
+  if (S.mode !== "live" || id.indexOf("local-") === 0){
+    S.log = S.log.filter(function(x){ return x.id !== id; });
+    renderHours(); toast("Sessão excluída.");
+    return;
+  }
+  saving++; setStatus();
+  enqueue("l:" + id, function(){
+    return withRetry(function(){ return DB.collection("log").doc(id).delete(); })
+      .then(function(){ S.error = ""; toast("Sessão excluída."); }, function(e){ onWriteError(e); btn.disabled = false; })
+      .then(function(){ saving--; setStatus(); });
+  });
+});
+
+$("goal-select").addEventListener("change", function(){
+  var g = Number(this.value);
+  if (GOALS.indexOf(g) < 0) return;
+  S.goal = g; renderHours();
+  if (S.mode !== "live" || S.readOnly) return;
+  saving++; setStatus();
+  enqueue("settings", function(){
+    return withRetry(function(){ return DB.doc("settings/plan").set({weeklyGoal:g}); })
+      .then(function(){ S.error = ""; }, onWriteError)
+      .then(function(){ saving--; setStatus(); });
+  });
+});
+
+/* ---------- Contas e integrações ---------- */
+var USER_ANY_RE = /^[\p{L}\p{N}][\p{L}\p{N}._-]{0,99}$/u;
+var REPO_RE = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}\/[A-Za-z0-9._-]{1,100}$/;
+function accGet(id){ return S.acc[id] || {user:"", created:false, linked:false}; }
+function accMerged(){
+  var m = Object.assign({}, S.accServer);
+  accInflight.forEach(function(v, id){ m[id] = v; });
+  return m;
+}
+function cleanUser(raw){
+  var v = String(raw || "").trim().replace(/[?#].*$/, "").replace(/\/+$/, "");
+  if (v.indexOf("/") >= 0) v = v.split("/").pop();
+  try { v = decodeURIComponent(v); } catch (e) {}
+  return v.replace(/^@/, "");
+}
+function profileUrl(t, u){ return t.profile.replace("{u}", encodeURIComponent(u)); }
+function toolReady(t){ var a = accGet(t.id); return t.checks.every(function(c){ return !!a[c[0]]; }); }
+function fmtWhen(iso){
+  var d = new Date(iso);
+  return d.toLocaleDateString("pt-BR") + " às " + d.toLocaleTimeString("pt-BR", {hour:"2-digit", minute:"2-digit"});
+}
+function validSync(v){
+  if (!v || typeof v.updatedAt !== "string" || isNaN(new Date(v.updatedAt).getTime())) return null;
+  return {
+    updatedAt:v.updatedAt,
+    repo:typeof v.repo === "string" && REPO_RE.test(v.repo) ? v.repo : "",
+    commitUrl:typeof v.commitUrl === "string" && v.commitUrl.indexOf("https://github.com/") === 0 ? v.commitUrl : ""
+  };
+}
+function setMsg(node, text, kind){ node.textContent = text; if (kind) node.setAttribute("data-kind", kind); else node.removeAttribute("data-kind"); }
+function setIfIdle(inp, v){ if (document.activeElement !== inp && inp.value !== v) inp.value = v; }
+
+function saveAcc(id, patch, doneMsg){
+  if (S.readOnly) return;
+  var cur = accGet(id);
+  var want = {user:cur.user || "", created:!!cur.created, linked:!!cur.linked};
+  Object.keys(patch).forEach(function(k){ want[k] = patch[k]; });
+  if (S.mode !== "live"){
+    S.acc[id] = want; renderAccounts();
+    if (doneMsg) toast(doneMsg + " Não salvo nesta visualização.");
+    return;
+  }
+  accInflight.set(id, want);
+  S.acc = accMerged(); renderAccounts();
+  saving++; setStatus();
+  enqueue("a:" + id, function(){
+    var val = accInflight.has(id) ? accInflight.get(id) : want;
+    return withRetry(function(){ return DB.collection("accounts").doc(id).set(val); })
+      .then(function(){
+        S.error = ""; S.accServer[id] = val;
+        if (accInflight.get(id) === val) accInflight.delete(id);
+        if (doneMsg) toast(doneMsg);
+      }, function(e){ accInflight.delete(id); onWriteError(e); })
+      .then(function(){ saving--; S.acc = accMerged(); renderAccounts(); setStatus(); });
+  });
+}
+function onUserChange(id, label, inp, msg, re, bad){
+  var v = cleanUser(inp.value);
+  if (v && !re.test(v)){ setMsg(msg, bad, "error"); return; }
+  inp.value = v;
+  setMsg(msg, "");
+  if (v === (accGet(id).user || "")) return;
+  saveAcc(id, {user:v}, v ? "Usuário do " + label + " salvo." : "Usuário do " + label + " apagado.");
+}
+
+function buildTools(){
+  var root = $("tools");
+  TOOLS.forEach(function(t){
+    var card = el("article", {class:"tool", id:"tool-" + t.id, "aria-labelledby":"tn-" + t.id});
+    card.append(
+      el("div", {class:"tool-head"},
+        el("span", {class:"tool-ic", "aria-hidden":"true", text:t.ini}),
+        el("div", {class:"tool-t"}, el("h3", {class:"tool-name", id:"tn-" + t.id, text:t.name}), el("p", {class:"tool-sub", text:t.sub})),
+        el("span", {class:"chip", text:t.phase === null ? "Carreira" : "Fase " + t.phase})),
+      el("p", {class:"enter" + (t.gh ? " gh" : ""), html:svgIcon(t.gh ? "git" : "key", 15)}, document.createTextNode(t.enter)),
+      el("p", {class:"how", text:t.how}));
+    var refs = {card:card, checks:{}};
+    if (t.user){
+      var inp = el("input", {class:"inp", id:"tu-" + t.id, type:"text", autocomplete:"off", autocapitalize:"off", spellcheck:"false", maxlength:"160", placeholder:"Seu usuário ou o link do perfil"});
+      var msg = el("p", {class:"form-msg", id:"tm-" + t.id, role:"status"});
+      card.append(el("div", {class:"ufield"}, el("label", {for:"tu-" + t.id, text:"Usuário no " + t.name}), inp, msg));
+      inp.addEventListener("change", function(){ onUserChange(t.id, t.name, inp, msg, USER_ANY_RE, "Use só letras, números, ponto, hífen ou sublinhado."); });
+      refs.input = inp;
+    }
+    if (t.phase !== null && t.phase >= 3){
+      card.classList.add("is-later");
+      card.append(el("p", {class:"later", text:"Pode deixar para depois: você só usa a partir da Fase " + t.phase + " (" + (t.phase === 3 ? "abril" : "junho") + " de 2027). Não precisa criar agora."}));
+    }
+    var checks = el("div", {class:"checks"});
+    t.checks.forEach(function(c){
+      var box = el("input", {type:"checkbox", id:"tc-" + t.id + "-" + c[0]});
+      box.addEventListener("change", function(){
+        var p = {}; p[c[0]] = box.checked;
+        saveAcc(t.id, p, t.name + ": “" + c[1] + "” " + (box.checked ? "marcado." : "desmarcado."));
+      });
+      checks.append(el("label", {class:"tick"}, box, el("span", {text:c[1]})));
+      refs.checks[c[0]] = box;
+    });
+    var links = el("div", {class:"tool-links"}, el("a", {class:"mono-link", href:t.url, target:"_blank", rel:"noopener noreferrer", html:t.cta + svgIcon("ext", 13)}));
+    if (t.help) links.append(el("a", {class:"mono-link", href:t.help[1], target:"_blank", rel:"noopener noreferrer", html:t.help[0] + svgIcon("ext", 13)}));
+    if (t.profile){ refs.prof = el("a", {class:"mono-link", id:"tp-" + t.id, href:t.url, target:"_blank", rel:"noopener noreferrer", hidden:true, html:"Meu perfil" + svgIcon("ext", 13)}); links.append(refs.prof); }
+    card.append(checks, links);
+    root.append(card);
+    t._el = refs;
+  });
+  $("gh-user").addEventListener("change", function(){ onUserChange("github", "GitHub", $("gh-user"), $("gh-user-msg"), GH_RE, "Usuário do GitHub inválido: use só letras, números e hífen."); });
+  $("gh-created").addEventListener("change", function(){ saveAcc("github", {created:this.checked}, this.checked ? "Passo 1 feito: repositório criado." : "Passo 1 desmarcado."); });
+  $("gh-linked").addEventListener("change", function(){ saveAcc("github", {linked:this.checked}, this.checked ? "Passo 2 feito: GitHub conectado ao Claude." : "Passo 2 desmarcado."); });
+  $("sp-created").addEventListener("change", function(){ saveAcc("studentpack", {created:this.checked}, this.checked ? "Pacote de estudante aprovado." : "Pacote de estudante desmarcado."); });
+}
+
+function renderAccounts(){
+  var gh = accGet("github"), u = GH_RE.test(gh.user || "") ? gh.user : "";
+  setIfIdle($("gh-user"), gh.user || "");
+  var repo = S.sync && S.sync.repo ? S.sync.repo : (u && gh.created ? u + "/" + REPO_NAME : "");
+  $("gh-profile").hidden = !u;
+  if (u) $("gh-profile").href = "https://github.com/" + u;
+  $("gh-repo-link").hidden = !repo;
+  if (repo) $("gh-repo-link").href = "https://github.com/" + repo;
+  $("gh-links").hidden = !u && !repo;
+  $("gh-created").checked = !!gh.created;
+  $("gh-linked").checked = !!gh.linked;
+  $("hs-1").classList.toggle("ok", !!gh.created);
+  $("hs-2").classList.toggle("ok", !!gh.linked);
+  $("hs-3").classList.toggle("ok", !!S.sync);
+  var sync = $("gh-sync");
+  if (S.sync){
+    sync.setAttribute("data-mode", "on");
+    sync.textContent = "Atualização automática ligada. A última foi em " + fmtWhen(S.sync.updatedAt) + ". ";
+    if (S.sync.commitUrl) sync.append(el("a", {href:S.sync.commitUrl, target:"_blank", rel:"noopener noreferrer", text:"Ver no GitHub"}));
+  } else {
+    sync.setAttribute("data-mode", "off");
+    sync.textContent = gh.created && gh.linked ? "Passos 1 e 2 feitos. Falta avisar o Claude no chat para ligar a atualização automática." : "Atualização automática: ainda não ligada. Siga os 3 passos abaixo.";
+  }
+  $("sp-created").checked = !!accGet("studentpack").created;
+  var ready = 0, nowTotal = 0, nowReady = 0;
+  TOOLS.forEach(function(t){
+    var a = accGet(t.id), r = t._el, ok = toolReady(t), now = t.phase === null || t.phase < 3;
+    if (ok) ready++;
+    if (now){ nowTotal++; if (ok) nowReady++; }
+    r.card.classList.toggle("is-ready", ok);
+    t.checks.forEach(function(c){ r.checks[c[0]].checked = !!a[c[0]]; });
+    if (r.input) setIfIdle(r.input, a.user || "");
+    if (r.prof){
+      var pu = a.user && USER_ANY_RE.test(a.user) ? a.user : "";
+      r.prof.hidden = !pu;
+      if (pu) r.prof.href = profileUrl(t, pu);
+    }
+  });
+  $("acc-count").textContent = nowReady + " de " + nowTotal + " prontas para agora · " + (TOOLS.length - nowTotal) + " ficam para 2027";
+  var ghTxt = S.sync ? "GitHub atualizado em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : gh.created && gh.linked ? "GitHub pronto: falta avisar o Claude" : "GitHub ainda não ligado ao projeto";
+  $("acc-strip-text").textContent = ghTxt + " · " + nowReady + " de " + nowTotal + " ferramentas prontas para agora";
+}
+
+/* ---------- Conexão com o armazenamento ---------- */
+function goOffline(){ S.mode = "offline"; applyControls(); setStatus(); }
+function subscribe(start){
+  var retried = false;
+  var run = function(){
+    start(function(err){
+      if (err && err.code === "unavailable" && !retried){ retried = true; setTimeout(run, 1500 + Math.random() * 1500); return; }
+      goOffline();
+    });
+  };
+  run();
+}
+function startLive(db){
+  DB = db; S.mode = "live";
+  setStatus(); applyControls();
+  subscribe(function(onErr){
+    return db.collection("progress").onSnapshot(function(snap){
+      var m = {};
+      snap.docs.forEach(function(d){
+        if (!STEP_BY_ID[d.id]) return;
+        var v = d.data();
+        if (v && typeof v.doneAt === "string" && ISO_RE.test(v.doneAt)) m[d.id] = v.doneAt;
+      });
+      S.server = m; S.done = mergedDone();
+      var first = !gotProgress;
+      gotProgress = true;
+      renderProgress(); applyControls(); setStatus();
+      if (first && UI.open === null) openDefaultPhase();
+    }, onErr);
+  });
+  subscribe(function(onErr){
+    return db.collection("log").orderBy("date", "desc").limit(1000).onSnapshot(function(snap){
+      var arr = [];
+      snap.docs.forEach(function(d){
+        var v = d.data();
+        if (!v) return;
+        var h = Number(v.hours);
+        if (typeof v.date !== "string" || !ISO_RE.test(v.date) || !(h > 0 && h <= 24)) return;
+        arr.push({id:d.id, date:v.date, hours:h, note:typeof v.note === "string" ? v.note.slice(0, 200) : "", createdAt:typeof v.createdAt === "string" ? v.createdAt : ""});
+      });
+      S.log = arr; renderHours();
+    }, onErr);
+  });
+  subscribe(function(onErr){
+    return db.doc("settings/plan").onSnapshot(function(d){
+      var g = d.exists ? Number((d.data() || {}).weeklyGoal) : 10;
+      S.goal = GOALS.indexOf(g) >= 0 ? g : 10;
+      renderHours();
+    }, onErr);
+  });
+  subscribe(function(onErr){
+    return db.collection("accounts").onSnapshot(function(snap){
+      var m = {};
+      snap.docs.forEach(function(d){
+        if (!ACC_IDS[d.id]) return;
+        var v = d.data() || {};
+        m[d.id] = {user:typeof v.user === "string" ? v.user.slice(0, 160) : "", created:v.created === true, linked:v.linked === true};
+      });
+      S.accServer = m; S.acc = accMerged();
+      gotAcc = true;
+      renderAccounts(); applyControls();
+    }, onErr);
+  });
+  subscribe(function(onErr){
+    return db.doc("sync/github").onSnapshot(function(d){
+      S.sync = d.exists ? validSync(d.data()) : null;
+      renderAccounts();
+    }, onErr);
+  });
+}
+function showGate(msg){
+  if (msg) $("gate-msg").textContent = msg;
+  $("gate").hidden = false;
+  try { $("gate-login").focus(); } catch (e) {}
+}
+function hideGate(){ $("gate").hidden = true; }
+function showIdentity(me){
+  if (!me) return;
+  var first = (me.name || "").trim().split(/\s+/)[0];
+  if (me.avatarUrl) $("user-avatar").src = me.avatarUrl;
+  $("user-name").textContent = me.name || "Você";
+  $("user-role").textContent = me.isOwner ? "Dono da trilha" : "Visitante";
+  $("user-chip").hidden = false;
+  $("user-chip").setAttribute("aria-label", (me.name || "Você") + (me.isOwner ? ", dono da trilha" : ", visitante") + ". Abrir contas e integrações");
+  if (first){ $("hello").textContent = ""; $("hello").append(document.createTextNode("Olá, "), el("strong", {text:first}), document.createTextNode(me.isOwner ? "! Bom te ver de volta." : "! Você está vendo esta trilha como visitante.")); $("hello").hidden = false; }
+}
+var connecting = false;
+function connect(){
+  var c = window.claude;
+  if (!c || typeof c.use !== "function"){ goOffline(); showGate(); return; }
+  if (connecting) return;
+  connecting = true;
+  Promise.all([
+    c.use("db").catch(function(){ return null; }),
+    c.use("user").catch(function(){ return null; })
+  ]).then(function(r){
+    connecting = false;
+    var db = r[0], user = r[1];
+    if (!db){ goOffline(); showGate(); return; }
+    hideGate();
+    var meP = user && user.me ? Promise.resolve(user.me()).catch(function(){ return null; }) : Promise.resolve(null);
+    var canP = user ? Promise.resolve(user.can("data.write")).catch(function(){ return null; }) : Promise.resolve(null);
+    Promise.all([meP, canP]).then(function(x){
+      var me = x[0], cw = x[1];
+      showIdentity(me);
+      if (cw === false || (me && me.id && me.isOwner === false)) S.readOnly = true;
+      if (!DB) startLive(db); else { applyControls(); setStatus(); }
+    });
+  });
+}
+$("gate-retry").addEventListener("click", function(){
+  var c = window.claude;
+  if (!c || typeof c.use !== "function"){ try { location.reload(); } catch (e) {} return; }
+  Promise.resolve(c.use("db")).catch(function(){ return null; }).then(function(db){
+    if (db) connect(); else { try { location.reload(); } catch (e) {} }
+  });
+});
+$("gate-skip").addEventListener("click", function(){ hideGate(); toast("Modo de visualização: nada do que você marcar será salvo."); });
+$("theme-btn").addEventListener("click", function(){
+  var t = currentTheme() === "dark" ? "light" : "dark";
+  applyTheme(t);
+  try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  toast(t === "dark" ? "Tema escuro ativado." : "Tema claro ativado.");
+});
+applyTheme(currentTheme());
+
+function openDefaultPhase(){
+  var ph = currentNext ? currentNext.ph : PLAN[PLAN.length - 1];
+  PLAN.forEach(function(p){ setPhaseOpen(p, p === ph); });
+}
+
+/* ---------- Início ---------- */
+$("log-date").value = todayISO();
+$("log-date").max = todayISO();
+setFilter(UI.filter);
+renderProgress();
+renderHours();
+if (Array.isArray(UI.open)) PLAN.forEach(function(ph){ setPhaseOpen(ph, UI.open.indexOf(ph.id) >= 0); });
+else openDefaultPhase();
+buildTools();
+renderAccounts();
+setStatus();
+applyControls();
+var startView = "inicio";
+try { var h = (location.hash || "").replace("#", ""); if (VIEWS.indexOf(h) >= 0) startView = h; else startView = lsGet("trilha-view", "inicio"); } catch (e) {}
+showView(startView, true);
+connect();
+})();
+</script>

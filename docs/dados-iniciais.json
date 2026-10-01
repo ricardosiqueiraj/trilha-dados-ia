@@ -1,0 +1,137 @@
+{
+ "resumo": "5 etapas concluídas e 10 contas",
+ "linhas": [
+  {
+   "collection": "progress",
+   "id": "f0-ambiente",
+   "data": {
+    "doneAt": "2026-09-30"
+   }
+  },
+  {
+   "collection": "progress",
+   "id": "f0-contas",
+   "data": {
+    "doneAt": "2026-09-30"
+   }
+  },
+  {
+   "collection": "progress",
+   "id": "f0-github",
+   "data": {
+    "doneAt": "2026-09-30"
+   }
+  },
+  {
+   "collection": "progress",
+   "id": "f0-rotina",
+   "data": {
+    "doneAt": "2026-09-29"
+   }
+  },
+  {
+   "collection": "progress",
+   "id": "f0-zoomcamp",
+   "data": {
+    "doneAt": "2026-09-30"
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "databricks",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": ""
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "datatalks",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": ""
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "github",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": "ricardosiqueiraj"
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "huggingface",
+   "data": {
+    "created": true,
+    "linked": false,
+    "user": "ricardosiqueiraj"
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "kaggle",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": "ricardosiqueiraj"
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "leetcode",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": ""
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "linkedin",
+   "data": {
+    "created": false,
+    "linked": true,
+    "user": "josé-ricardo-junior-248aa1252"
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "microsoft",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": ""
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "slack",
+   "data": {
+    "created": true,
+    "linked": false,
+    "user": ""
+   }
+  },
+  {
+   "collection": "accounts",
+   "id": "vscode",
+   "data": {
+    "created": true,
+    "linked": true,
+    "user": ""
+   }
+  },
+  {
+   "collection": "settings",
+   "id": "plan",
+   "data": {
+    "weeklyGoal": 15
+   }
+  }
+ ]
+}
