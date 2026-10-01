@@ -1,0 +1,60 @@
+# Atualização semanal do GitHub com o progresso marcado no site (banco no Supabase).
+# Roda todo domingo às 20h58 de Brasília (23h58 UTC) e também pelo botão "Run workflow".
+name: Atualizar progresso
+
+on:
+  schedule:
+    - cron: "58 23 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-progresso
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_URL: https://ugcwnfmodlkmyshbmmyr.supabase.co
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_OWNER_ID: ${{ secrets.SUPABASE_OWNER_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ler o banco do site
+        run: python3 scripts/supabase_sync.py exportar "$RUNNER_TEMP/db"
+
+      - name: Gerar README, PLANO e PROGRESSO
+        id: gerar
+        run: |
+          saida="$(python3 scripts/atualizar.py --db "$RUNNER_TEMP/db")"
+          echo "$saida"
+          echo "resumo=${saida#*: }" >> "$GITHUB_OUTPUT"
+
+      - name: Enviar para o GitHub
+        id: enviar
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Sem mudanças nesta semana."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md PLANO.md PROGRESSO.md dados/progresso.json
+            git commit -m "Progresso da semana: $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+            git push origin HEAD:main
+          fi
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Avisar o Painel do site
+        env:
+          RESUMO: ${{ steps.gerar.outputs.resumo }}
+          COMMIT: ${{ steps.enviar.outputs.commit }}
+        run: python3 scripts/supabase_sync.py marcar --pasta "$RUNNER_TEMP/db" --resumo "$RESUMO" --commit "$COMMIT"

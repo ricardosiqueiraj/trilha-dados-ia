@@ -2468,7 +2468,7 @@ function renderDash(){
     var name = a.user && t.profile ? el("a", {class:"dl-t", href:profileUrl(t, a.user), target:"_blank", rel:"noopener noreferrer", text:t.name + " · " + a.user}) : el("span", {class:"dl-t", text:t.name});
     plat.append(el("li", null, el("span", {class:"dot", "data-on":ok ? "1" : a.created ? "2" : "0"}), el("div", null, name, el("span", {class:"dl-s", text:st}))));
   });
-  $("d-plat-txt").textContent = ready + " de " + TOOLS.length + " ferramentas prontas · " + (S.sync ? "GitHub atualizado pelo Claude em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : "atualização semanal do GitHub ainda não rodou");
+  $("d-plat-txt").textContent = ready + " de " + TOOLS.length + " ferramentas prontas · " + (S.sync ? "GitHub atualizado em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : "atualização semanal do GitHub ainda não rodou");
   loadGithub();
 
   // próximos marcos

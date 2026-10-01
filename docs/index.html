@@ -1086,7 +1086,7 @@ span.dl-t{cursor:default}
         <div class="hub-body">
           <p class="kick">Centro do projeto</p>
           <h2 id="t-gh">GitHub</h2>
-          <p class="d">Depois de ligado, o Claude atualiza toda semana o repositório trilha-dados-ia com o que você marca nesta página: a porcentagem da trilha, as etapas concluídas, as horas de estudo e os links dos seus perfis. O código dos projetos é você quem envia, cada projeto no seu próprio repositório: é isso que o recrutador abre.</p>
+          <p class="d">Todo domingo à noite, uma automação do próprio GitHub (GitHub Actions) lê o que você marca neste site e atualiza o repositório trilha-dados-ia: a porcentagem da trilha, as etapas concluídas, as horas de estudo e os links dos seus perfis. O código dos projetos é você quem envia, cada projeto no seu próprio repositório: é isso que o recrutador abre.</p>
           <p class="gh-sync" id="gh-sync" data-mode="off" role="status">Atualização automática: ainda não ligada. Siga os 3 passos abaixo.</p>
           <div class="gh-user">
             <div class="field"><label class="flabel" for="gh-user">Seu usuário do GitHub</label><input class="inp" id="gh-user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="100" placeholder="Ex.: josericardo"></div>
@@ -1098,8 +1098,8 @@ span.dl-t{cursor:default}
           <p class="form-msg" id="gh-user-msg" role="status"></p>
           <ol class="hsteps">
             <li id="hs-1"><span class="n">1</span><div><strong>Crie o repositório trilha-dados-ia</strong><span class="s">O link abre o formulário do GitHub já preenchido com o nome, a descrição e a opção público. Deixe o resto como está e clique em Create repository.</span><a class="mono-link" id="gh-new" href="https://github.com/new?name=trilha-dados-ia&amp;description=Minha+trilha+de+estudos+para+Engenharia+de+Dados+e+IA&amp;visibility=public" target="_blank" rel="noopener noreferrer">Criar o repositório<i data-icon="ext" data-size="13"></i></a></div><label class="tick"><input type="checkbox" id="gh-created"><span>Feito</span></label></li>
-            <li id="hs-2"><span class="n">2</span><div><strong>Conecte o GitHub ao Claude</strong><span class="s">No claude.ai, abra Configurações, depois Conectores, conecte sua conta do GitHub e libere o acesso ao repositório trilha-dados-ia.</span></div><label class="tick"><input type="checkbox" id="gh-linked"><span>Feito</span></label></li>
-            <li id="hs-3"><span class="n">3</span><div><strong>Avise o Claude no chat</strong><span class="s">Ele envia o plano para o repositório e liga a atualização de toda semana. Quando ela rodar, a data aparece aqui em cima.</span></div></li>
+            <li id="hs-2"><span class="n">2</span><div><strong>Guarde a chave secreta do Supabase no GitHub</strong><span class="s">No repositório, Settings, Secrets and variables, Actions: crie o segredo SUPABASE_SECRET_KEY. É ele que deixa a automação ler o seu progresso.</span></div><label class="tick"><input type="checkbox" id="gh-linked"><span>Feito</span></label></li>
+            <li id="hs-3"><span class="n">3</span><div><strong>Rode a automação uma vez</strong><span class="s">Na aba Actions do repositório, abra Atualizar progresso e clique em Run workflow. Depois ela roda sozinha todo domingo, e a data aparece aqui em cima.</span></div></li>
           </ol>
         </div>
       </article>
@@ -2335,7 +2335,7 @@ function renderAccounts(){
     if (S.sync.commitUrl) sync.append(el("a", {href:S.sync.commitUrl, target:"_blank", rel:"noopener noreferrer", text:"Ver no GitHub"}));
   } else {
     sync.setAttribute("data-mode", "off");
-    sync.textContent = gh.created && gh.linked ? "Passos 1 e 2 feitos. Falta avisar o Claude no chat para ligar a atualização automática." : "Atualização automática: ainda não ligada. Siga os 3 passos abaixo.";
+    sync.textContent = gh.created && gh.linked ? "Passos 1 e 2 feitos. Falta rodar a automação uma vez na aba Actions do GitHub." : "Atualização automática: ainda não ligada. Siga os 3 passos abaixo.";
   }
   $("sp-created").checked = !!accGet("studentpack").created;
   var ready = 0, nowTotal = 0, nowReady = 0;
@@ -2503,7 +2503,7 @@ function renderDash(){
     var name = a.user && t.profile ? el("a", {class:"dl-t", href:profileUrl(t, a.user), target:"_blank", rel:"noopener noreferrer", text:t.name + " · " + a.user}) : el("span", {class:"dl-t", text:t.name});
     plat.append(el("li", null, el("span", {class:"dot", "data-on":ok ? "1" : a.created ? "2" : "0"}), el("div", null, name, el("span", {class:"dl-s", text:st}))));
   });
-  $("d-plat-txt").textContent = ready + " de " + TOOLS.length + " ferramentas prontas · " + (S.sync ? "GitHub atualizado pelo Claude em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : "atualização semanal do GitHub ainda não rodou");
+  $("d-plat-txt").textContent = ready + " de " + TOOLS.length + " ferramentas prontas · " + (S.sync ? "GitHub atualizado em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : "atualização semanal do GitHub ainda não rodou");
   loadGithub();
 
   // próximos marcos

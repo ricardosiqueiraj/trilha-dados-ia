@@ -89,6 +89,19 @@ def main():
     html = html.replace("</style>", ESTILO_EXTRA + "</style>", 1)
     # textos que falavam do Claude
     html = html.replace("Abra a página pelo Claude, com sua conta, para salvar.", "Entre com sua conta para salvar.")
+    # no site, quem atualiza o GitHub é o GitHub Actions, lendo o banco do Supabase
+    for velho, novo in [
+        ("Depois de ligado, o Claude atualiza toda semana o repositório trilha-dados-ia com o que você marca nesta página:",
+         "Todo domingo à noite, uma automação do próprio GitHub (GitHub Actions) lê o que você marca neste site e atualiza o repositório trilha-dados-ia:"),
+        ("<strong>Conecte o GitHub ao Claude</strong><span class=\"s\">No claude.ai, abra Configurações, depois Conectores, conecte sua conta do GitHub e libere o acesso ao repositório trilha-dados-ia.</span>",
+         "<strong>Guarde a chave secreta do Supabase no GitHub</strong><span class=\"s\">No repositório, Settings, Secrets and variables, Actions: crie o segredo SUPABASE_SECRET_KEY. É ele que deixa a automação ler o seu progresso.</span>"),
+        ("<strong>Avise o Claude no chat</strong><span class=\"s\">Ele envia o plano para o repositório e liga a atualização de toda semana. Quando ela rodar, a data aparece aqui em cima.</span>",
+         "<strong>Rode a automação uma vez</strong><span class=\"s\">Na aba Actions do repositório, abra Atualizar progresso e clique em Run workflow. Depois ela roda sozinha todo domingo, e a data aparece aqui em cima.</span>"),
+        ("Passos 1 e 2 feitos. Falta avisar o Claude no chat para ligar a atualização automática.",
+         "Passos 1 e 2 feitos. Falta rodar a automação uma vez na aba Actions do GitHub."),
+    ]:
+        assert velho in html, velho[:50]
+        html = html.replace(velho, novo)
     # scripts do site antes do script principal
     pos = html.rfind("<script>")
     assert pos > 0
