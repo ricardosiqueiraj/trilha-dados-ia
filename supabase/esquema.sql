@@ -4,7 +4,7 @@
 
 create table if not exists public.docs (
   owner      uuid        not null default auth.uid() references auth.users (id) on delete cascade,
-  collection text        not null check (collection in ('progress', 'log', 'settings', 'accounts', 'sync')),
+  collection text        not null check (collection in ('progress', 'log', 'settings', 'accounts', 'sync', 'scores')),
   id         text        not null check (char_length(id) between 1 and 200),
   data       jsonb       not null,
   updated_at timestamptz not null default now(),

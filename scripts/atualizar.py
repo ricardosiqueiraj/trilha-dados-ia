@@ -131,6 +131,23 @@ def montar_progresso(pasta, plano, agora):
             perfis[arq.stem] = usuario if regra.match(usuario) else ""
         contas[arq.stem] = {"criada": d.get("created") is True, "ligada": d.get("linked") is True}
 
+    notas = []
+    for arq in sorted((pasta / "scores").glob("*.json")) if (pasta / "scores").is_dir() else []:
+        d = ler_json(arq)
+        if not isinstance(d, dict):
+            continue
+        try:
+            nota, maximo = float(d.get("score")), float(d.get("max"))
+        except (TypeError, ValueError):
+            continue
+        dia, tipo, titulo = d.get("date"), d.get("kind"), d.get("title")
+        if not (isinstance(dia, str) and ISO.match(dia) and isinstance(tipo, str) and isinstance(titulo, str) and maximo > 0 and 0 <= nota <= maximo):
+            continue
+        obs = d.get("note") if isinstance(d.get("note"), str) else ""
+        notas.append({"data": dia, "tipo": " ".join(tipo.split())[:30], "nome": " ".join(titulo.split())[:80],
+                      "nota": round(nota, 2), "maximo": round(maximo, 2), "obs": " ".join(obs.split())[:120]})
+    notas.sort(key=lambda n: (n["data"], n["nome"]))
+
     return {
         "atualizado_em": agora.isoformat(timespec="minutes"),
         "meta_semanal_h": meta,
@@ -138,6 +155,7 @@ def montar_progresso(pasta, plano, agora):
         "sessoes": sessoes,
         "perfis": perfis,
         "contas": dict(sorted(contas.items())),
+        "notas": notas,
     }
 
 
@@ -336,6 +354,15 @@ def gerar_progresso(plano, prog, r, texto_quando):
             linhas.append(f"| {data_br(dia)} | {e['rotulo']} · {celula(e['titulo'])} | {f['numero']} |")
     else:
         linhas.append("Nenhuma etapa concluída ainda.")
+    linhas += ["", "## Provas, testes e notas", ""]
+    notas = prog.get("notas") or []
+    if notas:
+        linhas += ["| Data | Tipo | Nome | Nota | % | Observação |", "|---|---|---|---|---|---|"]
+        for n in reversed(notas):
+            linhas.append(f"| {data_br(n['data'])} | {celula(n['tipo'])} | {celula(n['nome'])} | {horas(n['nota'])[:-2]} de {horas(n['maximo'])[:-2]} | "
+                          f"{round(n['nota'] / n['maximo'] * 100)}% | {celula(n['obs']) or '—'} |")
+    else:
+        linhas.append("Nenhuma nota registrada ainda.")
     linhas += ["", "## Sessões de estudo", ""]
     if prog["sessoes"]:
         linhas += ["| Data | Horas | O que estudei |", "|---|---|---|"]

@@ -106,7 +106,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .panel{grid-area:main;background:var(--panel);border-radius:18px 0 0 0;padding:34px 44px 72px;min-width:0}
 .view{display:grid;gap:28px;max-width:1180px}
 
-.bottomnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));grid-template-columns:repeat(6,minmax(0,1fr))}
+.bottomnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));grid-template-columns:repeat(7,minmax(0,1fr))}
 .bottomnav button{display:grid;justify-items:center;gap:3px;background:none;border:0;color:var(--muted);font-size:.64rem;font-weight:500;padding:6px 2px;min-height:52px;cursor:pointer}
 .bottomnav button[aria-current="page"]{color:var(--text);background:var(--surface);border-radius:10px}
 .bottomnav button[aria-current="page"] .icon{color:var(--link)}
@@ -568,6 +568,88 @@ body{transition:background-color .25s ease,color .25s ease}
 :root[data-theme="light"] .toast,.toast{background:var(--text);color:var(--bg)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Barra de progresso geral e painel */
+.gprog{width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:0 0 22px;color:var(--text);cursor:pointer;text-align:left;font:inherit}
+.gprog:hover{border-color:var(--blue-2)}
+.gp-k{font:500 .68rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.gp-item{display:flex;align-items:center;gap:8px;flex:1 1 160px;min-width:0}
+.gp-l{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.gp-bar{flex:1;height:8px;border-radius:999px;background:var(--line);overflow:hidden;min-width:50px}
+.gp-bar>span{display:block;height:100%;width:0;border-radius:inherit;background:var(--green);transition:width .6s ease}
+.gp-en .gp-bar>span{background:var(--c-teal)}
+.gp-h .gp-bar>span{background:var(--c-purple)}
+.gp-v{font:500 .78rem/1 var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.gprog{padding:10px 12px;gap:8px}.gp-k{flex-basis:100%}.gp-item{flex-basis:100%}.gp-l{width:7.5em}}
+.stat.c-teal{--acc:var(--c-teal);--acc-soft:var(--c-teal-soft)}
+.dash-kpis{margin-bottom:16px}
+.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dash-grid .span-2{grid-column:1 / -1}
+@media (max-width:860px){.dash-grid{grid-template-columns:minmax(0,1fr)}}
+.pbars{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pbars li{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 3rem 7.5rem;gap:12px;align-items:center;font-size:.86rem}
+.pb-name{background:none;border:0;padding:0;color:var(--text);font:inherit;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pb-name:hover{color:var(--link);text-decoration:underline}
+.pb-track{position:relative;height:10px;border-radius:999px;background:var(--line);overflow:visible}
+.pb-fill{display:block;height:100%;border-radius:999px;background:var(--ph);min-width:0;transition:width .6s ease}
+.pb-exp{position:absolute;top:-4px;width:2px;height:18px;border-radius:1px;background:var(--text);opacity:.55}
+.pb-val{font:500 .8rem/1 var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.pb-st{font:500 .66rem/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pb-st[data-status="done"]{color:var(--green)}
+.pb-st[data-status="late"]{color:var(--warn)}
+.pb-st[data-status="running"]{color:var(--link)}
+@media (max-width:640px){.pbars li{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}.pb-track{grid-column:1 / -1;grid-row:2}.pb-st{display:none}}
+.mini-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.mini-stats>div{background:var(--panel);border-radius:8px;padding:10px 12px;min-width:0}
+.mini-stats .k{margin:0;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.mini-stats .v{margin:4px 0 0;font-size:1.25rem;font-weight:400;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.chart .hit{fill:transparent}
+.chart g:hover .bar-past,.chart g:hover .bar-now{opacity:.8}
+.grid{stroke:var(--line);stroke-width:1;stroke-dasharray:2 3}
+.ln-plan{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4}
+.ln-real{fill:none;stroke:var(--blue-2);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.pt-real{fill:var(--blue-2);stroke:var(--surface);stroke-width:2}
+.key{display:inline-block;width:16px;height:0;border-top:2px solid var(--blue-2);vertical-align:middle;margin:0 6px 0 0}
+.key-plan{border-top:2px dashed var(--muted);margin-left:12px}
+.dlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.dlist li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:10px;align-items:start}
+.dlist .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:var(--line-2)}
+.dlist .dot[data-on="1"]{background:var(--green)}
+.dlist .dot[data-on="2"]{background:var(--warn)}
+.dl-t{display:block;font-size:.9rem;color:var(--text);background:none;border:0;padding:0;text-align:left;font-family:inherit;cursor:pointer;overflow-wrap:anywhere}
+a.dl-t{color:var(--link);text-decoration:underline;text-underline-offset:3px}
+button.dl-t:hover{color:var(--link);text-decoration:underline}
+span.dl-t{cursor:default}
+.dl-s{display:block;font-size:.8rem;color:var(--muted)}
+.dlist.cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}
+@media (max-width:1100px){.dlist.cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.dlist.cols{grid-template-columns:minmax(0,1fr)}}
+.scores{list-style:none;margin:0;padding:0;display:grid}
+.scores li{display:grid;grid-template-columns:6.2rem minmax(0,1fr) minmax(8rem,12rem) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:.88rem}
+.scores li:first-child{border-top:0}
+.scores li.more{display:block;color:var(--muted);font-size:.82rem}
+.sc-d{font:500 .78rem/1.2 var(--mono);color:var(--muted)}
+.sc-main{display:grid;gap:3px;min-width:0}
+.sc-t{overflow-wrap:anywhere}
+.sc-n{font-size:.8rem;color:var(--muted)}
+.sc-v{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;font-variant-numeric:tabular-nums}
+.sc-v .bar>span{background:var(--c-purple)}
+.sc-p{font:500 .78rem/1 var(--mono)}
+@media (max-width:640px){.scores li{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}.sc-d{grid-column:1 / -1}.sc-v{grid-column:1 / -1;grid-row:3}}
+.sc-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.sc-form .sc-wide{grid-column:span 2}
+.sc-form .form-msg.sc-wide,.sc-form button.sc-wide{grid-column:1 / -1}
+@media (max-width:640px){.sc-form{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.sc-form .sc-wide,.sc-form .field:first-child{grid-column:1 / -1}}
+@media (max-width:560px){.dash-kpis .stat{grid-column:1 / -1}}
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:10px;padding:8px 0 8px 14px;border-left:2px solid var(--line);position:relative;font-size:.86rem}
+.timeline li::before{content:"";position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--blue-2);border:2px solid var(--surface)}
+.timeline li[data-k="horas"]::before{background:var(--c-purple)}
+.timeline li[data-k="nota"]::before{background:var(--warn)}
+.timeline li.more{display:block;color:var(--muted);font-size:.8rem}
+.timeline li.more::before{display:none}
+.tl-d{font:500 .78rem/1.4 var(--mono);color:var(--muted)}
+.tl-t{overflow-wrap:anywhere}
 </style>
 
 <div class="app">
@@ -591,6 +673,7 @@ body{transition:background-color .25s ease,color .25s ease}
 
   <aside class="sidenav" aria-label="Menu">
     <button class="nav-item" type="button" data-nav="inicio"><i data-icon="home"></i>Início</button>
+    <button class="nav-item" type="button" data-nav="painel"><i data-icon="chart"></i>Painel</button>
     <button class="nav-item" type="button" data-nav="trilha"><i data-icon="layers"></i>Minha trilha</button>
     <button class="nav-item" type="button" data-nav="cursos"><i data-icon="book"></i>Cursos e links</button>
     <button class="nav-item" type="button" data-nav="horas"><i data-icon="clock"></i>Horas de estudo</button>
@@ -610,6 +693,12 @@ body{transition:background-color .25s ease,color .25s ease}
   </aside>
 
   <main class="panel" id="main">
+    <button class="gprog" type="button" data-nav="painel" aria-label="Seu progresso. Abrir o painel">
+      <span class="gp-k">Seu progresso</span>
+      <span class="gp-item"><span class="gp-l">Trilha técnica</span><span class="gp-bar"><span id="gp-tec"></span></span><span class="gp-v" id="gp-tec-v">0%</span></span>
+      <span class="gp-item gp-en"><span class="gp-l">Inglês</span><span class="gp-bar"><span id="gp-en"></span></span><span class="gp-v" id="gp-en-v">0%</span></span>
+      <span class="gp-item gp-h"><span class="gp-l">Horas</span><span class="gp-bar"><span id="gp-h"></span></span><span class="gp-v" id="gp-h-v">0 h</span></span>
+    </button>
     <!-- INÍCIO -->
     <section class="view" id="view-inicio" aria-labelledby="t-inicio">
       <section class="hero" aria-labelledby="t-inicio">
@@ -736,6 +825,132 @@ body{transition:background-color .25s ease,color .25s ease}
         </section>
       </div>
       <p class="foot">Plano montado em 29 de setembro de 2026 com base no LinkedIn Empregos em Alta 2026, no Guia Salarial Robert Half 2026, no Estudo de Carreiras em Tecnologia do Inteli e nas páginas oficiais da Microsoft Learn, da Databricks e da DataTalks.Club. Datas de turmas e provas mudam: confira a página oficial antes de se inscrever.</p>
+    </section>
+
+    <!-- PAINEL -->
+    <section class="view" id="view-painel" aria-labelledby="t-painel" hidden>
+      <div class="head">
+        <h1 class="page-title" id="t-painel">Painel</h1>
+        <p class="lead">Tudo do projeto num só lugar: progresso, ritmo, horas, inglês, provas e notas, projetos, plataformas ligadas e o que você já fez.</p>
+      </div>
+
+      <div class="stats dash-kpis">
+        <div class="stat ringed c-green">
+          <svg id="d-tec-ring" width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"></svg>
+          <div><p class="k">Trilha técnica</p><p class="s" id="d-tec-txt">0 de 39 etapas</p><p class="s" id="d-tec-phase"></p></div>
+        </div>
+        <div class="stat ringed c-teal">
+          <svg id="d-en-ring" width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"></svg>
+          <div><p class="k">Inglês</p><p class="s" id="d-en-txt">0 de 30 etapas</p><p class="s" id="d-en-lvl"></p></div>
+        </div>
+        <div class="stat c-purple">
+          <p class="k"><span class="stat-ic"><i data-icon="clock" data-size="16"></i></span>Horas de estudo</p>
+          <p class="v" id="d-hours">0 h</p>
+          <div class="bar" id="d-hours-bar"><span></span></div>
+          <p class="s" id="d-hours-txt">de ≈ 650 h no plano completo</p>
+        </div>
+        <div class="stat c-orange">
+          <p class="k"><span class="stat-ic"><i data-icon="chart" data-size="16"></i></span>Ritmo</p>
+          <p class="v" id="d-pace">—</p>
+          <p class="s" id="d-pace-txt"></p>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <section class="card span-2" aria-labelledby="t-d-fases">
+          <h2 id="t-d-fases"><i data-icon="layers"></i>Progresso por fase e nível</h2>
+          <ul class="pbars" id="d-phases"></ul>
+          <p class="note">Barra: etapas concluídas da fase. O traço mostra onde você deveria estar hoje pelas datas do plano.</p>
+        </section>
+
+        <section class="card" aria-labelledby="t-d-semanas">
+          <h2 id="t-d-semanas"><i data-icon="chart"></i>Horas nas últimas 12 semanas</h2>
+          <figure class="chart">
+            <svg id="d-weeks" viewBox="0 0 320 140" role="img" aria-label="Horas por semana"></svg>
+            <figcaption id="d-weeks-cap">Horas por semana, de segunda a domingo. A linha tracejada é a meta semanal.</figcaption>
+          </figure>
+          <div class="mini-stats">
+            <div><p class="k">Média (4 semanas)</p><p class="v" id="d-avg">0 h</p></div>
+            <div><p class="k">Semanas na meta</p><p class="v" id="d-streak">0</p></div>
+            <div><p class="k">Dias estudados</p><p class="v" id="d-days">0</p></div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="t-d-acum">
+          <h2 id="t-d-acum"><i data-icon="clock"></i>Horas acumuladas: real e planejado</h2>
+          <figure class="chart">
+            <svg id="d-cum" viewBox="0 0 320 140" role="img" aria-label="Horas acumuladas"></svg>
+            <figcaption><span class="key key-real"></span>Real (horas registradas) <span class="key key-plan"></span>Planejado pelo calendário</figcaption>
+          </figure>
+          <p class="note" id="d-forecast"></p>
+        </section>
+
+        <section class="card span-2" aria-labelledby="t-d-notas">
+          <h2 id="t-d-notas"><i data-icon="award"></i>Provas, testes e notas</h2>
+          <div class="mini-stats">
+            <div><p class="k">Registros</p><p class="v" id="d-sc-n">0</p></div>
+            <div><p class="k">Média</p><p class="v" id="d-sc-avg">—</p></div>
+            <div><p class="k">Melhor resultado</p><p class="v" id="d-sc-best">—</p></div>
+            <div><p class="k">Último nível de inglês</p><p class="v" id="d-sc-cefr">—</p></div>
+          </div>
+          <figure class="chart" id="d-sc-fig" hidden>
+            <svg id="d-sc-chart" viewBox="0 0 640 140" role="img" aria-label="Notas ao longo do tempo"></svg>
+            <figcaption>Nota em porcentagem do máximo, na ordem das datas.</figcaption>
+          </figure>
+          <ol class="scores" id="d-sc-list"></ol>
+          <p class="empty" id="d-sc-empty">Nenhuma nota registrada ainda. Registre abaixo o teste de nível de inglês, simulados, provas da faculdade, certificações e listas de exercícios.</p>
+          <form class="sc-form" id="sc-form" novalidate>
+            <div class="field"><label for="sc-kind">Tipo</label><div class="select"><select id="sc-kind">
+              <option>Teste de nível</option><option>Simulado</option><option>Certificação</option><option>Exercícios</option><option>Faculdade</option><option>Curso</option>
+            </select><i data-icon="chev"></i></div></div>
+            <div class="field sc-wide"><label for="sc-title">Nome</label><input class="inp" id="sc-title" type="text" maxlength="80" autocomplete="off" placeholder="Ex.: EF SET, LeetCode SQL 50, AV1 de Banco de Dados"></div>
+            <div class="field"><label for="sc-date">Data</label><input class="inp" id="sc-date" type="date"></div>
+            <div class="field"><label for="sc-score">Nota</label><input class="inp" id="sc-score" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 62"></div>
+            <div class="field"><label for="sc-max">De quanto</label><input class="inp" id="sc-max" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 100"></div>
+            <div class="field sc-wide"><label for="sc-note">Observação (opcional)</label><input class="inp" id="sc-note" type="text" maxlength="120" autocomplete="off" placeholder="Ex.: B1 no EF SET; errei mais window functions"></div>
+            <p class="form-msg sc-wide" id="sc-msg" role="status"></p>
+            <button class="btn-primary sc-wide" type="submit" id="sc-submit">Registrar nota</button>
+          </form>
+        </section>
+
+        <section class="card" aria-labelledby="t-d-proj">
+          <h2 id="t-d-proj"><i data-icon="code"></i>Projetos e prática</h2>
+          <ul class="dlist" id="d-projects"></ul>
+          <div class="mini-stats">
+            <div><p class="k">Práticas feitas</p><p class="v" id="d-prat">0</p></div>
+            <div><p class="k">Estudos feitos</p><p class="v" id="d-est">0</p></div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="t-d-cert">
+          <h2 id="t-d-cert"><i data-icon="award"></i>Certificações</h2>
+          <ul class="dlist" id="d-certs"></ul>
+        </section>
+
+        <section class="card span-2" aria-labelledby="t-d-plat">
+          <h2 id="t-d-plat"><i data-icon="link"></i>Plataformas ligadas</h2>
+          <p class="note" id="d-plat-txt"></p>
+          <ul class="dlist cols" id="d-platforms"></ul>
+          <button class="mono-link" type="button" data-nav="contas">Abrir Contas e integrações</button>
+        </section>
+
+
+        <section class="card" aria-labelledby="t-d-next">
+          <h2 id="t-d-next"><i data-icon="calendar"></i>Próximos marcos</h2>
+          <ul class="dlist" id="d-next"></ul>
+        </section>
+        <section class="card" aria-labelledby="t-d-gh">
+          <h2 id="t-d-gh"><i data-icon="git"></i>O que você já publicou no GitHub</h2>
+          <p class="note" id="d-gh-txt">Carregando…</p>
+          <ul class="dlist" id="d-gh-repos"></ul>
+        </section>
+        <section class="card span-2" aria-labelledby="t-d-tl">
+          <h2 id="t-d-tl"><i data-icon="book"></i>Linha do tempo</h2>
+          <ol class="timeline" id="d-timeline"></ol>
+          <p class="empty" id="d-tl-empty">Ainda não há atividade. Ela aparece aqui quando você conclui etapas, registra horas ou notas.</p>
+        </section>
+
+      </div>
     </section>
 
     <!-- MINHA TRILHA -->
@@ -898,6 +1113,7 @@ body{transition:background-color .25s ease,color .25s ease}
 
   <nav class="bottomnav" aria-label="Menu">
     <button type="button" data-nav="inicio"><i data-icon="home"></i>Início</button>
+    <button type="button" data-nav="painel"><i data-icon="chart"></i>Painel</button>
     <button type="button" data-nav="trilha"><i data-icon="layers"></i>Trilha</button>
     <button type="button" data-nav="cursos"><i data-icon="book"></i>Cursos</button>
     <button type="button" data-nav="horas"><i data-icon="clock"></i>Horas</button>
@@ -1244,7 +1460,7 @@ var CERTS = [
 var STATUS_LABEL = {queued:"Na fila", running:"Em andamento", done:"Concluída", late:"Atrasada"};
 var TAG_SUB = {Teste:"Teste de nível", Projeto:"Projeto de portfólio", Carreira:"Marco de carreira", "Certificação":"Certificação", Estudo:"Estudo", "Prática":"Prática", Trabalho:"No trabalho", Rotina:"Rotina"};
 var GOALS = [4,6,8,10,12,15];
-var VIEWS = ["inicio","trilha","cursos","horas","certificacoes","contas"];
+var VIEWS = ["inicio","painel","trilha","cursos","horas","certificacoes","contas"];
 
 /* Contas: ferramentas do plano. checks = o que dá para marcar; profile = link público montado com o usuário. */
 var TOOLS = [
@@ -1397,7 +1613,7 @@ function ring(size, stroke, pct, fillClass, label, labelSize, trackClass){
 }
 
 /* ---------- Estado ---------- */
-var S = {done:{}, server:{}, log:[], goal:10, mode:"loading", readOnly:false, error:"", acc:{}, accServer:{}, sync:null};
+var S = {done:{}, server:{}, log:[], scores:[], goal:10, mode:"loading", readOnly:false, error:"", acc:{}, accServer:{}, sync:null};
 var DB = null, saving = 0, gotProgress = false, gotAcc = false;
 var inflight = new Map(), chains = new Map(), accInflight = new Map();
 var UI = {view:"inicio", filter:lsGet("trilha-filter", "all"), open:lsGet("trilha-open", null), expanded:{}, sort:0};
@@ -1667,6 +1883,7 @@ function renderProgress(){
     $("next-end").innerHTML = '<svg width="76" height="76" viewBox="0 0 76 76">' + ring(76, 6, 1, "", "✓", 22) + "</svg>";
   }
   renderCourses();
+  renderDash();
 }
 
 function niceCeil(v){
@@ -1731,6 +1948,7 @@ function renderHours(){
   });
   if (S.log.length > 8) list.append(el("li", {class:"more", text:"Mostrando as 8 mais recentes de " + S.log.length + " sessões."}));
   $("log-empty").hidden = S.log.length > 0;
+  renderDash();
 }
 
 var SORTS = [
@@ -1803,6 +2021,8 @@ function applyControls(){
   $("log-form").hidden = S.readOnly;
   $("log-submit").disabled = !(S.mode === "offline" || S.mode === "live") || S.readOnly;
   $("goal-select").disabled = !(S.mode === "offline" || S.mode === "live") || S.readOnly;
+  $("sc-form").hidden = S.readOnly;
+  $("sc-submit").disabled = !(S.mode === "offline" || S.mode === "live") || S.readOnly;
   Array.prototype.forEach.call(document.querySelectorAll(".log-del"), function(b){ b.hidden = S.readOnly; });
   var accOk = (S.mode === "offline" || (S.mode === "live" && gotAcc)) && !S.readOnly;
   Array.prototype.forEach.call(document.querySelectorAll("#view-contas input"), function(i){ i.disabled = !accOk; });
@@ -2100,6 +2320,352 @@ function renderAccounts(){
   $("acc-count").textContent = nowReady + " de " + nowTotal + " prontas para agora · " + (TOOLS.length - nowTotal) + " ficam para 2027";
   var ghTxt = S.sync ? "GitHub atualizado em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : gh.created && gh.linked ? "GitHub pronto: falta avisar o Claude" : "GitHub ainda não ligado ao projeto";
   $("acc-strip-text").textContent = ghTxt + " · " + nowReady + " de " + nowTotal + " ferramentas prontas para agora";
+  renderDash();
+}
+
+
+/* ---------- Painel ---------- */
+var ALL_H = PLAN.reduce(function(a, ph){ return a + ph.hours; }, 0);
+var PLAN_START = PLAN.reduce(function(a, ph){ return ph.start < a ? ph.start : a; }, "9999-12-31");
+var SCORE_KINDS = ["Teste de nível", "Simulado", "Certificação", "Exercícios", "Faculdade", "Curso"];
+var CERT_STEP = {"DP-750":"f3-dp750", "AI-103":"f5-ai103"};
+var DAY = 86400000;
+function dayNum(iso){ return Math.round(parseISO(iso).getTime() / DAY); }
+function phaseFrac(ph, iso){
+  var a = dayNum(ph.start), b = dayNum(ph.end) + 1, t = dayNum(iso);
+  return Math.max(0, Math.min(1, (t - a) / (b - a)));
+}
+function plannedHoursAt(iso){ return PLAN.reduce(function(a, ph){ return a + ph.hours * phaseFrac(ph, iso); }, 0); }
+function expectedSteps(list, iso){
+  var byPh = new Map();
+  list.forEach(function(s){ byPh.set(s.ph, (byPh.get(s.ph) || 0) + 1); });
+  var e = 0; byPh.forEach(function(n, ph){ e += n * phaseFrac(ph, iso); });
+  return e;
+}
+function pctTxt(p){ return Math.round(p * 100) + "%"; }
+function cefrOf(sc){
+  var m = /\b([ABC][12])\b/i.exec(sc.note || "") || /\b([ABC][12])\b/i.exec(sc.title || "");
+  if (m) return m[1].toUpperCase();
+  if (/ef ?set/i.test(sc.title) && sc.max === 100){
+    var v = sc.score;
+    return v <= 30 ? "A1" : v <= 40 ? "A2" : v <= 50 ? "B1" : v <= 60 ? "B2" : v <= 70 ? "C1" : "C2";
+  }
+  return "";
+}
+function svgEsc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+function renderGlobalBar(tecPct, enPct, hours){
+  $("gp-tec").style.width = pctTxt(tecPct); $("gp-tec-v").textContent = pctTxt(tecPct);
+  $("gp-en").style.width = pctTxt(enPct); $("gp-en-v").textContent = pctTxt(enPct);
+  $("gp-h").style.width = pctTxt(Math.min(1, hours / ALL_H)); $("gp-h-v").textContent = fmtNum(Math.round(hours * 10) / 10) + " de " + Math.round(ALL_H) + " h";
+}
+
+function renderDash(){
+  if (!$("view-painel")) return;
+  var today = todayISO();
+  var tecDone = STEPS.filter(function(s){ return S.done[s.id]; }).length;
+  var enDone = EN_STEPS.filter(function(s){ return S.done[s.id]; }).length;
+  var tecPct = tecDone / STEPS.length, enPct = enDone / EN_STEPS.length;
+  var hours = S.log.reduce(function(a, e){ return a + e.hours; }, 0);
+  renderGlobalBar(tecPct, enPct, hours);
+
+  // indicadores
+  $("d-tec-ring").innerHTML = ring(84, 7, tecPct, "", pctTxt(tecPct), 17);
+  $("d-tec-txt").textContent = tecDone + " de " + STEPS.length + " etapas";
+  $("d-tec-phase").textContent = currentNext ? "Agora: " + phName(currentNext.ph) : "Trilha técnica concluída";
+  $("d-en-ring").innerHTML = ring(84, 7, enPct, "", pctTxt(enPct), 17);
+  $("d-en-txt").textContent = enDone + " de " + EN_STEPS.length + " etapas";
+  $("d-en-lvl").textContent = currentEnNext ? "Nível " + currentEnNext.ph.lvl + " · " + currentEnNext.ph.title : "Inglês concluído";
+  $("d-hours").textContent = fmtH(Math.round(hours * 10) / 10);
+  $("d-hours-bar").firstElementChild.style.width = pctTxt(Math.min(1, hours / ALL_H));
+  $("d-hours-txt").textContent = "de ≈ " + Math.round(ALL_H) + " h no plano completo (" + Math.round(TOTAL_H) + " h técnica + " + Math.round(ALL_H - TOTAL_H) + " h inglês)";
+
+  var expT = expectedSteps(STEPS, today), expE = expectedSteps(EN_STEPS, today);
+  if (today < PLAN_START){
+    $("d-pace").textContent = "A começar";
+    $("d-pace-txt").textContent = "O plano começa em " + fmtBR(PLAN_START) + ".";
+  } else {
+    var dif = Math.round((tecDone + enDone) - (expT + expE));
+    $("d-pace").textContent = dif >= 0 ? (dif > 0 ? "Adiantado" : "No ritmo") : "Atrasado";
+    $("d-pace-txt").textContent = dif === 0 ? "Você está onde o calendário prevê." : Math.abs(dif) + (Math.abs(dif) === 1 ? " etapa " : " etapas ") + (dif > 0 ? "à frente" : "atrás") + " do calendário (técnica e inglês).";
+  }
+
+  // por fase
+  var ul = $("d-phases"); ul.textContent = "";
+  PLAN.forEach(function(ph){
+    var c = ph.steps.filter(function(s){ return S.done[s.id]; }).length, p = c / ph.steps.length;
+    var st = phaseStatus(ph, c), exp = phaseFrac(ph, today);
+    var hDone = ph.steps.reduce(function(a, s){ return a + (S.done[s.id] ? (s.h || 0) : 0); }, 0);
+    var track = el("span", {class:"pb-track"}, el("span", {class:"pb-fill", style:"width:" + pctTxt(p)}));
+    if (exp > 0 && exp < 1) track.append(el("span", {class:"pb-exp", style:"left:" + pctTxt(exp), title:"Previsto para hoje: " + pctTxt(exp)}));
+    var li = el("li", {style:"--ph:" + PH_STYLE[ph.n].color, title:phName(ph) + " · " + ph.title + ": " + c + " de " + ph.steps.length + " etapas, " + fmtH(hDone) + " de " + fmtH(ph.hours)},
+      el("button", {type:"button", class:"pb-name", text:(ph.en ? "I" + ph.lvl : "F" + ph.n) + " · " + ph.title}),
+      track,
+      el("span", {class:"pb-val", text:c + "/" + ph.steps.length}),
+      el("span", {class:"pb-st", "data-status":st, text:STATUS_LABEL[st]}));
+    li.firstChild.addEventListener("click", function(){ showView("trilha"); setPhaseOpen(ph, true); saveOpen(); try { ph._el.sec.scrollIntoView({block:"start"}); } catch (e) {} });
+    ul.append(li);
+  });
+
+  // semanas
+  var ws = weekStart(new Date()), byWeek = new Map(), days = new Set();
+  S.log.forEach(function(e){ var k = isoOf(weekStart(parseISO(e.date))); byWeek.set(k, (byWeek.get(k) || 0) + e.hours); days.add(e.date); });
+  var weeks = [];
+  for (var i = 11; i >= 0; i--){ var d = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() - 7 * i); weeks.push({start:d, hours:byWeek.get(isoOf(d)) || 0, current:i === 0}); }
+  drawBars($("d-weeks"), weeks, S.goal);
+  var last4 = weeks.slice(7, 11).reduce(function(a, w){ return a + w.hours; }, 0) / 4;
+  $("d-avg").textContent = fmtH(Math.round(last4 * 10) / 10);
+  var streak = 0;
+  for (var j = weeks.length - 2; j >= 0 && weeks[j].hours >= S.goal; j--) streak++;
+  if (weeks[weeks.length - 1].hours >= S.goal) streak++;
+  $("d-streak").textContent = String(streak);
+  $("d-days").textContent = String(days.size);
+
+  // acumulado
+  drawCum($("d-cum"), today);
+  var remaining = PLAN.reduce(function(a, ph){ return a + ph.steps.reduce(function(b, s){ return b + (S.done[s.id] ? 0 : (s.h || 0)); }, 0); }, 0);
+  if (last4 > 0){
+    var end = new Date(Date.now() + remaining / last4 * 7 * DAY);
+    $("d-forecast").textContent = "Faltam ≈ " + Math.round(remaining) + " h das etapas abertas. No ritmo das últimas 4 semanas (" + fmtH(Math.round(last4 * 10) / 10) + " por semana), você termina por volta de " + end.toLocaleDateString("pt-BR", {month:"long", year:"numeric"}) + ". O plano prevê dezembro de 2027.";
+  } else {
+    $("d-forecast").textContent = "Faltam ≈ " + Math.round(remaining) + " h das etapas abertas. Registre suas horas na aba Horas para ver a previsão de término.";
+  }
+
+  renderScores();
+
+  // projetos e prática
+  var pl = $("d-projects"); pl.textContent = "";
+  ALL_STEPS.filter(function(s){ return s.tag === "Projeto"; }).forEach(function(s){
+    var d = S.done[s.id], c = s.ph.steps.filter(function(x){ return S.done[x.id]; }).length, st = phaseStatus(s.ph, c);
+    var txt = d ? "Concluído em " + fmtBR(d) : st === "running" || st === "late" ? "Fase em andamento" : "Previsto: " + s.ph.period;
+    pl.append(el("li", null, el("span", {class:"dot", "data-on":d ? "1" : st === "running" ? "2" : "0"}), el("div", null, el("button", {type:"button", class:"dl-t", text:s.title}), el("span", {class:"dl-s", text:txt}))));
+    pl.lastChild.querySelector("button").addEventListener("click", function(){ openStep(s); });
+  });
+  function cnt(tag){ var all = ALL_STEPS.filter(function(s){ return s.tag === tag; }); return all.filter(function(s){ return S.done[s.id]; }).length + " de " + all.length; }
+  $("d-prat").textContent = cnt("Prática");
+  $("d-est").textContent = cnt("Estudo");
+
+  // certificações
+  var cl = $("d-certs"); cl.textContent = "";
+  CERTS.filter(function(c){ return c.on; }).forEach(function(c){
+    var sid = CERT_STEP[c.code], d = sid && S.done[sid];
+    var sc = S.scores.filter(function(x){ return x.kind === "Certificação" && norm(x.title).indexOf(norm(c.code)) >= 0; }).sort(function(a, b){ return a.date < b.date ? 1 : -1; })[0];
+    var txt = d ? "Concluída em " + fmtBR(d) : c.when;
+    if (sc) txt += " · nota " + fmtNum(sc.score) + " de " + fmtNum(sc.max);
+    cl.append(el("li", null, el("span", {class:"dot", "data-on":d ? "1" : "0"}), el("div", null, el("a", {class:"dl-t", href:c.url, target:"_blank", rel:"noopener noreferrer", text:c.code + " · " + c.name}), el("span", {class:"dl-s", text:txt}))));
+  });
+
+  // plataformas
+  var plat = $("d-platforms"); plat.textContent = "";
+  var ready = 0, gh = accGet("github"), ghOk = gh.created && gh.linked;
+  plat.append(el("li", null, el("span", {class:"dot", "data-on":ghOk ? "1" : gh.created ? "2" : "0"}), el("div", null,
+    gh.user ? el("a", {class:"dl-t", href:"https://github.com/" + encodeURIComponent(gh.user), target:"_blank", rel:"noopener noreferrer", text:"GitHub · " + gh.user}) : el("span", {class:"dl-t", text:"GitHub"}),
+    el("span", {class:"dl-s", text:ghOk ? "Centro do projeto, ligado" : gh.created ? "Conta criada, falta ligar" : "Falta ligar"}))));
+  TOOLS.forEach(function(t){
+    var a = accGet(t.id), ok = toolReady(t), later = t.phase !== null && t.phase >= 3;
+    if (ok) ready++;
+    var st = ok ? "Pronta" : a.created ? "Conta criada, falta ligar" : later ? "Para " + (t.phase === 3 ? "abril" : "junho") + " de 2027" : "Falta criar";
+    var name = a.user && t.profile ? el("a", {class:"dl-t", href:profileUrl(t, a.user), target:"_blank", rel:"noopener noreferrer", text:t.name + " · " + a.user}) : el("span", {class:"dl-t", text:t.name});
+    plat.append(el("li", null, el("span", {class:"dot", "data-on":ok ? "1" : a.created ? "2" : "0"}), el("div", null, name, el("span", {class:"dl-s", text:st}))));
+  });
+  $("d-plat-txt").textContent = ready + " de " + TOOLS.length + " ferramentas prontas · " + (S.sync ? "GitHub atualizado pelo Claude em " + new Date(S.sync.updatedAt).toLocaleDateString("pt-BR") : "atualização semanal do GitHub ainda não rodou");
+  loadGithub();
+
+  // próximos marcos
+  var nx = $("d-next"); nx.textContent = "";
+  function addNext(t, s, fn){ var b = el("button", {type:"button", class:"dl-t", text:t}); if (fn) b.addEventListener("click", fn); nx.append(el("li", null, el("span", {class:"dot", "data-on":"2"}), el("div", null, b, el("span", {class:"dl-s", text:s})))); }
+  if (currentNext){
+    var ph = currentNext.ph, left = dayNum(ph.end) - dayNum(today);
+    addNext("Próxima etapa: " + currentNext.label + " " + currentNext.title, phName(ph) + (left >= 0 ? " · a fase termina em " + fmtBR(ph.end) + " (" + left + (left === 1 ? " dia)" : " dias)") : " · prazo da fase já passou"), function(){ openStep(currentNext); });
+  }
+  if (currentEnNext) addNext("Inglês: " + currentEnNext.label + " " + currentEnNext.title, "Nível " + currentEnNext.ph.lvl + " · " + currentEnNext.ph.title, function(){ openStep(currentEnNext); });
+  var nt = EN_STEPS.filter(function(s){ return s.tag === "Teste" && !S.done[s.id]; })[0];
+  if (nt && nt !== currentEnNext) addNext("Próximo teste de nível: " + nt.label, "Até " + fmtBR(nt.ph.end), function(){ openStep(nt); });
+  var ncert = CERTS.filter(function(c){ return CERT_STEP[c.code] && !S.done[CERT_STEP[c.code]]; })[0];
+  if (ncert) addNext("Próxima certificação: " + ncert.code, ncert.when, function(){ showView("certificacoes"); });
+  var np = ALL_STEPS.filter(function(s){ return s.tag === "Projeto" && !S.done[s.id]; })[0];
+  if (np) addNext("Próximo projeto: " + np.title, np.ph.period, function(){ openStep(np); });
+
+  // linha do tempo
+  var ev = [];
+  Object.keys(S.done).forEach(function(id){ var s = STEP_BY_ID[id]; if (s) ev.push({d:S.done[id], o:2, t:"Concluiu " + s.label + " · " + s.title, k:"etapa"}); });
+  S.log.forEach(function(e){ ev.push({d:e.date, o:1, t:"Estudou " + fmtH(e.hours) + (e.note ? " · " + e.note : ""), k:"horas"}); });
+  S.scores.forEach(function(x){ ev.push({d:x.date, o:3, t:x.kind + ": " + x.title + " · " + fmtNum(x.score) + " de " + fmtNum(x.max), k:"nota"}); });
+  ev.sort(function(a, b){ return a.d === b.d ? b.o - a.o : (a.d < b.d ? 1 : -1); });
+  var tl = $("d-timeline"); tl.textContent = "";
+  ev.slice(0, 15).forEach(function(x){ tl.append(el("li", {"data-k":x.k}, el("span", {class:"tl-d", text:fmtDM(parseISO(x.d))}), el("span", {class:"tl-t", text:x.t}))); });
+  if (ev.length > 15) tl.append(el("li", {class:"more", text:"Mostrando as 15 mais recentes de " + ev.length + " atividades."}));
+  $("d-tl-empty").hidden = ev.length > 0;
+}
+
+function drawBars(svg, weeks, goal){
+  var W = 320, H = 140, top = 16, bottom = 22, left = 4, right = 4;
+  var yMax = niceCeil(Math.max.apply(null, [goal].concat(weeks.map(function(w){ return w.hours; }))) * 1.15);
+  var ih = H - top - bottom, slot = (W - left - right) / weeks.length, bw = Math.min(16, slot * 0.6);
+  var out = '<line class="axis" x1="' + left + '" x2="' + (W - right) + '" y1="' + (top + ih) + '" y2="' + (top + ih) + '"/>';
+  weeks.forEach(function(w, i){
+    var cx = left + slot * i + slot / 2, h = (w.hours / yMax) * ih, y = top + ih - h;
+    var tip = "Semana de " + fmtDM(w.start) + ": " + fmtH(w.hours);
+    out += '<g><title>' + svgEsc(tip) + '</title><rect class="hit" x="' + (cx - slot / 2).toFixed(1) + '" y="' + top + '" width="' + slot.toFixed(1) + '" height="' + ih + '"/>';
+    if (h > 0) out += '<rect class="' + (w.current ? "bar-now" : "bar-past") + '" x="' + (cx - bw / 2).toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2"/>';
+    out += '</g>';
+    if (w.hours > 0 && (w.current || i % 2 === 1)) out += '<text class="val" x="' + cx.toFixed(1) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="middle">' + fmtNum(w.hours) + '</text>';
+    if (i % 2 === 1 || w.current) out += '<text class="lbl" x="' + cx.toFixed(1) + '" y="' + (H - 7) + '" text-anchor="middle">' + fmtDM(w.start) + '</text>';
+  });
+  var gy = top + ih - (goal / yMax) * ih;
+  out += '<line class="goal" x1="' + left + '" x2="' + (W - right) + '" y1="' + gy.toFixed(1) + '" y2="' + gy.toFixed(1) + '"/><text class="lbl" x="' + (W - right) + '" y="' + (gy - 4).toFixed(1) + '" text-anchor="end">meta ' + fmtNum(goal) + ' h</text>';
+  svg.innerHTML = out;
+  svg.setAttribute("aria-label", "Horas por semana nas últimas 12 semanas: " + weeks.map(function(w){ return fmtDM(w.start) + " " + fmtH(w.hours); }).join("; ") + ".");
+}
+
+function drawCum(svg, today){
+  var W = 320, H = 140, top = 14, bottom = 22, left = 30, right = 8;
+  var start = parseISO(PLAN_START), t = parseISO(today);
+  var span = Math.max(8, Math.ceil((t - start) / (7 * DAY)) + 1);
+  var pts = [];
+  var logs = S.log.slice().sort(function(a, b){ return a.date < b.date ? -1 : 1; });
+  for (var i = 0; i <= span; i++){
+    var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + 7 * i), iso = isoOf(d);
+    var real = null;
+    if (iso <= today || i === 0){ real = 0; logs.forEach(function(e){ if (e.date <= iso) real += e.hours; }); }
+    pts.push({iso:iso, plan:plannedHoursAt(iso), real:real});
+  }
+  var maxV = niceCeil(Math.max.apply(null, pts.map(function(p){ return Math.max(p.plan, p.real || 0); }).concat([4])) * 1.1);
+  var ih = H - top - bottom, iw = W - left - right;
+  function X(i){ return left + iw * i / span; } function Y(v){ return top + ih - ih * v / maxV; }
+  var out = '<line class="axis" x1="' + left + '" x2="' + (W - right) + '" y1="' + (top + ih) + '" y2="' + (top + ih) + '"/>';
+  [0.5, 1].forEach(function(f){ var y = Y(maxV * f); out += '<line class="grid" x1="' + left + '" x2="' + (W - right) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '"/><text class="lbl" x="' + (left - 4) + '" y="' + (y + 3).toFixed(1) + '" text-anchor="end">' + fmtNum(maxV * f) + '</text>'; });
+  out += '<polyline class="ln-plan" points="' + pts.map(function(p, i){ return X(i).toFixed(1) + "," + Y(p.plan).toFixed(1); }).join(" ") + '"/>';
+  var rp = pts.filter(function(p){ return p.real !== null; });
+  if (rp.length > 1) out += '<polyline class="ln-real" points="' + rp.map(function(p, i){ return X(i).toFixed(1) + "," + Y(p.real).toFixed(1); }).join(" ") + '"/>';
+  pts.forEach(function(p, i){
+    out += '<g><title>' + svgEsc(fmtBR(p.iso) + ": planejado " + fmtH(Math.round(p.plan)) + (p.real !== null ? ", real " + fmtH(Math.round(p.real * 10) / 10) : "")) + '</title><rect class="hit" x="' + (X(i) - iw / span / 2).toFixed(1) + '" y="' + top + '" width="' + (iw / span).toFixed(1) + '" height="' + ih + '"/>';
+    if (p.real !== null && i === rp.length - 1) out += '<circle class="pt-real" cx="' + X(i).toFixed(1) + '" cy="' + Y(p.real).toFixed(1) + '" r="4"/>';
+    out += '</g>';
+  });
+  [0, Math.round(span / 2), span].forEach(function(i){ out += '<text class="lbl" x="' + X(i).toFixed(1) + '" y="' + (H - 7) + '" text-anchor="' + (i === 0 ? "start" : i === span ? "end" : "middle") + '">' + fmtDM(parseISO(pts[i].iso)) + '</text>'; });
+  svg.innerHTML = out;
+  var lastR = rp[rp.length - 1];
+  svg.setAttribute("aria-label", "Horas acumuladas desde " + fmtBR(PLAN_START) + ". Real: " + fmtH(lastR ? Math.round(lastR.real) : 0) + ". Planejado até hoje: " + fmtH(Math.round(plannedHoursAt(today))) + ".");
+}
+
+/* Notas */
+function renderScores(){
+  var list = S.scores.slice().sort(function(a, b){ return a.date === b.date ? (a.createdAt < b.createdAt ? 1 : -1) : (a.date < b.date ? 1 : -1); });
+  $("d-sc-n").textContent = String(list.length);
+  if (list.length){
+    var pcts = list.map(function(x){ return x.score / x.max; });
+    $("d-sc-avg").textContent = pctTxt(pcts.reduce(function(a, b){ return a + b; }, 0) / pcts.length);
+    var best = list.reduce(function(a, x){ return x.score / x.max > a.score / a.max ? x : a; });
+    $("d-sc-best").textContent = pctTxt(best.score / best.max);
+    $("d-sc-best").title = best.title;
+  } else { $("d-sc-avg").textContent = "—"; $("d-sc-best").textContent = "—"; }
+  var lv = list.filter(function(x){ return x.kind === "Teste de nível" && cefrOf(x); })[0];
+  $("d-sc-cefr").textContent = lv ? cefrOf(lv) : "—";
+  var ol = $("d-sc-list"); ol.textContent = "";
+  list.slice(0, 12).forEach(function(x){
+    var p = Math.max(0, Math.min(1, x.score / x.max));
+    var del = el("button", {type:"button", class:"log-del", "data-id":x.id, text:"Excluir", hidden:S.readOnly, "aria-label":"Excluir a nota de " + x.title});
+    ol.append(el("li", null,
+      el("span", {class:"sc-d", text:fmtBR(x.date)}),
+      el("div", {class:"sc-main"}, el("span", {class:"sc-t"}, el("span", {class:"chip", text:x.kind}), document.createTextNode(" " + x.title)), x.note ? el("span", {class:"sc-n", text:x.note}) : null),
+      el("div", {class:"sc-v"}, el("strong", {text:fmtNum(x.score) + " / " + fmtNum(x.max)}), el("span", {class:"bar"}, el("span", {style:"width:" + pctTxt(p)})), el("span", {class:"sc-p", text:pctTxt(p)})),
+      del));
+  });
+  if (list.length > 12) ol.append(el("li", {class:"more", text:"Mostrando as 12 mais recentes de " + list.length + "."}));
+  $("d-sc-empty").hidden = list.length > 0;
+  var fig = $("d-sc-fig");
+  fig.hidden = list.length < 2;
+  if (list.length >= 2){
+    var asc = list.slice().reverse(), W = 640, H = 140, top = 16, bottom = 22, left = 34, right = 14, ih = H - top - bottom, iw = W - left - right;
+    var n = asc.length;
+    function X(i){ return left + (n === 1 ? iw / 2 : iw * i / (n - 1)); } function Y(v){ return top + ih - ih * v; }
+    var out = '<line class="axis" x1="' + left + '" x2="' + (W - right) + '" y1="' + (top + ih) + '" y2="' + (top + ih) + '"/>';
+    [0.5, 1].forEach(function(f){ out += '<line class="grid" x1="' + left + '" x2="' + (W - right) + '" y1="' + Y(f) + '" y2="' + Y(f) + '"/><text class="lbl" x="' + (left - 4) + '" y="' + (Y(f) + 3) + '" text-anchor="end">' + (f * 100) + '%</text>'; });
+    out += '<polyline class="ln-real" points="' + asc.map(function(x, i){ return X(i).toFixed(1) + "," + Y(Math.min(1, x.score / x.max)).toFixed(1); }).join(" ") + '"/>';
+    asc.forEach(function(x, i){
+      var cx = X(i), cy = Y(Math.min(1, x.score / x.max));
+      out += '<g><title>' + svgEsc(fmtBR(x.date) + " · " + x.title + ": " + fmtNum(x.score) + " de " + fmtNum(x.max)) + '</title><circle class="hit" cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="12"/><circle class="pt-real" cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="4"/></g>';
+      if (i === 0 || i === n - 1) out += '<text class="lbl" x="' + cx.toFixed(1) + '" y="' + (H - 7) + '" text-anchor="' + (i === 0 ? "start" : "end") + '">' + fmtDM(parseISO(x.date)) + '</text>';
+    });
+    $("d-sc-chart").innerHTML = out;
+    $("d-sc-chart").setAttribute("aria-label", "Notas em porcentagem: " + asc.map(function(x){ return fmtBR(x.date) + " " + x.title + " " + pctTxt(x.score / x.max); }).join("; ") + ".");
+  }
+}
+function scMsg(t, k){ setMsg($("sc-msg"), t, k); }
+function numBR(v){ var s = String(v).trim().replace(/\s/g, ""); if (/,/.test(s)) s = s.replace(/\./g, "").replace(",", "."); return s === "" ? NaN : Number(s); }
+$("sc-form").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  if (S.readOnly) return;
+  var kind = $("sc-kind").value, title = $("sc-title").value.trim().replace(/\s+/g, " ").slice(0, 80), date = $("sc-date").value;
+  var score = numBR($("sc-score").value), max = numBR($("sc-max").value), note = $("sc-note").value.trim().slice(0, 120);
+  if (SCORE_KINDS.indexOf(kind) < 0) return scMsg("Escolha o tipo.", "error");
+  if (!title) return scMsg("Dê um nome, como EF SET ou LeetCode SQL 50.", "error");
+  if (!ISO_RE.test(date)) return scMsg("Escolha a data.", "error");
+  if (date > todayISO()) return scMsg("A data não pode ser no futuro.", "error");
+  if (!(max > 0 && max <= 100000)) return scMsg("Informe de quanto é a nota máxima. Ex.: 100 ou 10.", "error");
+  if (!(score >= 0 && score <= max)) return scMsg("A nota precisa estar entre 0 e " + fmtNum(max) + ".", "error");
+  var entry = {date:date, kind:kind, title:title, score:Math.round(score * 100) / 100, max:Math.round(max * 100) / 100, note:note, createdAt:new Date().toISOString()};
+  var reset = function(){ $("sc-title").value = ""; $("sc-score").value = ""; $("sc-note").value = ""; };
+  if (S.mode !== "live"){
+    S.scores.push(Object.assign({id:"local-" + Date.now()}, entry)); renderScores(); reset();
+    scMsg("Nota registrada, mas não salva nesta visualização.", "error"); return;
+  }
+  var btn = $("sc-submit"); btn.disabled = true; scMsg("Salvando…");
+  var ref = DB.collection("scores").doc();
+  withRetry(function(){ return ref.set(entry); })
+    .then(function(){ reset(); S.error = ""; scMsg("Nota de " + title + " registrada.", "ok"); toast("Nota registrada."); setStatus(); },
+          function(e){ onWriteError(e); scMsg(errorText(e), "error"); })
+    .then(function(){ btn.disabled = S.readOnly; });
+});
+$("d-sc-list").addEventListener("click", function(ev){
+  var btn = ev.target.closest(".log-del");
+  if (!btn || S.readOnly) return;
+  var id = btn.getAttribute("data-id");
+  if (btn.getAttribute("data-armed") !== "1"){
+    btn.setAttribute("data-armed", "1"); btn.textContent = "Confirmar";
+    clearTimeout(btn._t); btn._t = setTimeout(function(){ btn.removeAttribute("data-armed"); btn.textContent = "Excluir"; }, 4000);
+    return;
+  }
+  clearTimeout(btn._t); btn.disabled = true;
+  if (S.mode !== "live" || id.indexOf("local-") === 0){ S.scores = S.scores.filter(function(x){ return x.id !== id; }); renderDash(); toast("Nota excluída."); return; }
+  saving++; setStatus();
+  enqueue("s:" + id, function(){
+    return withRetry(function(){ return DB.collection("scores").doc(id).delete(); })
+      .then(function(){ S.error = ""; toast("Nota excluída."); }, function(e){ onWriteError(e); btn.disabled = false; })
+      .then(function(){ saving--; setStatus(); });
+  });
+});
+
+/* GitHub público: lido direto da API do GitHub, sem login */
+var ghCache = {user:null, state:"idle", repos:[]};
+function loadGithub(){
+  var u = (accGet("github").user || "").trim();
+  var txt = $("d-gh-txt"), ul = $("d-gh-repos");
+  if (!u || !GH_RE.test(u)){ txt.textContent = "Informe seu usuário do GitHub na aba Contas e integrações para ver seus repositórios aqui."; ul.textContent = ""; return; }
+  if (ghCache.user === u && ghCache.state !== "idle"){ paintGithub(u); return; }
+  ghCache = {user:u, state:"loading", repos:[]};
+  paintGithub(u);
+  var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+  var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 8000);
+  fetch("https://api.github.com/users/" + encodeURIComponent(u) + "/repos?sort=pushed&per_page=100", {signal:ctrl ? ctrl.signal : undefined, headers:{Accept:"application/vnd.github+json"}})
+    .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then(function(arr){ ghCache.repos = Array.isArray(arr) ? arr.filter(function(x){ return x && !x.fork; }) : []; ghCache.state = "ok"; })
+    .catch(function(){ ghCache.state = "error"; })
+    .then(function(){ clearTimeout(timer); if (ghCache.user === u) paintGithub(u); });
+}
+function paintGithub(u){
+  var txt = $("d-gh-txt"), ul = $("d-gh-repos"); ul.textContent = "";
+  var link = "https://github.com/" + encodeURIComponent(u);
+  if (ghCache.state === "loading"){ txt.textContent = "Lendo seus repositórios públicos…"; return; }
+  if (ghCache.state === "error"){ txt.textContent = ""; txt.append(document.createTextNode("Não deu para ler o GitHub daqui agora. "), el("a", {class:"mono-link", href:link, target:"_blank", rel:"noopener noreferrer", text:"Abrir github.com/" + u})); return; }
+  var repos = ghCache.repos;
+  txt.textContent = repos.length ? repos.length + (repos.length === 1 ? " repositório público" : " repositórios públicos") + ", do mais recente para o mais antigo:" : "Nenhum repositório público ainda. Os projetos do plano vão aparecer aqui.";
+  repos.slice(0, 6).forEach(function(r){
+    var when = r.pushed_at ? new Date(r.pushed_at).toLocaleDateString("pt-BR") : "";
+    var sub = [r.language, when ? "atualizado em " + when : ""].filter(Boolean).join(" · ");
+    ul.append(el("li", null, el("span", {class:"dot", "data-on":"1"}), el("div", null, el("a", {class:"dl-t", href:String(r.html_url || link), target:"_blank", rel:"noopener noreferrer", text:String(r.name || "")}), el("span", {class:"dl-s", text:(r.description ? String(r.description).slice(0, 90) + " · " : "") + sub}))));
+  });
 }
 
 /* ---------- Conexão com o armazenamento ---------- */
@@ -2163,6 +2729,17 @@ function startLive(db){
       S.accServer = m; S.acc = accMerged();
       gotAcc = true;
       renderAccounts(); applyControls();
+    }, onErr);
+  });
+  subscribe(function(onErr){
+    return db.collection("scores").onSnapshot(function(snap){
+      var arr = [];
+      snap.docs.forEach(function(d){
+        var v = d.data() || {}, sc = Number(v.score), mx = Number(v.max);
+        if (typeof v.date !== "string" || !ISO_RE.test(v.date) || SCORE_KINDS.indexOf(v.kind) < 0 || typeof v.title !== "string" || !(mx > 0) || !(sc >= 0)) return;
+        arr.push({id:d.id, date:v.date, kind:v.kind, title:v.title.slice(0, 80), score:sc, max:mx, note:typeof v.note === "string" ? v.note.slice(0, 120) : "", createdAt:typeof v.createdAt === "string" ? v.createdAt : ""});
+      });
+      S.scores = arr; renderDash();
     }, onErr);
   });
   subscribe(function(onErr){
@@ -2236,6 +2813,8 @@ function openDefaultPhase(){
 
 /* ---------- Início ---------- */
 $("log-date").value = todayISO();
+$("sc-date").value = todayISO();
+$("sc-date").max = todayISO();
 $("log-date").max = todayISO();
 setFilter(UI.filter);
 renderProgress();
