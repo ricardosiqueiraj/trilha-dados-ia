@@ -180,9 +180,15 @@
     if (gh) gh.addEventListener("click", function () {
       var c = cliente(); if (!c) return msg("O site ainda não foi ligado ao banco. Confira o arquivo config.js.", "error");
       msg("Abrindo o GitHub…");
-      c.auth.signInWithOAuth({ provider: "github", options: { redirectTo: destino() } }).then(function (r) {
+      fetch(cfg.supabaseUrl + "/auth/v1/settings", { headers: { apikey: cfg.supabaseKey } })
+        .then(function (r) { return r.json(); })
+        .then(function (s) { return !!(s && s.external && s.external.github); }, function () { return true; })
+        .then(function (ativo) {
+          if (!ativo) return msg("O login com GitHub ainda não foi ativado no Supabase. Por enquanto, entre pelo link no e-mail.", "error");
+          return c.auth.signInWithOAuth({ provider: "github", options: { redirectTo: destino() } }).then(function (r) {
         if (r && r.error) msg(/not enabled|provider/i.test(r.error.message) ? "O login com GitHub ainda não foi ativado no Supabase. Use o e-mail por enquanto." : "Não deu para entrar com o GitHub: " + r.error.message, "error");
       });
+        });
     });
     if (form) form.addEventListener("submit", function (ev) {
       ev.preventDefault();
