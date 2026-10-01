@@ -25,6 +25,10 @@ Trabalho com integração de dados de ERP: mapeio a estrutura de origem e de des
 | 4 · Fundamentos de IA aplicada | junho a setembro de 2027 | 0/6 | Na fila |
 | 5 · Agentes, avaliação e produção | outubro a dezembro de 2027 | 0/6 | Na fila |
 
+### Inglês, do básico ao avançado
+
+`░░░░░░░░░░░░░░░░░░░░` **0%** · 0 de 30 etapas · nível atual: Básico (A1 a A2) · próxima: I1.1 · Descubra seu nível com um teste gratuito
+
 O plano completo, com os cursos gratuitos de cada etapa, está em [PLANO.md](PLANO.md). As horas e as etapas concluídas, semana a semana, estão em [PROGRESSO.md](PROGRESSO.md).
 <!-- /AUTO:PROGRESSO -->
 

@@ -169,6 +169,134 @@ _O LLM Zoomcamp costuma começar em junho e dura cerca de 10 semanas. Confira a 
 - [ ] **F5.6 · Marco: vagas de Engenheiro de IA** (contínuo)\
   Mire em vagas que juntam dados e IA: Engenheiro de IA, Engenheiro de ML e Engenheiro de Dados com foco em IA. Leve os projetos 4 e 5 para as entrevistas.
 
+## Inglês do básico ao avançado (Trilha paralela · 20 a 30 minutos por dia)
+
+Cinco níveis, um depois do outro, do A1 ao C1, só com material gratuito. Cada nível termina com um teste gratuito para medir sua evolução, e o conteúdo usa o que você já estuda na trilha técnica: aulas, documentação e projetos. Esta faixa não entra na porcentagem da trilha técnica; ela tem o próprio progresso.
+
+### Nível 1 · Básico (A1 a A2)
+
+**Período:** outubro a dezembro de 2026 · ≈ 33,5 h de estudo · **Situação:** Na fila (0/7)
+
+**Objetivo:** Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.
+
+_Se o teste de nível der B1 ou mais, marque o que você já domina neste nível e siga para o próximo._
+
+- [ ] **I1.1 · Descubra seu nível com um teste gratuito** (≈ 1 h)\
+  Faça o EF SET de 50 minutos: é gratuito, corrige leitura e escuta e mostra seu nível no Quadro Europeu (de A1 a C2). Anote o resultado: você vai refazer o teste no fim de cada nível para medir a evolução.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+- [ ] **I1.2 · Crie o hábito de 20 a 30 minutos por dia** (≈ 0,5 h)\
+  De segunda a sexta, das 21h30 às 22h, como está na sua agenda. Pouco todo dia rende mais do que muito uma vez por semana. Deixe o celular e o VS Code em inglês: você aprende vocabulário sem perceber.
+- [ ] **I1.3 · Gramática básica, explicada em português** (≈ 15 h)\
+  Verbo to be, presente e passado simples, perguntas e negativas, artigos e preposições. Veja a explicação em português no canal da Carina Fragozo e faça os exercícios do British Council do nível A1 a A2.\
+  Links: [English in Brazil, com Carina Fragozo](https://www.youtube.com/@carinafragozo) (PT) · [British Council: gramática A1 a A2](https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2) (EN)
+- [ ] **I1.4 · Pronúncia desde o início** (≈ 5 h)\
+  Os sons do inglês que não existem em português, como o th e as vogais curtas. Use o YouGlish para ouvir palavras da área em vídeos reais: data, query, schema, cache, deploy.\
+  Links: [BBC Learning English: pronúncia](https://www.bbc.co.uk/learningenglish/english/features/pronunciation) (EN) · [YouGlish](https://youglish.com/) (EN)
+- [ ] **I1.5 · Vocabulário de TI do dia a dia** (≈ 6 h)\
+  Monte um baralho no Anki com as palavras que você vê no trabalho e nos cursos: file, folder, run, install, error, warning, table, column, row, query, load, merge. Revise 5 minutos por dia; o Anki mostra cada palavra na hora certa para você não esquecer.\
+  Links: [Anki, flashcards gratuitos](https://apps.ankiweb.net/) (EN)
+- [ ] **I1.6 · Primeiras leituras e escutas** (≈ 5 h)\
+  Textos e áudios curtos com exercícios, no seu nível. Comece pelo A1 e passe para o A2 quando acertar quase tudo.\
+  Links: [British Council: leitura A1](https://learnenglish.britishcouncil.org/free-resources/reading/a1) (EN) · [British Council: escuta A2](https://learnenglish.britishcouncil.org/free-resources/listening/a2) (EN)
+- [ ] **I1.7 · Teste de fim de nível: meta A2** (≈ 1 h)\
+  Refaça o EF SET e compare com o primeiro resultado. Chegou ao A2? Siga para o Nível 2. Se ainda não, repita as etapas em que sentiu mais dificuldade por mais algumas semanas.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+
+### Nível 2 · Pré-intermediário (A2 a B1)
+
+**Período:** janeiro a março de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/6)
+
+**Objetivo:** Acompanhar aulas técnicas com legenda em inglês e ler documentação com a ajuda do dicionário. Coincide com o Zoomcamp, que é todo em inglês.
+
+- [ ] **I2.1 · Os tempos verbais que mais aparecem em TI** (≈ 12 h)\
+  Present perfect ("the job has failed"), futuro com will e going to, comparativos, verbos modais (can, should, must) e a voz passiva simples ("the file is generated"). Comece pelas lições de nível B1.\
+  Links: [British Council: gramática B1 a B2](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2) (EN) · [English in Brazil, com Carina Fragozo](https://www.youtube.com/@carinafragozo) (PT)
+- [ ] **I2.2 · 6 Minute English, duas vezes por semana** (≈ 8 h)\
+  Episódios curtos sobre temas do dia a dia, com transcrição e vocabulário. Ouça uma vez sem ler, depois com a transcrição, e anote três palavras novas no Anki.\
+  Links: [BBC Learning English: 6 Minute English](https://www.bbc.co.uk/learningenglish/english/features/6-minute-english) (EN)
+- [ ] **I2.3 · Aulas do Zoomcamp com legenda em inglês** (≈ 6 h)\
+  Assista com a legenda em inglês, não em português. Pause quando travar e anote os termos técnicos. É o mesmo tempo de estudo da trilha principal, agora servindo para as duas coisas.\
+  Links: [Repositório do Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) (EN)
+- [ ] **I2.4 · Leia documentação de verdade** (≈ 6 h)\
+  Uma seção por semana do tutorial oficial do Python, em inglês. Tente entender pelo contexto e pelo código; traduza só a frase que travar.\
+  Links: [Tutorial oficial do Python](https://docs.python.org/3/tutorial/) (EN)
+- [ ] **I2.5 · Commits e README em inglês** (≈ 3 h)\
+  Mensagens de commit curtas, com o verbo no início ("Add data validation", "Fix date parsing"), e o README do Projeto 1 em inglês. O Write & Improve, da Cambridge, corrige textos curtos de graça.\
+  Links: [Write & Improve, da Cambridge](https://writeandimprove.com/) (EN)
+- [ ] **I2.6 · Teste de fim de nível: meta B1** (≈ 1 h)\
+  Refaça o EF SET. Com B1 você já entende a maior parte das aulas técnicas e consegue escrever sobre seus projetos.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+
+### Nível 3 · Intermediário (B1 a B2)
+
+**Período:** abril a junho de 2027 · ≈ 33 h de estudo · **Situação:** Na fila (0/6)
+
+**Objetivo:** Entender podcasts de tecnologia e começar a falar: explicar seu trabalho e seus projetos, devagar mas sem travar.
+
+- [ ] **I3.1 · Gramática para conversar melhor** (≈ 10 h)\
+  Condicionais ("if the load fails, we roll back"), orações relativas, discurso indireto e os phrasal verbs mais comuns em TI: set up, roll back, log in, figure out, run into.\
+  Links: [British Council: gramática B1 a B2](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2) (EN)
+- [ ] **I3.2 · Podcasts de tecnologia** (≈ 8 h)\
+  Escolha episódios sobre o que você estuda no momento e use a transcrição quando precisar. Se ficar rápido demais, reduza a velocidade para 0,9.\
+  Links: [Talk Python To Me](https://talkpython.fm/) (EN) · [Data Engineering Podcast](https://www.dataengineeringpodcast.com/) (EN)
+- [ ] **I3.3 · Comece a falar: repetição e gravação** (≈ 8 h)\
+  Repita em voz alta, junto com o áudio, trechos do 6 Minute English (a técnica se chama shadowing). Uma vez por semana, grave 1 minuto explicando o que estudou e ouça de novo para notar os erros.\
+  Links: [British Council: fala B1](https://learnenglish.britishcouncil.org/free-resources/speaking/b1) (EN) · [BBC Learning English: 6 Minute English](https://www.bbc.co.uk/learningenglish/english/features/6-minute-english) (EN)
+- [ ] **I3.4 · Sua apresentação de 1 minuto** (≈ 4 h)\
+  Quem você é, o que faz (integração e migração de dados de ERP) e o que está estudando. Escreva, corrija no Write & Improve, treine em voz alta e grave. Ela abre toda entrevista em inglês.\
+  Links: [Write & Improve, da Cambridge](https://writeandimprove.com/) (EN)
+- [ ] **I3.5 · LinkedIn também em inglês** (≈ 2 h)\
+  O LinkedIn deixa criar o perfil em um segundo idioma. Faça a versão em inglês e publique o Projeto 3 com um texto curto em inglês.
+- [ ] **I3.6 · Teste de fim de nível: meta B1 alto** (≈ 1 h)\
+  Refaça o EF SET. A meta é estar perto do B2, que é o nível que muitas vagas pedem.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+
+### Nível 4 · Intermediário superior (B2)
+
+**Período:** julho a setembro de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/5)
+
+**Objetivo:** Conversar sobre tecnologia sem travar, fazer cursos inteiros em inglês e escrever e-mails e documentação com segurança.
+
+- [ ] **I4.1 · Curso: falar inglês no trabalho** (≈ 15 h)\
+  Speak English Professionally, do Georgia Tech: reuniões, chamadas de vídeo e telefone. Na inscrição, escolha a opção de assistir de graça, se aparecer; o certificado é pago e não é necessário.\
+  Links: [Speak English Professionally (Coursera)](https://www.coursera.org/learn/speak-english-professionally) (EN)
+- [ ] **I4.2 · Escuta sem legenda** (≈ 8 h)\
+  Exercícios de escuta do nível B2 e trechos do LLM Zoomcamp sem legenda, nos assuntos que você já conhece.\
+  Links: [British Council: escuta B2](https://learnenglish.britishcouncil.org/free-resources/listening/b2) (EN) · [Repositório do LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp) (EN)
+- [ ] **I4.3 · Conversa de verdade** (≈ 8 h)\
+  Faça e responda perguntas em inglês no Slack da DataTalks.Club. Para falar, treine com um assistente de IA no modo de voz, pedindo que ele corrija seus erros no fim de cada conversa.\
+  Links: [Slack da DataTalks.Club](https://datatalks.club/slack.html) (EN)
+- [ ] **I4.4 · E-mails e documentação técnica** (≈ 4 h)\
+  Pratique e-mails formais e textos de opinião do nível B2. Escreva a documentação do Projeto 4 em inglês.\
+  Links: [British Council: escrita B2](https://learnenglish.britishcouncil.org/free-resources/writing/b2) (EN)
+- [ ] **I4.5 · Teste de fim de nível: meta B2** (≈ 1 h)\
+  Refaça o EF SET. Com B2 você já pode se candidatar a vagas que pedem inglês avançado.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+
+### Nível 5 · Avançado (B2 a C1)
+
+**Período:** outubro a dezembro de 2027 · ≈ 40 h de estudo · **Situação:** Na fila (0/6)
+
+**Objetivo:** Fazer entrevistas de emprego em inglês, técnicas e comportamentais, e trabalhar com equipes de fora do Brasil.
+
+- [ ] **I5.1 · Gramática avançada** (≈ 8 h)\
+  Passivas avançadas, orações com particípio e formas de dar ênfase: o que deixa sua fala e sua escrita mais naturais.\
+  Links: [British Council: gramática C1](https://learnenglish.britishcouncil.org/free-resources/grammar/c1) (EN)
+- [ ] **I5.2 · Curso: inglês para a carreira** (≈ 12 h)\
+  English for Career Development, da Universidade da Pensilvânia: busca de vagas, currículo, carta de apresentação e entrevista. Escolha a opção de assistir de graça, se aparecer.\
+  Links: [English for Career Development (Coursera)](https://www.coursera.org/learn/careerdevelopment) (EN)
+- [ ] **I5.3 · Entrevista comportamental com o método STAR** (≈ 8 h)\
+  Prepare seis histórias reais do seu trabalho contadas em Situação, Tarefa, Ação e Resultado: uma migração difícil, um cliente exigente, um erro que você corrigiu, uma rotina que você automatizou. Treine em voz alta até contar cada uma em 2 minutos.\
+  Links: [Tech Interview Handbook: entrevista comportamental](https://www.techinterviewhandbook.org/behavioral-interview/) (EN)
+- [ ] **I5.4 · Entrevista técnica falando em inglês** (≈ 8 h)\
+  Explique em voz alta a arquitetura dos projetos 3, 4 e 5 e resolva exercícios de SQL narrando o raciocínio em inglês, como se pede nas entrevistas. Grave e reveja.\
+  Links: [LeetCode SQL 50](https://leetcode.com/studyplan/top-sql-50/) (EN)
+- [ ] **I5.5 · Currículo e LinkedIn prontos em inglês** (≈ 3 h)\
+  Revise a versão em inglês do LinkedIn e prepare o currículo em inglês para as vagas de Engenheiro de IA.
+- [ ] **I5.6 · Teste final: meta C1** (≈ 1 h)\
+  Refaça o EF SET. O resultado vem com um certificado gratuito que você pode colocar no LinkedIn.\
+  Links: [EF SET, teste de nível gratuito](https://www.efset.org/) (EN)
+
 ## Certificações
 
 | Certificação | Prova | Quando | Observação |

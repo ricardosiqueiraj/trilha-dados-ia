@@ -755,5 +755,539 @@
       "ativa": false,
       "nota": "Aposentada desde 30/06/2026. Substituída pela AI-103."
     }
-  ]
+  ],
+  "ingles": {
+    "titulo": "Inglês do básico ao avançado",
+    "rotulo": "Trilha paralela · 20 a 30 minutos por dia",
+    "descricao": "Cinco níveis, um depois do outro, do A1 ao C1, só com material gratuito. Cada nível termina com um teste gratuito para medir sua evolução, e o conteúdo usa o que você já estuda na trilha técnica: aulas, documentação e projetos. Esta faixa não entra na porcentagem da trilha técnica; ela tem o próprio progresso.",
+    "niveis": [
+      {
+        "id": "i1",
+        "nivel": 1,
+        "titulo": "Básico (A1 a A2)",
+        "periodo": "outubro a dezembro de 2026",
+        "inicio": "2026-10-05",
+        "fim": "2026-12-20",
+        "objetivo": "Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.",
+        "nota": "Se o teste de nível der B1 ou mais, marque o que você já domina neste nível e siga para o próximo.",
+        "etapas": [
+          {
+            "id": "i1-teste",
+            "rotulo": "I1.1",
+            "titulo": "Descubra seu nível com um teste gratuito",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Faça o EF SET de 50 minutos: é gratuito, corrige leitura e escuta e mostra seu nível no Quadro Europeu (de A1 a C2). Anote o resultado: você vai refazer o teste no fim de cada nível para medir a evolução.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i1-habito",
+            "rotulo": "I1.2",
+            "titulo": "Crie o hábito de 20 a 30 minutos por dia",
+            "tipo": "Rotina",
+            "horas": 0.5,
+            "detalhe": "De segunda a sexta, das 21h30 às 22h, como está na sua agenda. Pouco todo dia rende mais do que muito uma vez por semana. Deixe o celular e o VS Code em inglês: você aprende vocabulário sem perceber.",
+            "links": []
+          },
+          {
+            "id": "i1-gramatica",
+            "rotulo": "I1.3",
+            "titulo": "Gramática básica, explicada em português",
+            "tipo": "Estudo",
+            "horas": 15,
+            "detalhe": "Verbo to be, presente e passado simples, perguntas e negativas, artigos e preposições. Veja a explicação em português no canal da Carina Fragozo e faça os exercícios do British Council do nível A1 a A2.",
+            "links": [
+              {
+                "titulo": "English in Brazil, com Carina Fragozo",
+                "url": "https://www.youtube.com/@carinafragozo",
+                "idioma": "PT"
+              },
+              {
+                "titulo": "British Council: gramática A1 a A2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i1-pronuncia",
+            "rotulo": "I1.4",
+            "titulo": "Pronúncia desde o início",
+            "tipo": "Estudo",
+            "horas": 5,
+            "detalhe": "Os sons do inglês que não existem em português, como o th e as vogais curtas. Use o YouGlish para ouvir palavras da área em vídeos reais: data, query, schema, cache, deploy.",
+            "links": [
+              {
+                "titulo": "BBC Learning English: pronúncia",
+                "url": "https://www.bbc.co.uk/learningenglish/english/features/pronunciation",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "YouGlish",
+                "url": "https://youglish.com/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i1-vocab",
+            "rotulo": "I1.5",
+            "titulo": "Vocabulário de TI do dia a dia",
+            "tipo": "Prática",
+            "horas": 6,
+            "detalhe": "Monte um baralho no Anki com as palavras que você vê no trabalho e nos cursos: file, folder, run, install, error, warning, table, column, row, query, load, merge. Revise 5 minutos por dia; o Anki mostra cada palavra na hora certa para você não esquecer.",
+            "links": [
+              {
+                "titulo": "Anki, flashcards gratuitos",
+                "url": "https://apps.ankiweb.net/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i1-leitura",
+            "rotulo": "I1.6",
+            "titulo": "Primeiras leituras e escutas",
+            "tipo": "Prática",
+            "horas": 5,
+            "detalhe": "Textos e áudios curtos com exercícios, no seu nível. Comece pelo A1 e passe para o A2 quando acertar quase tudo.",
+            "links": [
+              {
+                "titulo": "British Council: leitura A1",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/reading/a1",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "British Council: escuta A2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/listening/a2",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i1-fim",
+            "rotulo": "I1.7",
+            "titulo": "Teste de fim de nível: meta A2",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Refaça o EF SET e compare com o primeiro resultado. Chegou ao A2? Siga para o Nível 2. Se ainda não, repita as etapas em que sentiu mais dificuldade por mais algumas semanas.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "i2",
+        "nivel": 2,
+        "titulo": "Pré-intermediário (A2 a B1)",
+        "periodo": "janeiro a março de 2027",
+        "inicio": "2027-01-04",
+        "fim": "2027-03-28",
+        "objetivo": "Acompanhar aulas técnicas com legenda em inglês e ler documentação com a ajuda do dicionário. Coincide com o Zoomcamp, que é todo em inglês.",
+        "nota": "",
+        "etapas": [
+          {
+            "id": "i2-gramatica",
+            "rotulo": "I2.1",
+            "titulo": "Os tempos verbais que mais aparecem em TI",
+            "tipo": "Estudo",
+            "horas": 12,
+            "detalhe": "Present perfect (\"the job has failed\"), futuro com will e going to, comparativos, verbos modais (can, should, must) e a voz passiva simples (\"the file is generated\"). Comece pelas lições de nível B1.",
+            "links": [
+              {
+                "titulo": "British Council: gramática B1 a B2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "English in Brazil, com Carina Fragozo",
+                "url": "https://www.youtube.com/@carinafragozo",
+                "idioma": "PT"
+              }
+            ]
+          },
+          {
+            "id": "i2-escuta",
+            "rotulo": "I2.2",
+            "titulo": "6 Minute English, duas vezes por semana",
+            "tipo": "Estudo",
+            "horas": 8,
+            "detalhe": "Episódios curtos sobre temas do dia a dia, com transcrição e vocabulário. Ouça uma vez sem ler, depois com a transcrição, e anote três palavras novas no Anki.",
+            "links": [
+              {
+                "titulo": "BBC Learning English: 6 Minute English",
+                "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i2-zoomcamp",
+            "rotulo": "I2.3",
+            "titulo": "Aulas do Zoomcamp com legenda em inglês",
+            "tipo": "Prática",
+            "horas": 6,
+            "detalhe": "Assista com a legenda em inglês, não em português. Pause quando travar e anote os termos técnicos. É o mesmo tempo de estudo da trilha principal, agora servindo para as duas coisas.",
+            "links": [
+              {
+                "titulo": "Repositório do Data Engineering Zoomcamp",
+                "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i2-docs",
+            "rotulo": "I2.4",
+            "titulo": "Leia documentação de verdade",
+            "tipo": "Prática",
+            "horas": 6,
+            "detalhe": "Uma seção por semana do tutorial oficial do Python, em inglês. Tente entender pelo contexto e pelo código; traduza só a frase que travar.",
+            "links": [
+              {
+                "titulo": "Tutorial oficial do Python",
+                "url": "https://docs.python.org/3/tutorial/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i2-escrita",
+            "rotulo": "I2.5",
+            "titulo": "Commits e README em inglês",
+            "tipo": "Prática",
+            "horas": 3,
+            "detalhe": "Mensagens de commit curtas, com o verbo no início (\"Add data validation\", \"Fix date parsing\"), e o README do Projeto 1 em inglês. O Write & Improve, da Cambridge, corrige textos curtos de graça.",
+            "links": [
+              {
+                "titulo": "Write & Improve, da Cambridge",
+                "url": "https://writeandimprove.com/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i2-fim",
+            "rotulo": "I2.6",
+            "titulo": "Teste de fim de nível: meta B1",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Refaça o EF SET. Com B1 você já entende a maior parte das aulas técnicas e consegue escrever sobre seus projetos.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "i3",
+        "nivel": 3,
+        "titulo": "Intermediário (B1 a B2)",
+        "periodo": "abril a junho de 2027",
+        "inicio": "2027-04-05",
+        "fim": "2027-06-27",
+        "objetivo": "Entender podcasts de tecnologia e começar a falar: explicar seu trabalho e seus projetos, devagar mas sem travar.",
+        "nota": "",
+        "etapas": [
+          {
+            "id": "i3-gramatica",
+            "rotulo": "I3.1",
+            "titulo": "Gramática para conversar melhor",
+            "tipo": "Estudo",
+            "horas": 10,
+            "detalhe": "Condicionais (\"if the load fails, we roll back\"), orações relativas, discurso indireto e os phrasal verbs mais comuns em TI: set up, roll back, log in, figure out, run into.",
+            "links": [
+              {
+                "titulo": "British Council: gramática B1 a B2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i3-podcast",
+            "rotulo": "I3.2",
+            "titulo": "Podcasts de tecnologia",
+            "tipo": "Estudo",
+            "horas": 8,
+            "detalhe": "Escolha episódios sobre o que você estuda no momento e use a transcrição quando precisar. Se ficar rápido demais, reduza a velocidade para 0,9.",
+            "links": [
+              {
+                "titulo": "Talk Python To Me",
+                "url": "https://talkpython.fm/",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "Data Engineering Podcast",
+                "url": "https://www.dataengineeringpodcast.com/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i3-fala",
+            "rotulo": "I3.3",
+            "titulo": "Comece a falar: repetição e gravação",
+            "tipo": "Prática",
+            "horas": 8,
+            "detalhe": "Repita em voz alta, junto com o áudio, trechos do 6 Minute English (a técnica se chama shadowing). Uma vez por semana, grave 1 minuto explicando o que estudou e ouça de novo para notar os erros.",
+            "links": [
+              {
+                "titulo": "British Council: fala B1",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/speaking/b1",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "BBC Learning English: 6 Minute English",
+                "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i3-pitch",
+            "rotulo": "I3.4",
+            "titulo": "Sua apresentação de 1 minuto",
+            "tipo": "Prática",
+            "horas": 4,
+            "detalhe": "Quem você é, o que faz (integração e migração de dados de ERP) e o que está estudando. Escreva, corrija no Write & Improve, treine em voz alta e grave. Ela abre toda entrevista em inglês.",
+            "links": [
+              {
+                "titulo": "Write & Improve, da Cambridge",
+                "url": "https://writeandimprove.com/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i3-linkedin",
+            "rotulo": "I3.5",
+            "titulo": "LinkedIn também em inglês",
+            "tipo": "Carreira",
+            "horas": 2,
+            "detalhe": "O LinkedIn deixa criar o perfil em um segundo idioma. Faça a versão em inglês e publique o Projeto 3 com um texto curto em inglês.",
+            "links": []
+          },
+          {
+            "id": "i3-fim",
+            "rotulo": "I3.6",
+            "titulo": "Teste de fim de nível: meta B1 alto",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Refaça o EF SET. A meta é estar perto do B2, que é o nível que muitas vagas pedem.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "i4",
+        "nivel": 4,
+        "titulo": "Intermediário superior (B2)",
+        "periodo": "julho a setembro de 2027",
+        "inicio": "2027-07-05",
+        "fim": "2027-09-26",
+        "objetivo": "Conversar sobre tecnologia sem travar, fazer cursos inteiros em inglês e escrever e-mails e documentação com segurança.",
+        "nota": "",
+        "etapas": [
+          {
+            "id": "i4-curso",
+            "rotulo": "I4.1",
+            "titulo": "Curso: falar inglês no trabalho",
+            "tipo": "Estudo",
+            "horas": 15,
+            "detalhe": "Speak English Professionally, do Georgia Tech: reuniões, chamadas de vídeo e telefone. Na inscrição, escolha a opção de assistir de graça, se aparecer; o certificado é pago e não é necessário.",
+            "links": [
+              {
+                "titulo": "Speak English Professionally (Coursera)",
+                "url": "https://www.coursera.org/learn/speak-english-professionally",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i4-escuta",
+            "rotulo": "I4.2",
+            "titulo": "Escuta sem legenda",
+            "tipo": "Estudo",
+            "horas": 8,
+            "detalhe": "Exercícios de escuta do nível B2 e trechos do LLM Zoomcamp sem legenda, nos assuntos que você já conhece.",
+            "links": [
+              {
+                "titulo": "British Council: escuta B2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/listening/b2",
+                "idioma": "EN"
+              },
+              {
+                "titulo": "Repositório do LLM Zoomcamp",
+                "url": "https://github.com/DataTalksClub/llm-zoomcamp",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i4-conversa",
+            "rotulo": "I4.3",
+            "titulo": "Conversa de verdade",
+            "tipo": "Prática",
+            "horas": 8,
+            "detalhe": "Faça e responda perguntas em inglês no Slack da DataTalks.Club. Para falar, treine com um assistente de IA no modo de voz, pedindo que ele corrija seus erros no fim de cada conversa.",
+            "links": [
+              {
+                "titulo": "Slack da DataTalks.Club",
+                "url": "https://datatalks.club/slack.html",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i4-escrita",
+            "rotulo": "I4.4",
+            "titulo": "E-mails e documentação técnica",
+            "tipo": "Prática",
+            "horas": 4,
+            "detalhe": "Pratique e-mails formais e textos de opinião do nível B2. Escreva a documentação do Projeto 4 em inglês.",
+            "links": [
+              {
+                "titulo": "British Council: escrita B2",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/writing/b2",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i4-fim",
+            "rotulo": "I4.5",
+            "titulo": "Teste de fim de nível: meta B2",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Refaça o EF SET. Com B2 você já pode se candidatar a vagas que pedem inglês avançado.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "i5",
+        "nivel": 5,
+        "titulo": "Avançado (B2 a C1)",
+        "periodo": "outubro a dezembro de 2027",
+        "inicio": "2027-10-04",
+        "fim": "2027-12-19",
+        "objetivo": "Fazer entrevistas de emprego em inglês, técnicas e comportamentais, e trabalhar com equipes de fora do Brasil.",
+        "nota": "",
+        "etapas": [
+          {
+            "id": "i5-gramatica",
+            "rotulo": "I5.1",
+            "titulo": "Gramática avançada",
+            "tipo": "Estudo",
+            "horas": 8,
+            "detalhe": "Passivas avançadas, orações com particípio e formas de dar ênfase: o que deixa sua fala e sua escrita mais naturais.",
+            "links": [
+              {
+                "titulo": "British Council: gramática C1",
+                "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i5-carreira",
+            "rotulo": "I5.2",
+            "titulo": "Curso: inglês para a carreira",
+            "tipo": "Estudo",
+            "horas": 12,
+            "detalhe": "English for Career Development, da Universidade da Pensilvânia: busca de vagas, currículo, carta de apresentação e entrevista. Escolha a opção de assistir de graça, se aparecer.",
+            "links": [
+              {
+                "titulo": "English for Career Development (Coursera)",
+                "url": "https://www.coursera.org/learn/careerdevelopment",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i5-star",
+            "rotulo": "I5.3",
+            "titulo": "Entrevista comportamental com o método STAR",
+            "tipo": "Prática",
+            "horas": 8,
+            "detalhe": "Prepare seis histórias reais do seu trabalho contadas em Situação, Tarefa, Ação e Resultado: uma migração difícil, um cliente exigente, um erro que você corrigiu, uma rotina que você automatizou. Treine em voz alta até contar cada uma em 2 minutos.",
+            "links": [
+              {
+                "titulo": "Tech Interview Handbook: entrevista comportamental",
+                "url": "https://www.techinterviewhandbook.org/behavioral-interview/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i5-tecnica",
+            "rotulo": "I5.4",
+            "titulo": "Entrevista técnica falando em inglês",
+            "tipo": "Prática",
+            "horas": 8,
+            "detalhe": "Explique em voz alta a arquitetura dos projetos 3, 4 e 5 e resolva exercícios de SQL narrando o raciocínio em inglês, como se pede nas entrevistas. Grave e reveja.",
+            "links": [
+              {
+                "titulo": "LeetCode SQL 50",
+                "url": "https://leetcode.com/studyplan/top-sql-50/",
+                "idioma": "EN"
+              }
+            ]
+          },
+          {
+            "id": "i5-perfil",
+            "rotulo": "I5.5",
+            "titulo": "Currículo e LinkedIn prontos em inglês",
+            "tipo": "Carreira",
+            "horas": 3,
+            "detalhe": "Revise a versão em inglês do LinkedIn e prepare o currículo em inglês para as vagas de Engenheiro de IA.",
+            "links": []
+          },
+          {
+            "id": "i5-fim",
+            "rotulo": "I5.6",
+            "titulo": "Teste final: meta C1",
+            "tipo": "Teste",
+            "horas": 1,
+            "detalhe": "Refaça o EF SET. O resultado vem com um certificado gratuito que você pode colocar no LinkedIn.",
+            "links": [
+              {
+                "titulo": "EF SET, teste de nível gratuito",
+                "url": "https://www.efset.org/",
+                "idioma": "EN"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -148,7 +148,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 20px}
 .links li{min-width:0;max-width:100%}
 .links a{font-family:var(--mono);font-size:.8rem;color:var(--link);text-underline-offset:3px;display:inline-flex;align-items:center;gap:6px;overflow-wrap:anywhere}
-.lang{font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line-2);border-radius:3px;padding:0 4px;text-decoration:none}
+.lang{flex:none;white-space:nowrap;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line-2);border-radius:3px;padding:0 4px;text-decoration:none}
 .ring-track{stroke:var(--line)}
 .ring-fill{stroke:var(--green)}
 .ring-fill.blue{stroke:var(--blue-2)}
@@ -350,6 +350,11 @@ figure.chart figcaption{font-size:.78rem;color:var(--muted)}
 .strip .t{flex:1;min-width:0}
 .strip .t strong{font-weight:500}
 .strip .t span{color:var(--muted)}
+.strips{display:grid;gap:10px}
+.en-strip>.icon:first-child{color:var(--c-teal)}
+.en-bar{width:72px;height:6px;border-radius:3px;background:var(--line);overflow:hidden;flex:none}
+.en-bar>span{display:block;height:100%;width:0;background:var(--c-teal);border-radius:3px;transition:width .3s ease}
+@media (max-width:520px){.en-bar{display:none}}
 .hub{display:grid;grid-template-columns:88px minmax(0,1fr);border-radius:6px;overflow:hidden}
 .hub-left{background:var(--blue);color:var(--on-blue);display:grid;place-items:center}
 .hub-body{background:var(--row);color:var(--row-ink);padding:22px 24px;display:grid;gap:14px;min-width:0;color-scheme:light}
@@ -599,7 +604,7 @@ body{transition:background-color .25s ease,color .25s ease}
     </details>
     <details class="side-block" id="side-rem" open>
       <summary><i data-icon="bell"></i>Lembretes<i data-icon="chev" class="chev"></i></summary>
-      <p>Estudo às terças e quintas, das 19h às 21h, e aos sábados, das 9h às 13h. O alarme toca 10 minutos antes.</p>
+      <p>Estudo às terças e quintas, das 19h às 21h, e aos sábados, das 9h às 13h. O alarme toca 10 minutos antes. Inglês de segunda a sexta, das 21h30 às 22h, com aviso da agenda.</p>
       <button class="btn-dark" type="button" data-nav="horas">Registrar horas</button>
     </details>
   </aside>
@@ -674,7 +679,10 @@ body{transition:background-color .25s ease,color .25s ease}
         </div>
       </div>
 
+      <div class="strips">
       <button class="strip" type="button" id="acc-strip" data-nav="contas"><i data-icon="link"></i><span class="t"><strong>Contas e integrações</strong> · <span id="acc-strip-text">GitHub ainda não ligado ao projeto</span></span><i data-icon="right"></i></button>
+      <button class="strip en-strip" type="button" id="en-strip"><i data-icon="chat"></i><span class="t"><strong id="en-strip-title">Inglês · Nível 1</strong> · <span id="en-strip-text">Carregando…</span></span><span class="en-bar" aria-hidden="true"><span id="en-strip-bar"></span></span><i data-icon="right"></i></button>
+      </div>
 
       <div class="head">
         <h2 class="section-title">Continue de onde parou</h2>
@@ -711,13 +719,14 @@ body{transition:background-color .25s ease,color .25s ease}
             <li><span class="day">Terça</span><span class="t">19h às 21h</span></li>
             <li><span class="day">Quinta</span><span class="t">19h às 21h</span></li>
             <li><span class="day">Sábado</span><span class="t">9h às 13h</span></li>
+            <li><span class="day">Seg a sex · Inglês</span><span class="t">21h30 às 22h</span></li>
           </ul>
-          <p class="note">No seu Google Agenda até 19 de dezembro de 2027, com aviso 10 minutos antes. O alarme do celular toca às 18h50 nas terças e quintas e às 8h50 aos sábados. Sem estudo em 24/12, 26/12, 31/12 e 02/01.</p>
+          <p class="note">No seu Google Agenda até 19 de dezembro de 2027, com aviso 10 minutos antes. O alarme do celular toca às 18h50 nas terças e quintas e às 8h50 aos sábados. Sem estudo em 24/12, 26/12, 31/12 e 02/01. O inglês vai de 5 de outubro de 2026 a 17 de dezembro de 2027, também com aviso 10 minutos antes, sem aula em 24/12, 25/12, 31/12 e 01/01.</p>
         </section>
         <section class="card" aria-labelledby="t-hab">
           <h2 id="t-hab"><i data-icon="check"></i>Hábitos de toda semana</h2>
           <ul class="habits">
-            <li><strong>Inglês técnico, 20 a 30 minutos por dia</strong><span>Leia documentação e assista às aulas em inglês. Boa parte das vagas de dados e IA pede fluência.</span></li>
+            <li><strong>Inglês, 20 a 30 minutos por dia</strong><span>Siga a faixa de inglês, do básico ao avançado, de segunda a sexta às 21h30. Boa parte das vagas de dados e IA pede inglês.</span></li>
             <li><strong>Aprenda em público</strong><span>Um post no LinkedIn a cada projeto concluído, com o link do GitHub. No Zoomcamp isso ainda vale pontos extras.</span></li>
             <li><strong>Uma técnica por mês no trabalho</strong><span>Cada rotina de migração que você automatiza em Python vira experiência real de engenharia de dados.</span></li>
             <li><strong>A faculdade a seu favor</strong><span>Dê prioridade às disciplinas de banco de dados, programação e engenharia de software do ADS.</span></li>
@@ -1105,11 +1114,120 @@ var PLAN = [
     res:[["Página da AI-103","https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/","PT"],["Avaliações práticas gratuitas","https://learn.microsoft.com/pt-br/credentials/certifications/practice-assessments-for-microsoft-certifications","PT"]]},
    {id:"f5-vagas", tag:"Carreira", h:0, title:"Marco: vagas de Engenheiro de IA",
     detail:"Mire em vagas que juntam dados e IA: Engenheiro de IA, Engenheiro de ML e Engenheiro de Dados com foco em IA. Leve os projetos 4 e 5 para as entrevistas."}
+  ]},
+ {id:"i1", n:"I1", lvl:1, en:true, track:3, title:"Básico (A1 a A2)", period:"outubro a dezembro de 2026", start:"2026-10-05", end:"2026-12-20",
+  goal:"Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.",
+  note:"Se o teste de nível der B1 ou mais, marque o que você já domina neste nível e siga para o próximo.",
+  steps:[
+   {id:"i1-teste", tag:"Teste", h:1, title:"Descubra seu nível com um teste gratuito",
+    detail:"Faça o EF SET de 50 minutos: é gratuito, corrige leitura e escuta e mostra seu nível no Quadro Europeu (de A1 a C2). Anote o resultado: você vai refazer o teste no fim de cada nível para medir a evolução.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]},
+   {id:"i1-habito", tag:"Rotina", h:0.5, title:"Crie o hábito de 20 a 30 minutos por dia",
+    detail:"De segunda a sexta, das 21h30 às 22h, como está na sua agenda. Pouco todo dia rende mais do que muito uma vez por semana. Deixe o celular e o VS Code em inglês: você aprende vocabulário sem perceber."},
+   {id:"i1-gramatica", tag:"Estudo", h:15, title:"Gramática básica, explicada em português",
+    detail:"Verbo to be, presente e passado simples, perguntas e negativas, artigos e preposições. Veja a explicação em português no canal da Carina Fragozo e faça os exercícios do British Council do nível A1 a A2.",
+    res:[["English in Brazil, com Carina Fragozo","https://www.youtube.com/@carinafragozo","PT"],["British Council: gramática A1 a A2","https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2","EN"]]},
+   {id:"i1-pronuncia", tag:"Estudo", h:5, title:"Pronúncia desde o início",
+    detail:"Os sons do inglês que não existem em português, como o th e as vogais curtas. Use o YouGlish para ouvir palavras da área em vídeos reais: data, query, schema, cache, deploy.",
+    res:[["BBC Learning English: pronúncia","https://www.bbc.co.uk/learningenglish/english/features/pronunciation","EN"],["YouGlish","https://youglish.com/","EN"]]},
+   {id:"i1-vocab", tag:"Prática", h:6, title:"Vocabulário de TI do dia a dia",
+    detail:"Monte um baralho no Anki com as palavras que você vê no trabalho e nos cursos: file, folder, run, install, error, warning, table, column, row, query, load, merge. Revise 5 minutos por dia; o Anki mostra cada palavra na hora certa para você não esquecer.",
+    res:[["Anki, flashcards gratuitos","https://apps.ankiweb.net/","EN"]]},
+   {id:"i1-leitura", tag:"Prática", h:5, title:"Primeiras leituras e escutas",
+    detail:"Textos e áudios curtos com exercícios, no seu nível. Comece pelo A1 e passe para o A2 quando acertar quase tudo.",
+    res:[["British Council: leitura A1","https://learnenglish.britishcouncil.org/free-resources/reading/a1","EN"],["British Council: escuta A2","https://learnenglish.britishcouncil.org/free-resources/listening/a2","EN"]]},
+   {id:"i1-fim", tag:"Teste", h:1, title:"Teste de fim de nível: meta A2",
+    detail:"Refaça o EF SET e compare com o primeiro resultado. Chegou ao A2? Siga para o Nível 2. Se ainda não, repita as etapas em que sentiu mais dificuldade por mais algumas semanas.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]}
+  ]},
+ {id:"i2", n:"I2", lvl:2, en:true, track:3, title:"Pré-intermediário (A2 a B1)", period:"janeiro a março de 2027", start:"2027-01-04", end:"2027-03-28",
+  goal:"Acompanhar aulas técnicas com legenda em inglês e ler documentação com a ajuda do dicionário. Coincide com o Zoomcamp, que é todo em inglês.",
+  steps:[
+   {id:"i2-gramatica", tag:"Estudo", h:12, title:"Os tempos verbais que mais aparecem em TI",
+    detail:"Present perfect (\"the job has failed\"), futuro com will e going to, comparativos, verbos modais (can, should, must) e a voz passiva simples (\"the file is generated\"). Comece pelas lições de nível B1.",
+    res:[["British Council: gramática B1 a B2","https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2","EN"],["English in Brazil, com Carina Fragozo","https://www.youtube.com/@carinafragozo","PT"]]},
+   {id:"i2-escuta", tag:"Estudo", h:8, title:"6 Minute English, duas vezes por semana",
+    detail:"Episódios curtos sobre temas do dia a dia, com transcrição e vocabulário. Ouça uma vez sem ler, depois com a transcrição, e anote três palavras novas no Anki.",
+    res:[["BBC Learning English: 6 Minute English","https://www.bbc.co.uk/learningenglish/english/features/6-minute-english","EN"]]},
+   {id:"i2-zoomcamp", tag:"Prática", h:6, title:"Aulas do Zoomcamp com legenda em inglês",
+    detail:"Assista com a legenda em inglês, não em português. Pause quando travar e anote os termos técnicos. É o mesmo tempo de estudo da trilha principal, agora servindo para as duas coisas.",
+    res:[["Repositório do Data Engineering Zoomcamp","https://github.com/DataTalksClub/data-engineering-zoomcamp","EN"]]},
+   {id:"i2-docs", tag:"Prática", h:6, title:"Leia documentação de verdade",
+    detail:"Uma seção por semana do tutorial oficial do Python, em inglês. Tente entender pelo contexto e pelo código; traduza só a frase que travar.",
+    res:[["Tutorial oficial do Python","https://docs.python.org/3/tutorial/","EN"]]},
+   {id:"i2-escrita", tag:"Prática", h:3, title:"Commits e README em inglês",
+    detail:"Mensagens de commit curtas, com o verbo no início (\"Add data validation\", \"Fix date parsing\"), e o README do Projeto 1 em inglês. O Write & Improve, da Cambridge, corrige textos curtos de graça.",
+    res:[["Write & Improve, da Cambridge","https://writeandimprove.com/","EN"]]},
+   {id:"i2-fim", tag:"Teste", h:1, title:"Teste de fim de nível: meta B1",
+    detail:"Refaça o EF SET. Com B1 você já entende a maior parte das aulas técnicas e consegue escrever sobre seus projetos.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]}
+  ]},
+ {id:"i3", n:"I3", lvl:3, en:true, track:3, title:"Intermediário (B1 a B2)", period:"abril a junho de 2027", start:"2027-04-05", end:"2027-06-27",
+  goal:"Entender podcasts de tecnologia e começar a falar: explicar seu trabalho e seus projetos, devagar mas sem travar.",
+  steps:[
+   {id:"i3-gramatica", tag:"Estudo", h:10, title:"Gramática para conversar melhor",
+    detail:"Condicionais (\"if the load fails, we roll back\"), orações relativas, discurso indireto e os phrasal verbs mais comuns em TI: set up, roll back, log in, figure out, run into.",
+    res:[["British Council: gramática B1 a B2","https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2","EN"]]},
+   {id:"i3-podcast", tag:"Estudo", h:8, title:"Podcasts de tecnologia",
+    detail:"Escolha episódios sobre o que você estuda no momento e use a transcrição quando precisar. Se ficar rápido demais, reduza a velocidade para 0,9.",
+    res:[["Talk Python To Me","https://talkpython.fm/","EN"],["Data Engineering Podcast","https://www.dataengineeringpodcast.com/","EN"]]},
+   {id:"i3-fala", tag:"Prática", h:8, title:"Comece a falar: repetição e gravação",
+    detail:"Repita em voz alta, junto com o áudio, trechos do 6 Minute English (a técnica se chama shadowing). Uma vez por semana, grave 1 minuto explicando o que estudou e ouça de novo para notar os erros.",
+    res:[["British Council: fala B1","https://learnenglish.britishcouncil.org/free-resources/speaking/b1","EN"],["BBC Learning English: 6 Minute English","https://www.bbc.co.uk/learningenglish/english/features/6-minute-english","EN"]]},
+   {id:"i3-pitch", tag:"Prática", h:4, title:"Sua apresentação de 1 minuto",
+    detail:"Quem você é, o que faz (integração e migração de dados de ERP) e o que está estudando. Escreva, corrija no Write & Improve, treine em voz alta e grave. Ela abre toda entrevista em inglês.",
+    res:[["Write & Improve, da Cambridge","https://writeandimprove.com/","EN"]]},
+   {id:"i3-linkedin", tag:"Carreira", h:2, title:"LinkedIn também em inglês",
+    detail:"O LinkedIn deixa criar o perfil em um segundo idioma. Faça a versão em inglês e publique o Projeto 3 com um texto curto em inglês."},
+   {id:"i3-fim", tag:"Teste", h:1, title:"Teste de fim de nível: meta B1 alto",
+    detail:"Refaça o EF SET. A meta é estar perto do B2, que é o nível que muitas vagas pedem.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]}
+  ]},
+ {id:"i4", n:"I4", lvl:4, en:true, track:3, title:"Intermediário superior (B2)", period:"julho a setembro de 2027", start:"2027-07-05", end:"2027-09-26",
+  goal:"Conversar sobre tecnologia sem travar, fazer cursos inteiros em inglês e escrever e-mails e documentação com segurança.",
+  steps:[
+   {id:"i4-curso", tag:"Estudo", h:15, title:"Curso: falar inglês no trabalho",
+    detail:"Speak English Professionally, do Georgia Tech: reuniões, chamadas de vídeo e telefone. Na inscrição, escolha a opção de assistir de graça, se aparecer; o certificado é pago e não é necessário.",
+    res:[["Speak English Professionally (Coursera)","https://www.coursera.org/learn/speak-english-professionally","EN"]]},
+   {id:"i4-escuta", tag:"Estudo", h:8, title:"Escuta sem legenda",
+    detail:"Exercícios de escuta do nível B2 e trechos do LLM Zoomcamp sem legenda, nos assuntos que você já conhece.",
+    res:[["British Council: escuta B2","https://learnenglish.britishcouncil.org/free-resources/listening/b2","EN"],["Repositório do LLM Zoomcamp","https://github.com/DataTalksClub/llm-zoomcamp","EN"]]},
+   {id:"i4-conversa", tag:"Prática", h:8, title:"Conversa de verdade",
+    detail:"Faça e responda perguntas em inglês no Slack da DataTalks.Club. Para falar, treine com um assistente de IA no modo de voz, pedindo que ele corrija seus erros no fim de cada conversa.",
+    res:[["Slack da DataTalks.Club","https://datatalks.club/slack.html","EN"]]},
+   {id:"i4-escrita", tag:"Prática", h:4, title:"E-mails e documentação técnica",
+    detail:"Pratique e-mails formais e textos de opinião do nível B2. Escreva a documentação do Projeto 4 em inglês.",
+    res:[["British Council: escrita B2","https://learnenglish.britishcouncil.org/free-resources/writing/b2","EN"]]},
+   {id:"i4-fim", tag:"Teste", h:1, title:"Teste de fim de nível: meta B2",
+    detail:"Refaça o EF SET. Com B2 você já pode se candidatar a vagas que pedem inglês avançado.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]}
+  ]},
+ {id:"i5", n:"I5", lvl:5, en:true, track:3, title:"Avançado (B2 a C1)", period:"outubro a dezembro de 2027", start:"2027-10-04", end:"2027-12-19",
+  goal:"Fazer entrevistas de emprego em inglês, técnicas e comportamentais, e trabalhar com equipes de fora do Brasil.",
+  steps:[
+   {id:"i5-gramatica", tag:"Estudo", h:8, title:"Gramática avançada",
+    detail:"Passivas avançadas, orações com particípio e formas de dar ênfase: o que deixa sua fala e sua escrita mais naturais.",
+    res:[["British Council: gramática C1","https://learnenglish.britishcouncil.org/free-resources/grammar/c1","EN"]]},
+   {id:"i5-carreira", tag:"Estudo", h:12, title:"Curso: inglês para a carreira",
+    detail:"English for Career Development, da Universidade da Pensilvânia: busca de vagas, currículo, carta de apresentação e entrevista. Escolha a opção de assistir de graça, se aparecer.",
+    res:[["English for Career Development (Coursera)","https://www.coursera.org/learn/careerdevelopment","EN"]]},
+   {id:"i5-star", tag:"Prática", h:8, title:"Entrevista comportamental com o método STAR",
+    detail:"Prepare seis histórias reais do seu trabalho contadas em Situação, Tarefa, Ação e Resultado: uma migração difícil, um cliente exigente, um erro que você corrigiu, uma rotina que você automatizou. Treine em voz alta até contar cada uma em 2 minutos.",
+    res:[["Tech Interview Handbook: entrevista comportamental","https://www.techinterviewhandbook.org/behavioral-interview/","EN"]]},
+   {id:"i5-tecnica", tag:"Prática", h:8, title:"Entrevista técnica falando em inglês",
+    detail:"Explique em voz alta a arquitetura dos projetos 3, 4 e 5 e resolva exercícios de SQL narrando o raciocínio em inglês, como se pede nas entrevistas. Grave e reveja.",
+    res:[["LeetCode SQL 50","https://leetcode.com/studyplan/top-sql-50/","EN"]]},
+   {id:"i5-perfil", tag:"Carreira", h:3, title:"Currículo e LinkedIn prontos em inglês",
+    detail:"Revise a versão em inglês do LinkedIn e prepare o currículo em inglês para as vagas de Engenheiro de IA."},
+   {id:"i5-fim", tag:"Teste", h:1, title:"Teste final: meta C1",
+    detail:"Refaça o EF SET. O resultado vem com um certificado gratuito que você pode colocar no LinkedIn.",
+    res:[["EF SET, teste de nível gratuito","https://www.efset.org/","EN"]]}
   ]}
 ];
 
 var TRACKS = {
   1:{k:"Trilha 1 · Fases 0 a 3", t:"Engenharia de Dados", d:"Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de junho de 2027."},
+  3:{k:"Trilha paralela · 20 a 30 minutos por dia", t:"Inglês do básico ao avançado", d:"Cinco níveis, um depois do outro, do A1 ao C1, só com material gratuito. Cada nível termina com um teste gratuito para medir sua evolução, e o conteúdo usa o que você já estuda na trilha técnica: aulas, documentação e projetos. Esta faixa não entra na porcentagem da trilha técnica; ela tem o próprio progresso."},
   2:{k:"Trilha 2 · Fases 4 e 5", t:"Engenharia de IA", d:"Engenheiro de IA costuma ser o segundo passo: quem é contratado chega com 3,6 anos de experiência, em média, vindo de engenharia de software, ciência de dados ou engenharia de dados (LinkedIn, 2026). Estas fases preparam você enquanto já trabalha com dados."}
 };
 
@@ -1124,7 +1242,7 @@ var CERTS = [
 ];
 
 var STATUS_LABEL = {queued:"Na fila", running:"Em andamento", done:"Concluída", late:"Atrasada"};
-var TAG_SUB = {Projeto:"Projeto de portfólio", Carreira:"Marco de carreira", "Certificação":"Certificação", Estudo:"Estudo", "Prática":"Prática", Trabalho:"No trabalho", Rotina:"Rotina"};
+var TAG_SUB = {Teste:"Teste de nível", Projeto:"Projeto de portfólio", Carreira:"Marco de carreira", "Certificação":"Certificação", Estudo:"Estudo", "Prática":"Prática", Trabalho:"No trabalho", Rotina:"Rotina"};
 var GOALS = [4,6,8,10,12,15];
 var VIEWS = ["inicio","trilha","cursos","horas","certificacoes","contas"];
 
@@ -1192,6 +1310,7 @@ var KNOWN = {invalid_argument:1,resource_exhausted:1,quota_exceeded:1,unavailabl
 
 /* ---------- Ícones ---------- */
 var ICON = {
+  chat:'<path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/>',
   home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
   layers:'<path d="M12 3 2 8l10 5 10-5z"/><path d="m2 12.5 10 5 10-5"/><path d="m2 17 10 5 10-5"/>',
   book:'<path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/>',
@@ -1226,7 +1345,8 @@ var ICON = {
   key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9"/><path d="m17 6 3 3"/><path d="m14.5 8.5 2 2"/>',
   mark:'<circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3M8.7 13.3l6.6 3.4"/>'
 };
-var PH_STYLE = {0:{color:"var(--c-sky)", icon:"terminal"}, 1:{color:"var(--green)", icon:"code"}, 2:{color:"var(--c-lime)", icon:"pipeline"}, 3:{color:"var(--warn)", icon:"cloud"}, 4:{color:"var(--c-pink)", icon:"spark"}, 5:{color:"var(--c-orange)", icon:"bot"}};
+var PH_STYLE = {0:{color:"var(--c-sky)", icon:"terminal"}, 1:{color:"var(--green)", icon:"code"}, 2:{color:"var(--c-lime)", icon:"pipeline"}, 3:{color:"var(--warn)", icon:"cloud"}, 4:{color:"var(--c-pink)", icon:"spark"}, 5:{color:"var(--c-orange)", icon:"bot"}, I1:{color:"var(--c-teal)", icon:"chat"}, I2:{color:"var(--c-teal)", icon:"chat"}, I3:{color:"var(--c-purple)", icon:"chat"}, I4:{color:"var(--c-purple)", icon:"chat"}, I5:{color:"var(--c-pink)", icon:"chat"}};
+function phName(ph){ return ph.en ? "Inglês · Nível " + ph.lvl : "Fase " + ph.n; }
 function svgIcon(name, size){
   var s = size || 20;
   return '<svg class="icon" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICON[name] || "") + '</svg>';
@@ -1283,19 +1403,22 @@ var inflight = new Map(), chains = new Map(), accInflight = new Map();
 var UI = {view:"inicio", filter:lsGet("trilha-filter", "all"), open:lsGet("trilha-open", null), expanded:{}, sort:0};
 if (["all","todo","done"].indexOf(UI.filter) < 0) UI.filter = "all";
 
-var STEPS = [];
+var ALL_STEPS = [];
 PLAN.forEach(function(ph){
   ph.hours = 0;
-  ph.steps.forEach(function(s, i){ s.label = "F" + ph.n + "." + (i + 1); s.num = pad(i + 1); s.ph = ph; ph.hours += s.h || 0; STEPS.push(s); });
+  ph.steps.forEach(function(s, i){ s.label = (ph.en ? "I" + ph.lvl : "F" + ph.n) + "." + (i + 1); s.num = pad(i + 1); s.ph = ph; ph.hours += s.h || 0; ALL_STEPS.push(s); });
 });
+var STEPS = ALL_STEPS.filter(function(s){ return !s.ph.en; });
+var EN_STEPS = ALL_STEPS.filter(function(s){ return s.ph.en; });
+var TECH_PLAN = PLAN.filter(function(ph){ return !ph.en; });
 var STEP_BY_ID = {};
-STEPS.forEach(function(s){ STEP_BY_ID[s.id] = s; });
-var TOTAL_H = PLAN.reduce(function(a, ph){ return a + ph.hours; }, 0);
+ALL_STEPS.forEach(function(s){ STEP_BY_ID[s.id] = s; });
+var TOTAL_H = TECH_PLAN.reduce(function(a, ph){ return a + ph.hours; }, 0);
 var PLAN_H = Math.round(TOTAL_H / 10) * 10;
 
 /* Cursos: um item por link, ligado às etapas onde aparece */
 var COURSES = [], byUrl = {};
-STEPS.forEach(function(s){
+ALL_STEPS.forEach(function(s){
   (s.res || []).forEach(function(r){
     var c = byUrl[r[1]];
     if (!c){ c = byUrl[r[1]] = {title:r[0], url:r[1], lang:r[2], steps:[], order:COURSES.length}; COURSES.push(c); }
@@ -1314,14 +1437,14 @@ function buildTrilha(){
   PLAN.forEach(function(ph){
     if (ph.track !== lastTrack){
       var t = TRACKS[ph.track];
-      root.append(el("div", {class:"track"}, el("div", {class:"track-head"}, el("span", {class:"track-art", "aria-hidden":"true", html:svgIcon(ph.track === 1 ? "db" : "spark", 30)}), el("div", null, el("p", {class:"k", text:t.k}), el("h2", {text:t.t}))), el("p", {class:"d", text:t.d})));
+      root.append(el("div", {class:"track"}, el("div", {class:"track-head"}, el("span", {class:"track-art", "aria-hidden":"true", html:svgIcon(ph.track === 1 ? "db" : ph.track === 2 ? "spark" : "chat", 30)}), el("div", null, el("p", {class:"k", text:t.k}), el("h2", {text:t.t}))), el("p", {class:"d", text:t.d})));
       lastTrack = ph.track;
     }
     var bodyId = "pb-" + ph.id;
     var chip = el("span", {class:"pb-chip", "data-status":"queued", text:STATUS_LABEL.queued});
     var count = el("span", {class:"pb-count", text:"0/" + ph.steps.length});
     var bar = el("button", {type:"button", class:"phase-bar", "aria-expanded":"false", "aria-controls":bodyId, id:"bar-" + ph.id},
-      el("span", {class:"pb-title"}, el("span", {class:"ph-ic", html:svgIcon(PH_STYLE[ph.n].icon, 20)}), el("span", {text:"Fase " + ph.n + " · " + ph.title})),
+      el("span", {class:"pb-title"}, el("span", {class:"ph-ic", html:svgIcon(PH_STYLE[ph.n].icon, 20)}), el("span", {text:phName(ph) + " · " + ph.title})),
       el("span", {class:"pb-side"}, chip, count, el("span", {html:svgIcon("chev", 20)})));
     var svgs = bar.querySelectorAll("svg"); svgs[svgs.length - 1].classList.add("chev");
     var body = el("div", {class:"phase-body", id:bodyId, hidden:true},
@@ -1330,7 +1453,7 @@ function buildTrilha(){
     if (ph.note) body.append(el("p", {class:"pnote", text:ph.note}));
     var ol = el("ol", {class:"rows"});
     ph.steps.forEach(function(s){ ol.append(buildRow(s)); });
-    var empty = el("p", {class:"empty-phase", hidden:true, text:"Nenhuma etapa desta fase com esse filtro."});
+    var empty = el("p", {class:"empty-phase", hidden:true, text:ph.en ? "Nenhuma etapa deste nível com esse filtro." : "Nenhuma etapa desta fase com esse filtro."});
     body.append(ol, empty);
     var sec = el("section", {class:"phase", id:"fase-" + ph.n, "aria-labelledby":"bar-" + ph.id, style:"--ph:" + PH_STYLE[ph.n].color}, bar, body);
     bar.addEventListener("click", function(){ setPhaseOpen(ph, bar.getAttribute("aria-expanded") !== "true"); saveOpen(); });
@@ -1385,10 +1508,10 @@ function setExpanded(s, open){
     tb.append(el("tr", {class:c.on ? "" : "off"}, el("td", {text:c.name}), el("td", null, el("code", {text:c.code})), el("td", {text:c.when}), sit));
   });
   var sel = $("f-fase");
-  PLAN.forEach(function(ph){ sel.append(el("option", {value:String(ph.n), text:"Fase " + ph.n + " · " + ph.title})); });
+  PLAN.forEach(function(ph){ sel.append(el("option", {value:String(ph.n), text:phName(ph) + " · " + ph.title})); });
 })();
 buildTrilha();
-$("trilha-lead").textContent = STEPS.length + " etapas em " + PLAN.length + " fases. Toque no bloco azul de uma etapa para marcá-la como concluída, ou no nome dela para ver os cursos.";
+$("trilha-lead").textContent = STEPS.length + " etapas em " + TECH_PLAN.length + " fases, mais " + EN_STEPS.length + " de inglês em " + (PLAN.length - TECH_PLAN.length) + " níveis. Toque no bloco azul de uma etapa para marcá-la como concluída, ou no nome dela para ver os cursos.";
 $("stat-hours-plan").textContent = "de ≈ " + PLAN_H + " h planejadas";
 
 /* ---------- Navegação ---------- */
@@ -1472,7 +1595,14 @@ function phaseStatus(ph, c){
   if (c > 0 || t >= ph.start) return "running";
   return "queued";
 }
-var currentNext = null;
+var currentNext = null, currentEnNext = null;
+function renderEnglish(doneN, nx){
+  var total = EN_STEPS.length, ph = nx ? nx.ph : PLAN[PLAN.length - 1];
+  $("en-strip-title").textContent = nx ? "Inglês · Nível " + ph.lvl + " · " + ph.title : "Inglês concluído";
+  $("en-strip-text").textContent = doneN + " de " + total + " etapas" + (nx ? " · Próximo: " + nx.label + " " + nx.title : " · Parabéns, do básico ao avançado!");
+  $("en-strip-bar").style.width = Math.round(doneN / total * 100) + "%";
+}
+$("en-strip").addEventListener("click", function(){ if (currentEnNext) openStep(currentEnNext); else showView("trilha"); });
 
 function renderProgress(){
   var total = STEPS.length, doneN = 0, next = null;
@@ -1495,8 +1625,12 @@ function renderProgress(){
     e.count.textContent = c + "/" + ph.steps.length;
   });
 
-  STEPS.forEach(function(s){
-    var d = S.done[s.id], e = s._el, isNext = next === s;
+  var enDone = 0, enNext = null;
+  EN_STEPS.forEach(function(s){ if (S.done[s.id]) enDone++; else if (!enNext) enNext = s; });
+  currentEnNext = enNext;
+  renderEnglish(enDone, enNext);
+  ALL_STEPS.forEach(function(s){
+    var d = S.done[s.id], e = s._el, isNext = next === s || enNext === s;
     e.li.classList.toggle("is-done", !!d);
     e.state.setAttribute("aria-pressed", d ? "true" : "false");
     e.state.setAttribute("aria-label", s.label + " " + s.title + (d ? ": concluída, toque para desmarcar" : ": toque para marcar como concluída"));
@@ -1512,7 +1646,7 @@ function renderProgress(){
   applyFilter();
 
   if (next){
-    $("next-kick").textContent = "Próximo passo · " + next.label + " · Fase " + next.ph.n;
+    $("next-kick").textContent = "Próximo passo · " + next.label + " · " + phName(next.ph);
     $("next-title").textContent = next.title;
     $("next-detail").textContent = next.detail;
     var ul = $("next-res"); ul.textContent = "";
@@ -1606,7 +1740,7 @@ var SORTS = [
 ];
 function courseStatus(c){
   if (c.steps.every(function(s){ return !!S.done[s.id]; })) return "done";
-  if (c.steps.some(function(s){ return s === currentNext || !!S.done[s.id]; })) return "doing";
+  if (c.steps.some(function(s){ return s === currentNext || s === currentEnNext || !!S.done[s.id]; })) return "doing";
   return "todo";
 }
 var STATUS_TXT = {done:"Concluído", doing:"Em andamento", todo:"Não iniciado"};
@@ -1663,7 +1797,7 @@ function setStatus(){
 function applyControls(){
   var usable = S.mode === "offline" || (S.mode === "live" && gotProgress);
   var enabled = usable && !S.readOnly;
-  STEPS.forEach(function(s){ s._el.state.disabled = !enabled; s._el.actBtn.disabled = !enabled; s._el.actBtn.hidden = S.readOnly; });
+  ALL_STEPS.forEach(function(s){ s._el.state.disabled = !enabled; s._el.actBtn.disabled = !enabled; s._el.actBtn.hidden = S.readOnly; });
   $("next-done").disabled = !enabled;
   $("next-done").hidden = S.readOnly || !currentNext;
   $("log-form").hidden = S.readOnly;
@@ -2096,7 +2230,8 @@ applyTheme(currentTheme());
 
 function openDefaultPhase(){
   var ph = currentNext ? currentNext.ph : PLAN[PLAN.length - 1];
-  PLAN.forEach(function(p){ setPhaseOpen(p, p === ph); });
+  var en = currentEnNext ? currentEnNext.ph : null;
+  PLAN.forEach(function(p){ setPhaseOpen(p, p === ph || p === en); });
 }
 
 /* ---------- Início ---------- */

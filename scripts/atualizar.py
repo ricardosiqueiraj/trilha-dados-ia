@@ -35,6 +35,12 @@ MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "a
 
 
 # ---------- utilidades ----------
+def niveis_ingles(plano):
+    """Os níveis da faixa de inglês no mesmo formato das fases (numero I1, I2...)."""
+    ing = plano.get("ingles") or {}
+    return [dict(n, numero=f"I{n['nivel']}") for n in ing.get("niveis", [])]
+
+
 def ler_json(caminho):
     try:
         return json.loads(Path(caminho).read_text(encoding="utf-8"))
@@ -81,7 +87,7 @@ def inicio_semana(d):
 def montar_progresso(pasta, plano, agora):
     """Lê a exportação do banco da página e devolve o conteúdo de dados/progresso.json."""
     pasta = Path(pasta)
-    ids = {e["id"] for f in plano["fases"] for e in f["etapas"]}
+    ids = {e["id"] for f in plano["fases"] + niveis_ingles(plano) for e in f["etapas"]}
 
     concluidas = {}
     for arq in sorted((pasta / "progress").glob("*.json")):
@@ -188,6 +194,15 @@ def bloco_progresso(plano, prog, r, hoje, texto_quando):
         n = sum(1 for e in f["etapas"] if e["id"] in prog["etapas_concluidas"])
         st = situacao_fase(f, n, hoje)
         linhas.append(f"| {f['numero']} · {celula(f['titulo'])} | {celula(f['periodo'])} | {n}/{len(f['etapas'])} | {SITUACAO[st]} |")
+    niveis = niveis_ingles(plano)
+    if niveis:
+        concl = prog["etapas_concluidas"]
+        etapas = [(f, e) for f in niveis for e in f["etapas"]]
+        feitas = sum(1 for _, e in etapas if e["id"] in concl)
+        prox = next(((f, e) for f, e in etapas if e["id"] not in concl), None)
+        linhas += ["", "### Inglês, do básico ao avançado", "",
+                   f"`{barra(feitas / len(etapas))}` **{round(feitas / len(etapas) * 100)}%** · {feitas} de {len(etapas)} etapas"
+                   + (f" · nível atual: {prox[0]['titulo']} · próxima: {prox[1]['rotulo']} · {prox[1]['titulo']}" if prox else " · concluído")]
     linhas += ["", "O plano completo, com os cursos gratuitos de cada etapa, está em [PLANO.md](PLANO.md). "
                "As horas e as etapas concluídas, semana a semana, estão em [PROGRESSO.md](PROGRESSO.md)."]
     return "\n".join(linhas)
@@ -261,6 +276,31 @@ def gerar_plano(plano, prog, hoje):
             else:
                 linhas.append(f"  {e['detalhe']}")
         linhas.append("")
+    ing = plano.get("ingles")
+    if ing:
+        linhas += [f"## {ing['titulo']} ({ing['rotulo']})", "", ing["descricao"], ""]
+        for f in niveis_ingles(plano):
+            n = sum(1 for e in f["etapas"] if e["id"] in concl)
+            h = sum(e["horas"] for e in f["etapas"])
+            st = SITUACAO[situacao_fase(f, n, hoje)]
+            linhas += [f"### Nível {f['nivel']} · {f['titulo']}", "",
+                       f"**Período:** {f['periodo']} · ≈ {horas(h)} de estudo · **Situação:** {st} ({n}/{len(f['etapas'])})", "",
+                       f"**Objetivo:** {f['objetivo']}", ""]
+            if f.get("nota"):
+                linhas += [f"_{f['nota']}_", ""]
+            for e in f["etapas"]:
+                feito = e["id"] in concl
+                topo = f"- [{'x' if feito else ' '}] **{e['rotulo']} · {e['titulo']}** (≈ {horas(e['horas'])})"
+                if feito:
+                    topo += f" · concluída em {data_br(concl[e['id']])}"
+                linhas.append(topo + "\\")
+                if e["links"]:
+                    links = " · ".join(f"[{l['titulo']}]({l['url']}) ({l['idioma']})" for l in e["links"])
+                    linhas.append(f"  {e['detalhe']}\\")
+                    linhas.append(f"  Links: {links}")
+                else:
+                    linhas.append(f"  {e['detalhe']}")
+            linhas.append("")
     linhas += ["## Certificações", "", "| Certificação | Prova | Quando | Observação |", "|---|---|---|---|"]
     for c in plano["certificacoes"]:
         nome = f"[{c['nome']}]({c['url']})" if c.get("url") else c["nome"]
@@ -271,7 +311,7 @@ def gerar_plano(plano, prog, hoje):
 # ---------- PROGRESSO.md ----------
 def gerar_progresso(plano, prog, r, texto_quando):
     concl = prog["etapas_concluidas"]
-    nomes = {e["id"]: (f, e) for f in plano["fases"] for e in f["etapas"]}
+    nomes = {e["id"]: (f, e) for f in plano["fases"] + niveis_ingles(plano) for e in f["etapas"]}
     linhas = ["# Diário de estudos", "",
               f"Atualizado em {texto_quando}. Meta semanal: {prog['meta_semanal_h']} h. "
               f"Total registrado: {horas(r['horas_total'])}.", "", "## Horas por semana", ""]
