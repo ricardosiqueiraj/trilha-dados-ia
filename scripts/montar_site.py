@@ -60,10 +60,16 @@ ESTILO_EXTRA = """
 .logout-row{display:flex;justify-content:flex-end}
 """
 
-SCRIPTS = """<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="config.js"></script>
-<script src="assets/ponte-supabase.js"></script>
-"""
+def versao(arquivo):
+    """Código curto do conteúdo do arquivo, para o navegador não usar uma cópia antiga."""
+    import hashlib
+    return hashlib.sha1((RAIZ / "docs" / arquivo).read_bytes()).hexdigest()[:8]
+
+
+def scripts():
+    return ('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>\n'
+            f'<script src="config.js?v={versao("config.js")}"></script>\n'
+            f'<script src="assets/ponte-supabase.js?v={versao("assets/ponte-supabase.js")}"></script>\n')
 
 
 def main():
@@ -86,7 +92,7 @@ def main():
     # scripts do site antes do script principal
     pos = html.rfind("<script>")
     assert pos > 0
-    html = html[:pos] + SCRIPTS + html[pos:]
+    html = html[:pos] + scripts() + html[pos:]
     titulo_fim = html.index("</title>") + len("</title>")
     titulo = html[:titulo_fim]
     resto = html[titulo_fim:]
