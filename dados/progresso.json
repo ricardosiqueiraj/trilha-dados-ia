@@ -1,20 +1,61 @@
 {
-  "atualizado_em": "2026-09-29T17:00-03:00",
+  "atualizado_em": "2026-10-01T18:34-03:00",
   "meta_semanal_h": 15,
   "etapas_concluidas": {
-    "f0-rotina": "2026-09-29"
+    "f0-ambiente": "2026-09-30",
+    "f0-contas": "2026-09-30",
+    "f0-github": "2026-09-30",
+    "f0-rotina": "2026-09-29",
+    "f0-zoomcamp": "2026-09-30"
   },
   "sessoes": [],
   "perfis": {
     "github": "ricardosiqueiraj",
-    "kaggle": "",
-    "huggingface": "",
-    "linkedin": ""
+    "kaggle": "ricardosiqueiraj",
+    "huggingface": "ricardosiqueiraj",
+    "linkedin": "josé-ricardo-junior-248aa1252"
   },
   "contas": {
+    "databricks": {
+      "criada": true,
+      "ligada": true
+    },
+    "datatalks": {
+      "criada": true,
+      "ligada": true
+    },
     "github": {
       "criada": true,
       "ligada": true
+    },
+    "huggingface": {
+      "criada": true,
+      "ligada": false
+    },
+    "kaggle": {
+      "criada": true,
+      "ligada": true
+    },
+    "leetcode": {
+      "criada": true,
+      "ligada": true
+    },
+    "linkedin": {
+      "criada": false,
+      "ligada": true
+    },
+    "microsoft": {
+      "criada": true,
+      "ligada": true
+    },
+    "slack": {
+      "criada": true,
+      "ligada": false
+    },
+    "vscode": {
+      "criada": true,
+      "ligada": true
     }
-  }
+  },
+  "notas": []
 }

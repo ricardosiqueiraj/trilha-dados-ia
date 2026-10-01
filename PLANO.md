@@ -8,22 +8,22 @@ Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão fer
 
 ### Fase 0 · Preparar o terreno
 
-**Período:** 5 a 11 de outubro de 2026 · ≈ 6,5 h de estudo · **Situação:** Em andamento (1/5)
+**Período:** 5 a 11 de outubro de 2026 · ≈ 6,5 h de estudo · **Situação:** Concluída (5/5)
 
 **Objetivo:** Deixar ambiente, contas e rotina prontos para não perder tempo depois.
 
 - [x] **F0.1 · Defina sua rotina de estudo** (≈ 1 h) · concluída em 29/09/2026\
   Reserve três blocos fixos por semana, como os que já estão na sua agenda: terças e quintas à noite e sábado de manhã. Registre cada sessão na aba Horas.
-- [ ] **F0.2 · Ligue seu GitHub ao projeto** (≈ 1 h)\
+- [x] **F0.2 · Ligue seu GitHub ao projeto** (≈ 1 h) · concluída em 30/09/2026\
   Você já tem conta. Crie o repositório trilha-dados-ia e conecte o GitHub ao Claude, como mostra a aba Contas e integrações: o repositório passa a receber seu progresso toda semana. Os projetos do plano também vão para o GitHub, cada um no seu repositório, com um README que explica o problema, a arquitetura e como rodar.\
   Links: [GitHub](https://github.com/) (EN)
-- [ ] **F0.3 · Monte o ambiente no seu computador** (≈ 3 h)\
+- [x] **F0.3 · Monte o ambiente no seu computador** (≈ 3 h) · concluída em 30/09/2026\
   Instale VS Code, Python 3 e Git. No Windows, ative o WSL2 para ter um terminal Linux, o padrão no dia a dia de dados.\
   Links: [Instalar o WSL](https://learn.microsoft.com/pt-br/windows/wsl/install) (PT) · [VS Code](https://code.visualstudio.com/) (EN)
-- [ ] **F0.4 · Crie as contas gratuitas de estudo** (≈ 1 h)\
+- [x] **F0.4 · Crie as contas gratuitas de estudo** (≈ 1 h) · concluída em 30/09/2026\
   Databricks Free Edition (sem cartão de crédito), conta Microsoft para o Microsoft Learn, Kaggle e DataTalks.Club. É nelas que você vai praticar e fazer os cursos. A aba Contas e integrações mostra quais deixam entrar com o GitHub e quais salvam o trabalho nele.\
   Links: [Databricks Free Edition](https://www.databricks.com/learn/free-edition) (EN) · [Microsoft Learn](https://learn.microsoft.com/pt-br/training/) (PT) · [Kaggle Learn](https://www.kaggle.com/learn) (EN)
-- [ ] **F0.5 · Inscreva-se no Data Engineering Zoomcamp** (≈ 0,5 h)\
+- [x] **F0.5 · Inscreva-se no Data Engineering Zoomcamp** (≈ 0,5 h) · concluída em 30/09/2026\
   O curso é gratuito e a turma ao vivo costuma começar em janeiro. Só quem acompanha a turma recebe certificado. Entre também no Slack da DataTalks.Club.\
   Links: [Inscrição no Data Engineering Zoomcamp](https://courses.datatalks.club/register/de-zoomcamp/) (EN) · [Slack da DataTalks.Club](https://datatalks.club/slack.html) (EN)
 

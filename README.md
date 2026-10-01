@@ -9,16 +9,16 @@ Trabalho com integração de dados de ERP: mapeio a estrutura de origem e de des
 <!-- AUTO:PROGRESSO -->
 ## Progresso
 
-`█░░░░░░░░░░░░░░░░░░░` **3%** · 1 de 39 etapas concluídas
+`███░░░░░░░░░░░░░░░░░` **13%** · 5 de 39 etapas concluídas
 
-- **Fase atual:** Fase 0 · Preparar o terreno
-- **Próxima etapa:** F0.2 · Ligue seu GitHub ao projeto
+- **Fase atual:** Fase 1 · Python e ferramentas de engenheiro
+- **Próxima etapa:** F1.1 · Python do zero ao intermediário
 - **Horas de estudo:** 0 h no total, de ≈ 470 h planejadas · 0 h nesta semana, com meta de 15 h
-- **Atualizado em:** 29/09/2026 às 17h00
+- **Atualizado em:** 01/10/2026 às 18h34
 
 | Fase | Período | Etapas | Situação |
 |---|---|---|---|
-| 0 · Preparar o terreno | 5 a 11 de outubro de 2026 | 1/5 | Em andamento |
+| 0 · Preparar o terreno | 5 a 11 de outubro de 2026 | 5/5 | Concluída |
 | 1 · Python e ferramentas de engenheiro | 12 de outubro a 20 de dezembro de 2026 | 0/8 | Na fila |
 | 2 · Engenharia de dados de ponta a ponta | janeiro a março de 2027 | 0/8 | Na fila |
 | 3 · Databricks, Azure e certificação | abril a início de junho de 2027 | 0/6 | Na fila |
@@ -63,6 +63,9 @@ Cada projeto terá um repositório próprio, com README explicando o problema, a
 ## Onde me encontrar
 
 - GitHub: [ricardosiqueiraj](https://github.com/ricardosiqueiraj)
+- Kaggle: [ricardosiqueiraj](https://www.kaggle.com/ricardosiqueiraj)
+- Hugging Face: [ricardosiqueiraj](https://huggingface.co/ricardosiqueiraj)
+- LinkedIn: [josé-ricardo-junior-248aa1252](https://www.linkedin.com/in/jos%C3%A9-ricardo-junior-248aa1252/)
 <!-- /AUTO:PERFIS -->
 
 ## Como este repositório se atualiza
