@@ -14,7 +14,7 @@ Trabalho com integração de dados de ERP: mapeio a estrutura de origem e de des
 - **Fase atual:** Fase 1 · Python e ferramentas de engenheiro
 - **Próxima etapa:** F1.1 · Python do zero ao intermediário
 - **Horas de estudo:** 0 h no total, de ≈ 470 h planejadas · 0 h nesta semana, com meta de 15 h
-- **Atualizado em:** 01/10/2026 às 18h34
+- **Atualizado em:** 05/10/2026 às 00h15
 
 | Fase | Período | Etapas | Situação |
 |---|---|---|---|

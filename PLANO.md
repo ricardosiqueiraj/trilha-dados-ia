@@ -175,7 +175,7 @@ Cinco níveis, um depois do outro, do A1 ao C1, só com material gratuito. Cada 
 
 ### Nível 1 · Básico (A1 a A2)
 
-**Período:** outubro a dezembro de 2026 · ≈ 33,5 h de estudo · **Situação:** Na fila (0/7)
+**Período:** outubro a dezembro de 2026 · ≈ 33,5 h de estudo · **Situação:** Em andamento (0/7)
 
 **Objetivo:** Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.
 
