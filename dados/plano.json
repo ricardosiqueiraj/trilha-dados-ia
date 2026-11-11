@@ -1,12 +1,12 @@
 {
   "titulo": "Trilha Dados e IA",
   "resumo": "De Analista de Integração a Engenheiro de Dados e, depois, a Engenheiro de IA.",
-  "periodo": "outubro de 2026 a dezembro de 2027",
+  "periodo": "novembro de 2026 a janeiro de 2028",
   "trilhas": {
     "1": {
       "rotulo": "Trilha 1 · Fases 0 a 3",
       "titulo": "Engenharia de Dados",
-      "descricao": "Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de junho de 2027."
+      "descricao": "Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de julho de 2027."
     },
     "2": {
       "rotulo": "Trilha 2 · Fases 4 e 5",
@@ -20,9 +20,9 @@
       "numero": 0,
       "trilha": 1,
       "titulo": "Preparar o terreno",
-      "periodo": "5 a 11 de outubro de 2026",
-      "inicio": "2026-10-05",
-      "fim": "2026-10-11",
+      "periodo": "11 a 17 de novembro de 2026",
+      "inicio": "2026-11-11",
+      "fim": "2026-11-17",
       "objetivo": "Deixar ambiente, contas e rotina prontos para não perder tempo depois.",
       "etapas": [
         {
@@ -121,9 +121,9 @@
       "numero": 1,
       "trilha": 1,
       "titulo": "Python e ferramentas de engenheiro",
-      "periodo": "12 de outubro a 20 de dezembro de 2026",
-      "inicio": "2026-10-12",
-      "fim": "2026-12-20",
+      "periodo": "18 de novembro de 2026 a 26 de janeiro de 2027",
+      "inicio": "2026-11-18",
+      "fim": "2027-01-26",
       "objetivo": "Fazer com código o que você já faz no trabalho: extrair, tratar, validar e carregar dados.",
       "nota": "Use as disciplinas de programação e banco de dados do ADS para reforçar esta fase.",
       "etapas": [
@@ -258,9 +258,9 @@
       "numero": 2,
       "trilha": 1,
       "titulo": "Engenharia de dados de ponta a ponta",
-      "periodo": "janeiro a março de 2027",
-      "inicio": "2027-01-11",
-      "fim": "2027-03-28",
+      "periodo": "fevereiro a início de maio de 2027",
+      "inicio": "2027-02-17",
+      "fim": "2027-05-04",
       "objetivo": "Fazer o Data Engineering Zoomcamp com a turma: nuvem, orquestração, data warehouse, dbt, Spark e streaming.",
       "nota": "Se perder a turma de janeiro, siga pelo repositório no seu ritmo. Você aprende o mesmo, só não recebe o certificado.",
       "etapas": [
@@ -391,9 +391,9 @@
       "numero": 3,
       "trilha": 1,
       "titulo": "Databricks, Azure e certificação",
-      "periodo": "abril a início de junho de 2027",
-      "inicio": "2027-04-05",
-      "fim": "2027-06-06",
+      "periodo": "maio a início de julho de 2027",
+      "inicio": "2027-05-12",
+      "fim": "2027-07-13",
       "objetivo": "Dominar a combinação que mais aparece nas vagas brasileiras (SQL, Python, Spark e Databricks na Azure) e tirar a DP-750.",
       "etapas": [
         {
@@ -502,9 +502,9 @@
       "numero": 4,
       "trilha": 2,
       "titulo": "Fundamentos de IA aplicada",
-      "periodo": "junho a setembro de 2027",
-      "inicio": "2027-06-07",
-      "fim": "2027-09-26",
+      "periodo": "julho a início de novembro de 2027",
+      "inicio": "2027-07-14",
+      "fim": "2027-11-02",
       "objetivo": "Construir aplicações com LLMs: RAG, busca vetorial e avaliação, com o LLM Zoomcamp.",
       "nota": "O LLM Zoomcamp costuma começar em junho e dura cerca de 10 semanas. Confira a data na página de inscrição.",
       "etapas": [
@@ -609,9 +609,9 @@
       "numero": 5,
       "trilha": 2,
       "titulo": "Agentes, avaliação e produção",
-      "periodo": "outubro a dezembro de 2027",
-      "inicio": "2027-10-04",
-      "fim": "2027-12-19",
+      "periodo": "novembro de 2027 a janeiro de 2028",
+      "inicio": "2027-11-10",
+      "fim": "2028-01-25",
       "objetivo": "O que separa uma demonstração de um produto: agentes com ferramentas, dados para IA, avaliação e custo.",
       "etapas": [
         {
@@ -704,7 +704,7 @@
     {
       "nome": "Azure Databricks Data Engineer Associate",
       "codigo": "DP-750",
-      "quando": "Fase 3, até junho de 2027",
+      "quando": "Fase 3, até julho de 2027",
       "ativa": true,
       "nota": "Lançada em 2026. 120 minutos, em português. É a principal da trilha de dados.",
       "url": "https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/"
@@ -712,7 +712,7 @@
     {
       "nome": "Azure AI App and Agent Developer Associate",
       "codigo": "AI-103",
-      "quando": "Fase 5, dezembro de 2027",
+      "quando": "Fase 5, janeiro de 2028",
       "ativa": true,
       "nota": "Substituiu a AI-102 em 30/06/2026. 120 minutos, em português.",
       "url": "https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/"
@@ -765,9 +765,9 @@
         "id": "i1",
         "nivel": 1,
         "titulo": "Básico (A1 a A2)",
-        "periodo": "outubro a dezembro de 2026",
-        "inicio": "2026-10-05",
-        "fim": "2026-12-20",
+        "periodo": "novembro de 2026 a janeiro de 2027",
+        "inicio": "2026-11-11",
+        "fim": "2027-01-26",
         "objetivo": "Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.",
         "nota": "Se o teste de nível der B1 ou mais, marque o que você já domina neste nível e siga para o próximo.",
         "etapas": [
@@ -891,9 +891,9 @@
         "id": "i2",
         "nivel": 2,
         "titulo": "Pré-intermediário (A2 a B1)",
-        "periodo": "janeiro a março de 2027",
-        "inicio": "2027-01-04",
-        "fim": "2027-03-28",
+        "periodo": "fevereiro a início de maio de 2027",
+        "inicio": "2027-02-10",
+        "fim": "2027-05-04",
         "objetivo": "Acompanhar aulas técnicas com legenda em inglês e ler documentação com a ajuda do dicionário. Coincide com o Zoomcamp, que é todo em inglês.",
         "nota": "",
         "etapas": [
@@ -998,9 +998,9 @@
         "id": "i3",
         "nivel": 3,
         "titulo": "Intermediário (B1 a B2)",
-        "periodo": "abril a junho de 2027",
-        "inicio": "2027-04-05",
-        "fim": "2027-06-27",
+        "periodo": "maio a início de agosto de 2027",
+        "inicio": "2027-05-12",
+        "fim": "2027-08-03",
         "objetivo": "Entender podcasts de tecnologia e começar a falar: explicar seu trabalho e seus projetos, devagar mas sem travar.",
         "nota": "",
         "etapas": [
@@ -1104,9 +1104,9 @@
         "id": "i4",
         "nivel": 4,
         "titulo": "Intermediário superior (B2)",
-        "periodo": "julho a setembro de 2027",
-        "inicio": "2027-07-05",
-        "fim": "2027-09-26",
+        "periodo": "agosto a início de novembro de 2027",
+        "inicio": "2027-08-11",
+        "fim": "2027-11-02",
         "objetivo": "Conversar sobre tecnologia sem travar, fazer cursos inteiros em inglês e escrever e-mails e documentação com segurança.",
         "nota": "",
         "etapas": [
@@ -1196,9 +1196,9 @@
         "id": "i5",
         "nivel": 5,
         "titulo": "Avançado (B2 a C1)",
-        "periodo": "outubro a dezembro de 2027",
-        "inicio": "2027-10-04",
-        "fim": "2027-12-19",
+        "periodo": "novembro de 2027 a janeiro de 2028",
+        "inicio": "2027-11-10",
+        "fim": "2028-01-25",
         "objetivo": "Fazer entrevistas de emprego em inglês, técnicas e comportamentais, e trabalhar com equipes de fora do Brasil.",
         "nota": "",
         "etapas": [

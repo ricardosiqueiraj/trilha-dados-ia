@@ -18,12 +18,12 @@ Trabalho com integração de dados de ERP: mapeio a estrutura de origem e de des
 
 | Fase | Período | Etapas | Situação |
 |---|---|---|---|
-| 0 · Preparar o terreno | 5 a 11 de outubro de 2026 | 5/5 | Concluída |
-| 1 · Python e ferramentas de engenheiro | 12 de outubro a 20 de dezembro de 2026 | 0/8 | Na fila |
-| 2 · Engenharia de dados de ponta a ponta | janeiro a março de 2027 | 0/8 | Na fila |
-| 3 · Databricks, Azure e certificação | abril a início de junho de 2027 | 0/6 | Na fila |
-| 4 · Fundamentos de IA aplicada | junho a setembro de 2027 | 0/6 | Na fila |
-| 5 · Agentes, avaliação e produção | outubro a dezembro de 2027 | 0/6 | Na fila |
+| 0 · Preparar o terreno | 11 a 17 de novembro de 2026 | 5/5 | Concluída |
+| 1 · Python e ferramentas de engenheiro | 18 de novembro de 2026 a 26 de janeiro de 2027 | 0/8 | Na fila |
+| 2 · Engenharia de dados de ponta a ponta | fevereiro a início de maio de 2027 | 0/8 | Na fila |
+| 3 · Databricks, Azure e certificação | maio a início de julho de 2027 | 0/6 | Na fila |
+| 4 · Fundamentos de IA aplicada | julho a início de novembro de 2027 | 0/6 | Na fila |
+| 5 · Agentes, avaliação e produção | novembro de 2027 a janeiro de 2028 | 0/6 | Na fila |
 
 ### Inglês, do básico ao avançado
 

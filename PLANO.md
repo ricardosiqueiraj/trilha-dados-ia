@@ -1,35 +1,35 @@
 # Plano de estudos: Trilha Dados e IA
 
-De Analista de Integração a Engenheiro de Dados e, depois, a Engenheiro de IA. São 39 etapas em 6 fases, de outubro de 2026 a dezembro de 2027, só com cursos gratuitos. As etapas marcadas já foram concluídas.
+De Analista de Integração a Engenheiro de Dados e, depois, a Engenheiro de IA. São 39 etapas em 6 fases, de novembro de 2026 a janeiro de 2028, só com cursos gratuitos. As etapas marcadas já foram concluídas.
 
 ## Engenharia de Dados (Trilha 1 · Fases 0 a 3)
 
-Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de junho de 2027.
+Você já extrai, trata e carrega dados de ERP no trabalho. Estas fases dão ferramentas, projetos e certificação a essa experiência. Meta: vagas de Engenheiro de Dados a partir de julho de 2027.
 
 ### Fase 0 · Preparar o terreno
 
-**Período:** 5 a 11 de outubro de 2026 · ≈ 6,5 h de estudo · **Situação:** Concluída (5/5)
+**Período:** 11 a 17 de novembro de 2026 · ≈ 6,5 h de estudo · **Situação:** Concluída (5/5)
 
 **Objetivo:** Deixar ambiente, contas e rotina prontos para não perder tempo depois.
 
-- [x] **F0.1 · Defina sua rotina de estudo** (≈ 1 h) · concluída em 29/09/2026\
+- [x] **F0.1 · Defina sua rotina de estudo** (≈ 1 h) · concluída em 11/11/2026\
   Reserve três blocos fixos por semana, como os que já estão na sua agenda: terças e quintas à noite e sábado de manhã. Registre cada sessão na aba Horas.
-- [x] **F0.2 · Ligue seu GitHub ao projeto** (≈ 1 h) · concluída em 30/09/2026\
+- [x] **F0.2 · Ligue seu GitHub ao projeto** (≈ 1 h) · concluída em 12/11/2026\
   Você já tem conta. Crie o repositório trilha-dados-ia e conecte o GitHub ao Claude, como mostra a aba Contas e integrações: o repositório passa a receber seu progresso toda semana. Os projetos do plano também vão para o GitHub, cada um no seu repositório, com um README que explica o problema, a arquitetura e como rodar.\
   Links: [GitHub](https://github.com/) (EN)
-- [x] **F0.3 · Monte o ambiente no seu computador** (≈ 3 h) · concluída em 30/09/2026\
+- [x] **F0.3 · Monte o ambiente no seu computador** (≈ 3 h) · concluída em 14/11/2026\
   Instale VS Code, Python 3 e Git. No Windows, ative o WSL2 para ter um terminal Linux, o padrão no dia a dia de dados.\
   Links: [Instalar o WSL](https://learn.microsoft.com/pt-br/windows/wsl/install) (PT) · [VS Code](https://code.visualstudio.com/) (EN)
-- [x] **F0.4 · Crie as contas gratuitas de estudo** (≈ 1 h) · concluída em 30/09/2026\
+- [x] **F0.4 · Crie as contas gratuitas de estudo** (≈ 1 h) · concluída em 16/11/2026\
   Databricks Free Edition (sem cartão de crédito), conta Microsoft para o Microsoft Learn, Kaggle e DataTalks.Club. É nelas que você vai praticar e fazer os cursos. A aba Contas e integrações mostra quais deixam entrar com o GitHub e quais salvam o trabalho nele.\
   Links: [Databricks Free Edition](https://www.databricks.com/learn/free-edition) (EN) · [Microsoft Learn](https://learn.microsoft.com/pt-br/training/) (PT) · [Kaggle Learn](https://www.kaggle.com/learn) (EN)
-- [x] **F0.5 · Inscreva-se no Data Engineering Zoomcamp** (≈ 0,5 h) · concluída em 30/09/2026\
+- [x] **F0.5 · Inscreva-se no Data Engineering Zoomcamp** (≈ 0,5 h) · concluída em 17/11/2026\
   O curso é gratuito e a turma ao vivo costuma começar em janeiro. Só quem acompanha a turma recebe certificado. Entre também no Slack da DataTalks.Club.\
   Links: [Inscrição no Data Engineering Zoomcamp](https://courses.datatalks.club/register/de-zoomcamp/) (EN) · [Slack da DataTalks.Club](https://datatalks.club/slack.html) (EN)
 
 ### Fase 1 · Python e ferramentas de engenheiro
 
-**Período:** 12 de outubro a 20 de dezembro de 2026 · ≈ 93 h de estudo · **Situação:** Na fila (0/8)
+**Período:** 18 de novembro de 2026 a 26 de janeiro de 2027 · ≈ 93 h de estudo · **Situação:** Na fila (0/8)
 
 **Objetivo:** Fazer com código o que você já faz no trabalho: extrair, tratar, validar e carregar dados.
 
@@ -61,7 +61,7 @@ _Use as disciplinas de programação e banco de dados do ADS para reforçar esta
 
 ### Fase 2 · Engenharia de dados de ponta a ponta
 
-**Período:** janeiro a março de 2027 · ≈ 91 h de estudo · **Situação:** Na fila (0/8)
+**Período:** fevereiro a início de maio de 2027 · ≈ 91 h de estudo · **Situação:** Na fila (0/8)
 
 **Objetivo:** Fazer o Data Engineering Zoomcamp com a turma: nuvem, orquestração, data warehouse, dbt, Spark e streaming.
 
@@ -94,7 +94,7 @@ _Se perder a turma de janeiro, siga pelo repositório no seu ritmo. Você aprend
 
 ### Fase 3 · Databricks, Azure e certificação
 
-**Período:** abril a início de junho de 2027 · ≈ 77 h de estudo · **Situação:** Na fila (0/6)
+**Período:** maio a início de julho de 2027 · ≈ 77 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** Dominar a combinação que mais aparece nas vagas brasileiras (SQL, Python, Spark e Databricks na Azure) e tirar a DP-750.
 
@@ -122,7 +122,7 @@ Engenheiro de IA costuma ser o segundo passo: quem é contratado chega com 3,6 a
 
 ### Fase 4 · Fundamentos de IA aplicada
 
-**Período:** junho a setembro de 2027 · ≈ 107 h de estudo · **Situação:** Na fila (0/6)
+**Período:** julho a início de novembro de 2027 · ≈ 107 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** Construir aplicações com LLMs: RAG, busca vetorial e avaliação, com o LLM Zoomcamp.
 
@@ -148,7 +148,7 @@ _O LLM Zoomcamp costuma começar em junho e dura cerca de 10 semanas. Confira a 
 
 ### Fase 5 · Agentes, avaliação e produção
 
-**Período:** outubro a dezembro de 2027 · ≈ 97 h de estudo · **Situação:** Na fila (0/6)
+**Período:** novembro de 2027 a janeiro de 2028 · ≈ 97 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** O que separa uma demonstração de um produto: agentes com ferramentas, dados para IA, avaliação e custo.
 
@@ -175,7 +175,7 @@ Cinco níveis, um depois do outro, do A1 ao C1, só com material gratuito. Cada 
 
 ### Nível 1 · Básico (A1 a A2)
 
-**Período:** outubro a dezembro de 2026 · ≈ 33,5 h de estudo · **Situação:** Em andamento (0/7)
+**Período:** novembro de 2026 a janeiro de 2027 · ≈ 33,5 h de estudo · **Situação:** Na fila (0/7)
 
 **Objetivo:** Montar e entender frases simples, com a pronúncia certa desde o começo, e reconhecer as palavras que aparecem na tela do computador.
 
@@ -204,7 +204,7 @@ _Se o teste de nível der B1 ou mais, marque o que você já domina neste nível
 
 ### Nível 2 · Pré-intermediário (A2 a B1)
 
-**Período:** janeiro a março de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/6)
+**Período:** fevereiro a início de maio de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** Acompanhar aulas técnicas com legenda em inglês e ler documentação com a ajuda do dicionário. Coincide com o Zoomcamp, que é todo em inglês.
 
@@ -229,7 +229,7 @@ _Se o teste de nível der B1 ou mais, marque o que você já domina neste nível
 
 ### Nível 3 · Intermediário (B1 a B2)
 
-**Período:** abril a junho de 2027 · ≈ 33 h de estudo · **Situação:** Na fila (0/6)
+**Período:** maio a início de agosto de 2027 · ≈ 33 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** Entender podcasts de tecnologia e começar a falar: explicar seu trabalho e seus projetos, devagar mas sem travar.
 
@@ -253,7 +253,7 @@ _Se o teste de nível der B1 ou mais, marque o que você já domina neste nível
 
 ### Nível 4 · Intermediário superior (B2)
 
-**Período:** julho a setembro de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/5)
+**Período:** agosto a início de novembro de 2027 · ≈ 36 h de estudo · **Situação:** Na fila (0/5)
 
 **Objetivo:** Conversar sobre tecnologia sem travar, fazer cursos inteiros em inglês e escrever e-mails e documentação com segurança.
 
@@ -275,7 +275,7 @@ _Se o teste de nível der B1 ou mais, marque o que você já domina neste nível
 
 ### Nível 5 · Avançado (B2 a C1)
 
-**Período:** outubro a dezembro de 2027 · ≈ 40 h de estudo · **Situação:** Na fila (0/6)
+**Período:** novembro de 2027 a janeiro de 2028 · ≈ 40 h de estudo · **Situação:** Na fila (0/6)
 
 **Objetivo:** Fazer entrevistas de emprego em inglês, técnicas e comportamentais, e trabalhar com equipes de fora do Brasil.
 
@@ -301,8 +301,8 @@ _Se o teste de nível der B1 ou mais, marque o que você já domina neste nível
 
 | Certificação | Prova | Quando | Observação |
 |---|---|---|---|
-| [Azure Databricks Data Engineer Associate](https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/) | DP-750 | Fase 3, até junho de 2027 | Lançada em 2026. 120 minutos, em português. É a principal da trilha de dados. |
-| [Azure AI App and Agent Developer Associate](https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/) | AI-103 | Fase 5, dezembro de 2027 | Substituiu a AI-102 em 30/06/2026. 120 minutos, em português. |
+| [Azure Databricks Data Engineer Associate](https://learn.microsoft.com/pt-br/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/) | DP-750 | Fase 3, até julho de 2027 | Lançada em 2026. 120 minutos, em português. É a principal da trilha de dados. |
+| [Azure AI App and Agent Developer Associate](https://learn.microsoft.com/pt-br/credentials/certifications/exams/ai-103/) | AI-103 | Fase 5, janeiro de 2028 | Substituiu a AI-102 em 30/06/2026. 120 minutos, em português. |
 | [Fabric Data Engineer Associate](https://learn.microsoft.com/pt-br/credentials/certifications/fabric-data-engineer-associate/) | DP-700 | Alternativa à DP-750 | Vale a pena se as vagas que você mirar pedirem Microsoft Fabric. Em agosto de 2026, cerca de 230 vagas no Brasil citavam a plataforma. |
 | [Databricks Certified Data Engineer Associate](https://www.databricks.com/learn/certification/data-engineer-associate) | Databricks | Alternativa à DP-750 | Programa atualizado em maio de 2026. A Databricks costuma dar vouchers de 50% no Learning Festival; em 2026 foi em janeiro. |
 | [Azure Data Fundamentals](https://learn.microsoft.com/pt-br/credentials/certifications/azure-data-fundamentals/) | DP-900 | Opcional, antes da Fase 3 | Prova de fundamentos. Serve como primeira certificação, mas não é pré-requisito da DP-750. |
